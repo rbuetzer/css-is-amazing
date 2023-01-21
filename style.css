@@ -28,3 +28,77 @@
 .counter input:checked~input:checked~input:checked~input:checked~input:checked~input:checked~input:checked {
   margin-left: 0px;
 }
+
+.counter input:first-of-type:checked~.offset {
+  border-left: 32px solid green;
+}
+
+.counter input:nth-of-type(2):checked~.offset .offset,
+.counter input:checked~input:nth-of-type(2):not(:checked)~.offset .offset {
+  border-left: 16px solid pink;
+}
+
+.counter input:nth-of-type(2):not(:checked)~.offset .offset,
+.counter input:checked~input:nth-of-type(2):checked~.offset .offset {
+  border-left: 0;
+}
+
+.counter input:nth-of-type(3):checked~.offset .offset .offset,
+.counter input:checked~input:nth-of-type(3):not(:checked)~.offset .offset .offset,
+.counter input:checked~input:checked~input:nth-of-type(3):checked~.offset .offset .offset {
+  border-left: 8px solid blue;
+}
+
+.counter input:nth-of-type(3):not(:checked)~.offset .offset .offset,
+.counter input:checked~input:nth-of-type(3):checked~.offset .offset .offset,
+.counter input:checked~input:checked~input:nth-of-type(3):not(:checked)~.offset .offset .offset {
+  border-left: 0;
+}
+
+.counter input:nth-of-type(4):checked~.offset .offset .offset .offset,
+.counter input:checked~input:nth-of-type(4):not(:checked)~.offset .offset .offset .offset,
+.counter input:checked~input:checked~input:nth-of-type(4):checked~.offset .offset .offset .offset,
+.counter input:checked~input:checked~input:checked~input:nth-of-type(4):not(:checked)~.offset .offset .offset .offset {
+  border-left: 4px solid brown;
+}
+
+.counter input:nth-of-type(4):not(:checked)~.offset .offset .offset .offset,
+.counter input:checked~input:nth-of-type(4):checked~.offset .offset .offset .offset,
+.counter input:checked~input:checked~input:nth-of-type(4):not(:checked)~.offset .offset .offset .offset,
+.counter input:checked~input:checked~input:checked~input:nth-of-type(4):checked~.offset .offset .offset .offset {
+  border-left: 0;
+}
+
+.counter input:nth-of-type(5):checked~.offset .offset .offset .offset .offset,
+.counter input:checked~input:nth-of-type(5):not(:checked)~.offset .offset .offset .offset .offset,
+.counter input:checked~input:checked~input:nth-of-type(5):checked~.offset .offset .offset .offset .offset,
+.counter input:checked~input:checked~input:checked~input:nth-of-type(5):not(:checked)~.offset .offset .offset .offset .offset,
+.counter input:checked~input:checked~input:checked~input:checked~input:nth-of-type(5):checked~.offset .offset .offset .offset .offset {
+  border-left: 2px solid lightseagreen;
+}
+
+.counter input:nth-of-type(5):not(:checked)~.offset .offset .offset .offset .offset,
+.counter input:checked~input:nth-of-type(5):checked~.offset .offset .offset .offset .offset,
+.counter input:checked~input:checked~input:nth-of-type(5):not(:checked)~.offset .offset .offset .offset .offset,
+.counter input:checked~input:checked~input:checked~input:nth-of-type(5):checked~.offset .offset .offset .offset .offset,
+.counter input:checked~input:checked~input:checked~input:checked~input:nth-of-type(5):not(:checked)~.offset .offset .offset .offset .offset {
+  border-left: 0;
+}
+
+.counter input:nth-of-type(6):checked~.offset .offset .offset .offset .offset .offset,
+.counter input:checked~input:nth-of-type(6):not(:checked)~.offset .offset .offset .offset .offset .offset,
+.counter input:checked~input:checked~input:nth-of-type(6):checked~.offset .offset .offset .offset .offset .offset,
+.counter input:checked~input:checked~input:checked~input:nth-of-type(6):not(:checked)~.offset .offset .offset .offset .offset .offset,
+.counter input:checked~input:checked~input:checked~input:checked~input:nth-of-type(6):checked~.offset .offset .offset .offset .offset .offset,
+.counter input:checked~input:checked~input:checked~input:checked~input:checked~input:nth-of-type(6):not(:checked)~.offset .offset .offset .offset .offset .offset {
+  border-left: 1px solid darkorange;
+}
+
+.counter input:nth-of-type(6):not(:checked)~.offset .offset .offset .offset .offset .offset,
+.counter input:checked~input:nth-of-type(6):checked~.offset .offset .offset .offset .offset .offset,
+.counter input:checked~input:checked~input:nth-of-type(6):not(:checked)~.offset .offset .offset .offset .offset .offset,
+.counter input:checked~input:checked~input:checked~input:nth-of-type(6):checked~.offset .offset .offset .offset .offset .offset,
+.counter input:checked~input:checked~input:checked~input:checked~input:nth-of-type(6):not(:checked)~.offset .offset .offset .offset .offset .offset,
+.counter input:checked~input:checked~input:checked~input:checked~input:checked~input:nth-of-type(6):checked~.offset .offset .offset .offset .offset .offset {
+  border-left: 0;
+}
