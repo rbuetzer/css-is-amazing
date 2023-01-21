@@ -1,37 +1,30 @@
-h1,
-h2 {
-  font-family: Lato;
-}
-
 .counter {
   border: 1px dotted blue;
-  text-align: right;
   width: 100px;
+  padding: 5px;
 }
 
-.counter::before {
-  content: "";
-  counter-set: bookkeeping -1;
+.counter input {
+  display: block;
+  margin-left: 50px;
 }
 
-.bookkeeping::before {
-  content: counter(bookkeeping, symbols(cyclic "" "mmmmmmmmmmmm"));
-  max-width: 50px;
-  overflow: hidden;
-  display: inline-block;
-  opacity: 0
+.counter input,
+.counter input:checked~input:checked,
+.counter input:checked~input:checked~input,
+.counter input:checked~input:checked~input:checked~input:checked,
+.counter input:checked~input:checked~input:checked~input:checked~input,
+.counter input:checked~input:checked~input:checked~input:checked~input:checked~input:checked,
+.counter input:checked~input:checked~input:checked~input:checked~input:checked~input:checked~input {
+  margin-left: 50px;
 }
 
-.bookkeeping {
-  display: inline-block;
+.counter input:checked,
+.counter input:checked~input,
+.counter input:checked~input:checked~input:checked,
+.counter input:checked~input:checked~input:checked~input,
+.counter input:checked~input:checked~input:checked~input:checked~input:checked,
+.counter input:checked~input:checked~input:checked~input:checked~input:checked~input,
+.counter input:checked~input:checked~input:checked~input:checked~input:checked~input:checked~input:checked {
+  margin-left: 0px;
 }
-
-input:checked + .bookkeeping {
-  counter-increment: bookkeeping;
-}
-
-
-label {
-  border: 1px solid green;
-}
-
