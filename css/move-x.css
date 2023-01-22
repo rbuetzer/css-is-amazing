@@ -1,5 +1,5 @@
 #move-x.counter {
-    --translate-x-step: 10px;
+    --translate-x-step: -80vw;
     --translate-y-step: 0;
 }
 

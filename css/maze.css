@@ -1,0 +1,22 @@
+.maze {
+    --maze-cell-size: 80vw;
+    display: grid;
+    grid-template-columns: var(--maze-cell-size) var(--maze-cell-size) var(--maze-cell-size);
+    border: 1px dotted green;
+    position: absolute;
+    top: calc(50vh - 0.5 * var(--maze-cell-size));
+    left: calc(50vw - 0.5 * var(--maze-cell-size));
+}
+
+.maze>.maze-cell {
+    height: var(--maze-cell-size);
+    width: var(--maze-cell-size);
+
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: min(50vh, var(--maze-cell-size));
+    border: 1px solid orange;
+    box-sizing: border-box;
+}
