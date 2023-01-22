@@ -1,3 +1,26 @@
 #move-x.counter {
-    --x-offset: 10px;
+    --translate-x-step: 10px;
+    --translate-y-step: 0;
+}
+
+#move-x>.increment-button,
+#move-x>.decrement-button {
+    display: block;
+    position: absolute;
+    pointer-events: none;
+    font-size: calc(0.7 * var(--button-size));
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#move-x>.increment-button {
+    background-color: teal;
+    color: white;
+}
+
+#move-x>.decrement-button {
+    background-color: darkred;
+    color: white;
 }
