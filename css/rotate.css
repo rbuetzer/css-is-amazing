@@ -1,0 +1,94 @@
+#rotate {
+    --button-rotate-left-x: 0;
+    --button-rotate-left-y: var(--button-size);
+
+    --button-rotate-right-x: calc(var(--button-size) * 2);
+    --button-rotate-right-y: var(--button-size);
+
+    --button-size: 120px;
+}
+
+#rotate>input {
+    z-index: 10;
+
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    height: var(--button-size);
+    width: var(--button-size);
+}
+
+#rotate>.rotate-label,
+#rotate>label {
+    display: block;
+    position: fixed;
+    font-size: calc(0.7 * var(--button-size));
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--button-size);
+    width: var(--button-size);
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+    pointer-events: none;
+    z-index: 5;
+}
+
+#rotate>.rotate-left {
+    left: var(--button-rotate-left-x);
+    top: var(--button-rotate-left-y);
+}
+
+#rotate>.rotate-right,
+#rotate>label {
+    left: var(--button-rotate-right-x);
+    top: var(--button-rotate-right-y);
+}
+
+#rotate>label {
+    pointer-events: all;
+}
+
+#rotate>input {
+    cursor: pointer;
+    left: var(--button-rotate-left-x);
+    top: var(--button-rotate-left-y);
+    opacity: 0;
+}
+
+#rotate>input:nth-of-type(1) {
+    z-index: 10;
+}
+
+#rotate>input:nth-of-type(2) {
+    z-index: 20;
+}
+
+#rotate>input:nth-of-type(3) {
+    z-index: 30;
+}
+
+#rotate>input:nth-of-type(4) {
+    z-index: 40;
+}
+
+#rotate>input:checked {
+    display: none;
+}
+
+#rotate>input:checked+input {
+    z-index: 50;
+}
+
+#rotate>input:nth-of-type(1):checked~input:nth-of-type(4) {
+    left: var(--button-rotate-left-x);
+    top: var(--button-rotate-left-y);
+    z-index: 50;
+}
+
+#rotate>input:checked~input {
+    left: var(--button-rotate-right-x);
+    top: var(--button-rotate-right-y);
+}

@@ -1,12 +1,14 @@
 #move-y.counter {
+    --button-size: 120px;
+
     --translate-x-step: 0;
-    --translate-y-step: -80vw;
+    --translate-y-step: calc(-1 * var(--maze-cell-size));
 
-    --decrement-button-x: 25px;
-    --decrement-button-y: 100px;
+    --decrement-button-x: calc(50% - 50vw + var(--button-size));
+    --decrement-button-y: calc(50% - 50vh);
 
-    --increment-button-x: 25px;
-    --increment-button-y: 175px;
+    --increment-button-x: calc(50vw + 50% - 2 * var(--button-size));
+    --increment-button-y: calc(50vh + 50% - var(--button-size));
 }
 
 #move-y>.increment-button,
@@ -19,14 +21,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-#move-y>.increment-button {
     background-color: teal;
-    color: white;
-}
-
-#move-y>.decrement-button {
-    background-color: darkred;
     color: white;
 }

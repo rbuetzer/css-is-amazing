@@ -1,5 +1,10 @@
 .rotate-90>.rotate-target {
     transition: all 1s ease-out;
+    height: var(--maze-cell-size);
+    width: var(--maze-cell-size);
+    position: fixed;
+    top: calc(50% - calc(var(--maze-cell-size) / 2));
+    left: calc(50% - calc(var(--maze-cell-size) / 2));
 }
 
 .rotate-90>input:nth-of-type(1):checked~.rotate-target {
@@ -18,12 +23,12 @@
     transform: rotate(270deg);
 }
 
-.rotate-90>input:nth-of-type(1):hover~input:nth-of-type(4):checked~.rotate-target {
+.rotate-90>input:nth-of-type(1):active~input:nth-of-type(4):checked~.rotate-target {
     transition: all 0s linear;
     transform: rotate(-90deg);
 }
 
-.rotate-90>input:nth-of-type(1):checked~input:nth-of-type(4):hover~.rotate-target {
+.rotate-90>input:nth-of-type(1):checked~input:nth-of-type(4):active~.rotate-target {
     transition: all 0s linear;
     transform: rotate(360deg);
 }
