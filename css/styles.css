@@ -1,5 +1,5 @@
 :root {
-    --maze-cell-size: 60vh;
+    --maze-cell-size: min(60vh, 60vw);
 
     --button-size: 120px;
 }

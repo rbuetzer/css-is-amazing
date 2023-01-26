@@ -74,6 +74,7 @@
     padding: 0;
     display: block;
     position: absolute;
+    transition: all 1s ease-out;
   }
 
   .counter>input:nth-last-of-type(6):checked~.offset>.offset>.offset>.offset>.offset>.offset {
