@@ -4,8 +4,6 @@
 
     --button-rotate-left-x: calc(var(--button-size) * 2);
     --button-rotate-left-y: var(--button-size);
-
-    --button-size: 120px;
 }
 
 #rotate>input {
