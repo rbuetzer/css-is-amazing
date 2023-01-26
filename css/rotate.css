@@ -1,9 +1,9 @@
 #rotate {
-    --button-rotate-left-x: 0;
-    --button-rotate-left-y: var(--button-size);
-
-    --button-rotate-right-x: calc(var(--button-size) * 2);
+    --button-rotate-right-x: 0;
     --button-rotate-right-y: var(--button-size);
+
+    --button-rotate-left-x: calc(var(--button-size) * 2);
+    --button-rotate-left-y: var(--button-size);
 
     --button-size: 120px;
 }
