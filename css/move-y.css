@@ -1,0 +1,32 @@
+#move-y.counter {
+    --translate-x-step: 0;
+    --translate-y-step: -80vw;
+
+    --decrement-button-x: 25px;
+    --decrement-button-y: 100px;
+
+    --increment-button-x: 25px;
+    --increment-button-y: 175px;
+}
+
+#move-y>.increment-button,
+#move-y>.decrement-button {
+    display: block;
+    position: fixed;
+    pointer-events: none;
+    font-size: calc(0.7 * var(--button-size));
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#move-y>.increment-button {
+    background-color: teal;
+    color: white;
+}
+
+#move-y>.decrement-button {
+    background-color: darkred;
+    color: white;
+}

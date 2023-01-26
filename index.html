@@ -6,6 +6,7 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <link rel="stylesheet" href="./css/counter.css" />
   <link rel="stylesheet" href="./css/move-x.css" />
+  <link rel="stylesheet" href="./css/move-y.css" />
   <link rel="stylesheet" href="./css/rotate-90.css" />
   <link rel="stylesheet" href="./css/maze.css" />
   <link rel="stylesheet" href="./css/styles.css" />
@@ -22,29 +23,58 @@
     <input type="checkbox" />
     <input type="checkbox" />
 
+    <!-- x-offset -->
     <div class="offset">
       <div class="offset">
         <div class="offset">
           <div class="offset">
             <div class="offset">
               <div class="offset">
-                <!-- Maze -->
-                <div class="maze">
-                  <div class="maze-cell">1</div>
-                  <div class="maze-cell">2</div>
-                  <div class="maze-cell">3</div>
-                  <div class="maze-cell">4</div>
-                  <div class="maze-cell">5</div>
-                  <div class="maze-cell">6</div>
+                <!-- move-y -->
+                <div class="counter" id="move-y">
+                  <input type="checkbox" />
+                  <input type="checkbox" />
+                  <input type="checkbox" />
+                  <input type="checkbox" />
+                  <input type="checkbox" />
+                  <input type="checkbox" />
+
+                  <!-- y-offset -->
+                  <div class="offset">
+                    <div class="offset">
+                      <div class="offset">
+                        <div class="offset">
+                          <div class="offset">
+                            <div class="offset">
+
+                              <!-- Maze -->
+                              <div class="maze">
+                                <div class="maze-cell">1</div>
+                                <div class="maze-cell">2</div>
+                                <div class="maze-cell">3</div>
+                                <div class="maze-cell">4</div>
+                                <div class="maze-cell">5</div>
+                                <div class="maze-cell">6</div>
+                              </div>
+                              <!-- End of Maze -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="decrement-button">&uarr;</div>
+                  <div class="increment-button">&darr;</div>
+                  <!-- end of y-offset -->
                 </div>
-                <!-- End of Maze -->
+                <!-- end of move-y -->
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
+    <!-- end of x-offset -->
 
     <div class="decrement-button">&larr;</div>
     <div class="increment-button">&rarr;</div>

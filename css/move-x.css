@@ -1,12 +1,14 @@
 #move-x.counter {
     --translate-x-step: -80vw;
     --translate-y-step: 0;
+
+    --button-size: 50px;
 }
 
 #move-x>.increment-button,
 #move-x>.decrement-button {
     display: block;
-    position: absolute;
+    position: fixed;
     pointer-events: none;
     font-size: calc(0.7 * var(--button-size));
     text-align: center;
