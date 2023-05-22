@@ -5,9 +5,8 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <link rel="stylesheet" href="./css/3d.css" />
-  <link rel="stylesheet" href="./css/counter.css" />
-  <link rel="stylesheet" href="./css/move-x.css" />
-  <link rel="stylesheet" href="./css/move-y.css" />
+  <link rel="stylesheet" href="./css/counter-x.css" />
+  <link rel="stylesheet" href="./css/counter-y.css" />
   <link rel="stylesheet" href="./css/rotate.css" />
   <link rel="stylesheet" href="./css/rotate-90.css" />
   <link rel="stylesheet" href="./css/maze.css" />
@@ -17,108 +16,105 @@
 </head>
 
 <body>
-  <!-- 3d -->
-  <div id="outer-3d">
-    <div id="inner-3d">
-      <!-- rotate -->
-      <div id="rotate" class="rotate-90">
-        <input type="radio" name="rotate-90" checked="1" id="rotate-0" />
-        <input type="radio" name="rotate-90" />
-        <input type="radio" name="rotate-90" />
-        <input type="radio" name="rotate-90" />
+  <!-- rotate -->
+  <div id="rotate" class="rotate-90">
+    <input type="radio" name="rotate-90" checked="1" id="rotate-0" />
+    <input type="radio" name="rotate-90" />
+    <input type="radio" name="rotate-90" />
+    <input type="radio" name="rotate-90" />
 
-        <label for="rotate-0">.</label>
-        <div class="rotate-label rotate-left">↷</div>
-        <div class="rotate-label rotate-right">↶</div>
-        <div class="forward">&uarr;</div>
+    <label for="rotate-0">.</label>
+    <div class="rotate-label rotate-left">↷</div>
+    <div class="rotate-label rotate-right">↶</div>
+    <div class="forward">&uarr;</div>
+    <div class="backward"></div>
 
-        <div class="rotate-target">
-          <!-- move-x -->
-          <div class="counter" id="move-x">
-            <input type="checkbox" />
-            <input type="checkbox" />
-            <input type="checkbox" />
-            <input type="checkbox" />
-            <input type="checkbox" />
-            <input type="checkbox" />
+    <div class="rotate-target counter-x-parent">
+      <input type="checkbox" class="counter-x" />
+      <input type="checkbox" class="counter-x" />
+      <input type="checkbox" class="counter-x" />
+      <input type="checkbox" class="counter-x" />
+      <input type="checkbox" class="counter-x" />
+      <input type="checkbox" class="counter-x" />
+      <!-- move-x -->
+      <div class="counter-y-parent">
+        <input type="checkbox" class="counter-y" />
+        <input type="checkbox" class="counter-y" />
+        <input type="checkbox" class="counter-y" />
+        <input type="checkbox" class="counter-y" />
+        <input type="checkbox" class="counter-y" />
+        <input type="checkbox" class="counter-y" />
 
-            <!-- x-offset -->
-            <div class="offset">
-              <div class="offset">
-                <div class="offset">
-                  <div class="offset">
-                    <div class="offset">
-                      <div class="offset">
-                        <!-- move-y -->
-                        <div class="counter" id="move-y">
-                          <input type="checkbox" />
-                          <input type="checkbox" />
-                          <input type="checkbox" />
-                          <input type="checkbox" />
-                          <input type="checkbox" />
-                          <input type="checkbox" />
+        <div class="offset-x-parent">
+          <!-- x-offset -->
+          <div class="offset-x">
+            <div class="offset-x">
+              <div class="offset-x">
+                <div class="offset-x">
+                  <div class="offset-x">
+                    <div class="offset-x">
+                      <!-- move-y -->
+                      <div class="offset-y-parent">
 
-                          <!-- y-offset -->
-                          <div class="offset">
-                            <div class="offset">
-                              <div class="offset">
-                                <div class="offset">
-                                  <div class="offset">
-                                    <div class="offset">
+                        <!-- y-offset -->
+                        <div class="offset-y">
+                          <div class="offset-y">
+                            <div class="offset-y">
+                              <div class="offset-y">
+                                <div class="offset-y">
+                                  <div class="offset-y">
 
-                                      <!-- Maze -->
-                                      <div class="maze">
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                        <div class="maze-cell"></div>
-                                      </div>
-                                      <!-- End of Maze -->
+                                    <!-- Maze -->
+                                    <div class="maze">
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
+                                      <div class="maze-cell"></div>
                                     </div>
+                                    <!-- End of Maze -->
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                          <!-- end of y-offset -->
                         </div>
-                        <!-- end of move-y -->
+                        <!-- end of y-offset -->
                       </div>
+                      <!-- end of move-y -->
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- end of x-offset -->
           </div>
-          <!-- end of move-x -->
+          <!-- end of x-offset -->
         </div>
       </div>
-      <!-- end of rotate -->
+      <!-- end of move-x -->
     </div>
   </div>
-  <!-- end of 3d -->
+  <!-- end of rotate -->
 </body>
 
 </html>

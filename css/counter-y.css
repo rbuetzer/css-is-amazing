@@ -1,0 +1,164 @@
+  /* Default values */
+  .counter-y-parent {
+    --counter-y-translate-x-step: 0;
+    --counter-y-translate-y-step: calc(-1 * var(--maze-cell-size));
+
+    --counter-y-button-size: var(--maze-cell-size);
+
+    --increment-y-button-x: 0;
+    --increment-y-button-y: calc(var(--counter-y-button-size));
+
+    --decrement-y-button-x: 0;
+    --decrement-y-button-y: calc(-1*var(--counter-y-button-size));
+  }
+
+  .counter-y-parent>.counter-y {
+    display: block;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    height: var(--counter-y-button-size);
+    width: var(--counter-y-button-size);
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .counter-y-parent>.counter-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y {
+    left: var(--increment-y-button-x);
+    top: var(--increment-y-button-y);
+  }
+
+  .counter-y-parent>.counter-y:checked,
+  .counter-y-parent>.counter-y:checked~.counter-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked {
+    left: var(--decrement-y-button-x);
+    top: var(--decrement-y-button-y);
+  }
+
+  .increment-button,
+  .decrement-button {
+    height: var(--counter-y-button-size);
+    width: var(--counter-y-button-size);
+    box-sizing: border-box;
+    z-index: 20;
+  }
+
+  .increment-button {
+    left: var(--increment-y-button-x);
+    top: var(--increment-y-button-y);
+  }
+
+  .decrement-button {
+    left: var(--decrement-y-button-x);
+    top: var(--decrement-y-button-y);
+  }
+
+  .offset-y-parent>.offset-y,
+  .offset-y-parent>.offset-y>.offset-y,
+  .offset-y-parent>.offset-y>.offset-y>.offset-y,
+  .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y,
+  .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y>.offset-y,
+  .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y>.offset-y>.offset-y {
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: absolute;
+    transition: all 1s ease-out;
+  }
+
+  .counter-y-parent>.counter-y:nth-last-of-type(6):checked~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y>.offset-y>.offset-y {
+    left: calc(32 * var(--counter-y-translate-x-step));
+    top: calc(32 * var(--counter-y-translate-y-step));
+  }
+
+  .counter-y-parent>.counter-y:nth-last-of-type(5):checked~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(5):not(:checked)~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y>.offset-y {
+    left: calc(16 * var(--counter-y-translate-x-step));
+    top: calc(16 * var(--counter-y-translate-y-step));
+  }
+
+  .counter-y-parent>.counter-y:nth-last-of-type(5):not(:checked)~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(5):checked~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y>.offset-y {
+    left: 0;
+    top: 0;
+  }
+
+  .counter-y-parent>.counter-y:nth-last-of-type(4):checked~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(4):not(:checked)~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(4):checked~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y {
+    left: calc(8 * var(--counter-y-translate-x-step));
+    top: calc(8 * var(--counter-y-translate-y-step));
+  }
+
+  .counter-y-parent>.counter-y:nth-last-of-type(4):not(:checked)~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(4):checked~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(4):not(:checked)~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y {
+    left: 0;
+    top: 0;
+  }
+
+  .counter-y-parent>.counter-y:nth-last-of-type(3):checked~* .offset-y-parent>.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(3):not(:checked)~* .offset-y-parent>.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(3):checked~* .offset-y-parent>.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(3):not(:checked)~* .offset-y-parent>.offset-y>.offset-y>.offset-y {
+    left: calc(4 * var(--counter-y-translate-x-step));
+    top: calc(4 * var(--counter-y-translate-y-step));
+  }
+
+  .counter-y-parent>.counter-y:nth-last-of-type(3):not(:checked)~* .offset-y-parent>.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(3):checked~* .offset-y-parent>.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(3):not(:checked)~* .offset-y-parent>.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(3):checked~* .offset-y-parent>.offset-y>.offset-y>.offset-y {
+    left: 0;
+    top: 0;
+  }
+
+  .counter-y-parent>.counter-y:nth-last-of-type(2):checked~* .offset-y-parent>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(2):not(:checked)~* .offset-y-parent>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(2):checked~* .offset-y-parent>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(2):not(:checked)~* .offset-y-parent>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(2):checked~* .offset-y-parent>.offset-y>.offset-y {
+    left: calc(2 * var(--counter-y-translate-x-step));
+    top: calc(2 * var(--counter-y-translate-y-step));
+  }
+
+  .counter-y-parent>.counter-y:nth-last-of-type(2):not(:checked)~* .offset-y-parent>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(2):checked~* .offset-y-parent>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(2):not(:checked)~* .offset-y-parent>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(2):checked~* .offset-y-parent>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(2):not(:checked)~* .offset-y-parent>.offset-y>.offset-y {
+    left: 0;
+    top: 0;
+  }
+
+  .counter-y-parent>.counter-y:nth-last-of-type(1):checked~* .offset-y-parent>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(1):not(:checked)~* .offset-y-parent>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):checked~* .offset-y-parent>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):not(:checked)~* .offset-y-parent>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):checked~* .offset-y-parent>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):not(:checked)~* .offset-y-parent>.offset-y {
+    left: var(--counter-y-translate-x-step);
+    top: var(--counter-y-translate-y-step);
+    border: 1px solid red;
+  }
+
+  .counter-y-parent>.counter-y:nth-last-of-type(1):not(:checked)~* .offset-y-parent>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(1):checked~* .offset-y-parent>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):not(:checked)~* .offset-y-parent>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):checked~* .offset-y-parent>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):not(:checked)~* .offset-y-parent>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):checked~* .offset-y-parent>.offset-y {
+    left: 0;
+    top: 0;
+  }

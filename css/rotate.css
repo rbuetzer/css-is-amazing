@@ -1,9 +1,10 @@
 #rotate {
-    --button-rotate-right-x: 0;
-    --button-rotate-right-y: var(--button-size);
+    height: 100%;
+    --button-rotate-right-x: calc(50% - calc(var(--button-size) * 1.5));
+    --button-rotate-right-y: calc(50% - calc(var(--button-size) / 2));
 
-    --button-rotate-left-x: calc(var(--button-size) * 2);
-    --button-rotate-left-y: var(--button-size);
+    --button-rotate-left-x: calc(var(--button-rotate-right-x) + calc(var(--button-size) * 2));
+    --button-rotate-left-y: var(--button-rotate-right-y);
 }
 
 #rotate>input {
@@ -25,8 +26,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: var(--button-size);
-    width: var(--button-size);
+    height: var(--inner-button-size);
+    width: var(--inner-button-size);
+    margin: var(--button-margin);
     background-color: teal;
     color: white;
     cursor: pointer;

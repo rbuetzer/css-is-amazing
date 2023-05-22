@@ -1,7 +1,9 @@
 :root {
-    --maze-cell-size: min(60vh, 60vw);
+    --maze-cell-size: min(10vh, 10vw);
 
-    --button-size: 120px;
+    --button-size: var(--maze-cell-size);
+    --button-margin: 5px;
+    --inner-button-size: calc(var(--button-size) - 2 * var(--button-margin))
 }
 
 .forward {
@@ -15,9 +17,26 @@
     align-items: center;
     background-color: teal;
     color: white;
+    height: var(--inner-button-size);
+    width: var(--inner-button-size);
+    margin: var(--button-margin);
+    left: calc(50% - var(--button-size) / 2);
+    top: calc(50% - var(--button-size) * 1.5);
+    z-index: 100;
+}
+
+/**
+ * Don't allow to go backward. Cover the corresponding checkbox
+ */
+.backward {
+    display: block;
+    position: fixed;
+    cursor: initial;
+    background-color: transparent;
+    color: transparent;
     height: var(--button-size);
     width: var(--button-size);
-    left: var(--button-size);
-    top: 0;
+    left: calc(50% - var(--button-size) / 2);
+    top: calc(50% + var(--button-size) /2);
     z-index: 100;
 }
