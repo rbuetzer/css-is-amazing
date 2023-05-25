@@ -2,19 +2,6 @@
     counter-set: wall-counter 0;
 }
 
-
-@counter-style wall {
-    system: cyclic;
-    symbols: '█' '' '' '█' '' '' '' '' '' '' '█' '' '' '' '█' '█' '█' '█' '' '█' '' '█' '' '' '' '█' '█' '' '' '' '' '' '' '' '█' '█' '█' '' '█' '' '█' '█' '' '█' '' '█' '' '█' '' '█' '█' '█' '' '' '█' '█' '' '█' '' '' '' '' '' '█' '█' '█' '' '' '' '█' '█' '' '' '█' '' '█' '█' '' '█' '█' '█' '' '' '' '█' '█' '█' '█' '█' '' '█' '█' '' '█' '█' '█' '█' '█' '█' '█';
-}
-
-@counter-style antiwall {
-    system: cyclic;
-    symbols: '' '█' '█' '' '█' '█' '█' '█' '█' '█' '' '█' '█' '█' '' '' '' '' '█' '' '█' '' '█' '█' '█' '' '' '█' '█' '█' '█' '█' '█' '█' '' '' '' '█' '' '█' '' '' '█' '' '█' '' '█' '' '█' '' '' '' '█' '█' '' '' '█' '' '█' '█' '█' '█' '█' '' '' '' '█' '█' '█' '' '' '█' '█' '' '█' '' '' '█' '' '' '' '█' '█' '█' '' '' '' '' '' '█' '' '' '█' '' '' '' '' '' '' '';
-}
-
-
-
 .maze {
     display: grid;
     grid-template-columns: repeat(5, var(--maze-cell-size));
@@ -47,13 +34,13 @@
 
 
 .maze>.maze-cell:nth-child(-n + 20)::before {
-    content: counter(wall-counter, wall);
+    content: counter(wall-counter, random-2-a);
     width: 5px;
     height: 100%;
 }
 
 .maze>.maze-cell:nth-child(-n + 20)::after {
-    content: counter(wall-counter, antiwall);
+    content: counter(wall-counter, random-2-b);
     height: 5px;
     width: 100%;
 }
