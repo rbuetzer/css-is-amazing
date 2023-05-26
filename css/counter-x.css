@@ -29,7 +29,7 @@
   .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x,
   .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked,
   .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x {
-    display: var(--display-block-if-west);
+    display: var(--display-block-if-east);
   }
 
   .counter-x-parent>.counter-x:checked,
@@ -39,7 +39,7 @@
   .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked,
   .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x,
   .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked {
-    display: var(--display-block-if-east)
+    display: var(--display-block-if-west)
   }
 
   .counter-x-parent>.counter-x:nth-last-of-type(6):checked~.offset-x>.offset-x>.offset-x>.offset-x>.offset-x>.offset-x {

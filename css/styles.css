@@ -4,9 +4,17 @@
     --button-size: var(--maze-cell-size);
     --button-margin: 5px;
     --inner-button-size: calc(var(--button-size) - 2 * var(--button-margin));
+    --maze-size: 4;
 }
 
 .forward {
+    --max-offset: calc(var(--maze-size) - 1);
+    --is-north-border: calc((-1 * min(var(--offset-y), 1) + 1) * var(--is-north));
+    --is-west-border: calc((-1 * min(var(--offset-x), 1) + 1) * var(--is-west));
+    --is-east-border: calc(max(0, min(1, calc(var(--offset-x) - 3))) * var(--is-east));
+    --is-south-border: calc(max(0, min(1, calc(var(--offset-y) - 3))) * var(--is-south));
+    --is-any-border: max(var(--is-north-border), var(--is-west-border), var(--is-east-border), var(--is-south-border));
+    --is-not-border: calc(-1 * var(--is-any-border) + 1);
     display: block;
     position: fixed;
     pointer-events: none;
@@ -15,7 +23,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: teal;
+    background-color: oklch(54.31% calc(var(--is-not-border) * 0.09271003964609457) 194.76894793196388);
     color: white;
     height: var(--inner-button-size);
     width: var(--inner-button-size);

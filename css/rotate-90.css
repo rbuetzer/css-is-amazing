@@ -13,37 +13,48 @@
     --display-block-if-east: none;
     --display-block-if-south: none;
     --display-block-if-west: none;
+
+    --is-north: 0;
+    --is-east: 0;
+    --is-south: 0;
+    --is-west: 0;
 }
 
 
 .rotate-90>input:nth-of-type(1):checked~.rotate-90-vars {
     --rotate-90-angle: 0;
     --display-block-if-north: block;
+    --is-north: 1;
 }
 
 .rotate-90>input:nth-of-type(2):checked~.rotate-90-vars {
     --rotate-90-angle: 90deg;
-    --display-block-if-east: block;
+    --display-block-if-west: block;
+    --is-west: 1;
 }
 
 .rotate-90>input:nth-of-type(3):checked~.rotate-90-vars {
     --rotate-90-angle: 180deg;
     --display-block-if-south: block;
+    --is-south: 1;
 }
 
 .rotate-90>input:nth-of-type(4):checked~.rotate-90-vars {
     --rotate-90-angle: 270deg;
-    --display-block-if-west: block;
+    --display-block-if-east: block;
+    --is-east: 1;
 }
 
 .rotate-90>input:nth-of-type(1):active~input:nth-of-type(4):checked~.rotate-90-vars {
     --rotate-90-angle: -90deg;
     --display-block-if-north: block;
+    --is-north: 1;
 }
 
 .rotate-90>input:nth-of-type(1):checked~input:nth-of-type(4):active~.rotate-90-vars {
     --rotate-90-angle: 360deg;
     --display-block-if-north: block;
+    --is-north: 1;
 }
 
 .rotate-target {
