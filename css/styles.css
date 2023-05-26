@@ -3,7 +3,7 @@
 
     --button-size: var(--maze-cell-size);
     --button-margin: 5px;
-    --inner-button-size: calc(var(--button-size) - 2 * var(--button-margin))
+    --inner-button-size: calc(var(--button-size) - 2 * var(--button-margin));
 }
 
 .forward {

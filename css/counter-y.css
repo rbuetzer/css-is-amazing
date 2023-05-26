@@ -10,6 +10,13 @@
 
     --decrement-y-button-x: 0;
     --decrement-y-button-y: calc(-1*var(--counter-y-button-size));
+
+    --offset-y-1: 0;
+    --offset-y-2: 0;
+    --offset-y-4: 0;
+    --offset-y-8: 0;
+    --offset-y-16: 0;
+    --offset-y-32: 0;
   }
 
   .counter-y-parent>.counter-y {
@@ -64,101 +71,80 @@
     top: var(--decrement-y-button-y);
   }
 
-  .offset-y-parent>.offset-y,
-  .offset-y-parent>.offset-y>.offset-y,
-  .offset-y-parent>.offset-y>.offset-y>.offset-y,
-  .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y,
-  .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y>.offset-y,
-  .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y>.offset-y>.offset-y {
-    margin: 0;
-    padding: 0;
-    display: block;
-    position: absolute;
-    transition: all 1s ease-out;
+  .counter-y-parent>.counter-y:nth-last-of-type(6):checked~.offset-y>.offset-y>.offset-y>.offset-y>.offset-y>.offset-y {
+    --offset-y-32: 32;
   }
 
-  .counter-y-parent>.counter-y:nth-last-of-type(6):checked~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y>.offset-y>.offset-y {
-    left: calc(32 * var(--counter-y-translate-x-step));
-    top: calc(32 * var(--counter-y-translate-y-step));
+  .counter-y-parent>.counter-y:nth-last-of-type(5):checked~.offset-y>.offset-y>.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(5):not(:checked)~.offset-y>.offset-y>.offset-y>.offset-y>.offset-y {
+    --offset-y-16: 16;
   }
 
-  .counter-y-parent>.counter-y:nth-last-of-type(5):checked~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(5):not(:checked)~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y>.offset-y {
-    left: calc(16 * var(--counter-y-translate-x-step));
-    top: calc(16 * var(--counter-y-translate-y-step));
+  .counter-y-parent>.counter-y:nth-last-of-type(5):not(:checked)~.offset-y>.offset-y>.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(5):checked~.offset-y>.offset-y>.offset-y>.offset-y>.offset-y {
+    --offset-y-16: 0;
   }
 
-  .counter-y-parent>.counter-y:nth-last-of-type(5):not(:checked)~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(5):checked~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y>.offset-y {
-    left: 0;
-    top: 0;
+  .counter-y-parent>.counter-y:nth-last-of-type(4):checked~.offset-y>.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(4):not(:checked)~.offset-y>.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(4):checked~.offset-y>.offset-y>.offset-y>.offset-y {
+    --offset-y-8: 8;
   }
 
-  .counter-y-parent>.counter-y:nth-last-of-type(4):checked~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(4):not(:checked)~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(4):checked~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y {
-    left: calc(8 * var(--counter-y-translate-x-step));
-    top: calc(8 * var(--counter-y-translate-y-step));
+  .counter-y-parent>.counter-y:nth-last-of-type(4):not(:checked)~.offset-y>.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(4):checked~.offset-y>.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(4):not(:checked)~.offset-y>.offset-y>.offset-y>.offset-y {
+    --offset-y-8: 0;
   }
 
-  .counter-y-parent>.counter-y:nth-last-of-type(4):not(:checked)~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(4):checked~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(4):not(:checked)~* .offset-y-parent>.offset-y>.offset-y>.offset-y>.offset-y {
-    left: 0;
-    top: 0;
+  .counter-y-parent>.counter-y:nth-last-of-type(3):checked~.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(3):not(:checked)~.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(3):checked~.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(3):not(:checked)~.offset-y>.offset-y>.offset-y {
+    --offset-y-4: 4;
   }
 
-  .counter-y-parent>.counter-y:nth-last-of-type(3):checked~* .offset-y-parent>.offset-y>.offset-y>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(3):not(:checked)~* .offset-y-parent>.offset-y>.offset-y>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(3):checked~* .offset-y-parent>.offset-y>.offset-y>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(3):not(:checked)~* .offset-y-parent>.offset-y>.offset-y>.offset-y {
-    left: calc(4 * var(--counter-y-translate-x-step));
-    top: calc(4 * var(--counter-y-translate-y-step));
+  .counter-y-parent>.counter-y:nth-last-of-type(3):not(:checked)~.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(3):checked~.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(3):not(:checked)~.offset-y>.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(3):checked~.offset-y>.offset-y>.offset-y {
+    --offset-y-4: 0;
   }
 
-  .counter-y-parent>.counter-y:nth-last-of-type(3):not(:checked)~* .offset-y-parent>.offset-y>.offset-y>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(3):checked~* .offset-y-parent>.offset-y>.offset-y>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(3):not(:checked)~* .offset-y-parent>.offset-y>.offset-y>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(3):checked~* .offset-y-parent>.offset-y>.offset-y>.offset-y {
-    left: 0;
-    top: 0;
+  .counter-y-parent>.counter-y:nth-last-of-type(2):checked~.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(2):not(:checked)~.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(2):checked~.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(2):not(:checked)~.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(2):checked~.offset-y>.offset-y {
+    --offset-y-2: 2;
   }
 
-  .counter-y-parent>.counter-y:nth-last-of-type(2):checked~* .offset-y-parent>.offset-y>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(2):not(:checked)~* .offset-y-parent>.offset-y>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(2):checked~* .offset-y-parent>.offset-y>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(2):not(:checked)~* .offset-y-parent>.offset-y>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(2):checked~* .offset-y-parent>.offset-y>.offset-y {
-    left: calc(2 * var(--counter-y-translate-x-step));
-    top: calc(2 * var(--counter-y-translate-y-step));
+  .counter-y-parent>.counter-y:nth-last-of-type(2):not(:checked)~.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(2):checked~.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(2):not(:checked)~.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(2):checked~.offset-y>.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(2):not(:checked)~.offset-y>.offset-y {
+    --offset-y-2: 0;
   }
 
-  .counter-y-parent>.counter-y:nth-last-of-type(2):not(:checked)~* .offset-y-parent>.offset-y>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(2):checked~* .offset-y-parent>.offset-y>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(2):not(:checked)~* .offset-y-parent>.offset-y>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(2):checked~* .offset-y-parent>.offset-y>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(2):not(:checked)~* .offset-y-parent>.offset-y>.offset-y {
-    left: 0;
-    top: 0;
+  .counter-y-parent>.counter-y:nth-last-of-type(1):checked~.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(1):not(:checked)~.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):checked~.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):not(:checked)~.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):checked~.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):not(:checked)~.offset-y {
+    --offset-y-1: 1;
   }
 
-  .counter-y-parent>.counter-y:nth-last-of-type(1):checked~* .offset-y-parent>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(1):not(:checked)~* .offset-y-parent>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):checked~* .offset-y-parent>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):not(:checked)~* .offset-y-parent>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):checked~* .offset-y-parent>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):not(:checked)~* .offset-y-parent>.offset-y {
-    left: var(--counter-y-translate-x-step);
-    top: var(--counter-y-translate-y-step);
-    border: 1px solid red;
+  .counter-y-parent>.counter-y:nth-last-of-type(1):not(:checked)~.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(1):checked~.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):not(:checked)~.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):checked~.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):not(:checked)~.offset-y,
+  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):checked~.offset-y {
+    --offset-y-1: 0;
   }
 
-  .counter-y-parent>.counter-y:nth-last-of-type(1):not(:checked)~* .offset-y-parent>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:nth-last-of-type(1):checked~* .offset-y-parent>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):not(:checked)~* .offset-y-parent>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):checked~* .offset-y-parent>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):not(:checked)~* .offset-y-parent>.offset-y,
-  .counter-y-parent>.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:checked~.counter-y:nth-last-of-type(1):checked~* .offset-y-parent>.offset-y {
-    left: 0;
-    top: 0;
+  .offset-y-sum {
+    --offset-y: calc(var(--offset-y-1) + var(--offset-y-2) + var(--offset-y-4) + var(--offset-y-8) + var(--offset-y-16) + var(--offset-y-32));
   }
