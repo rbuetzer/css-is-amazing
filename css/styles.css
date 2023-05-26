@@ -4,15 +4,15 @@
     --button-size: var(--maze-cell-size);
     --button-margin: 5px;
     --inner-button-size: calc(var(--button-size) - 2 * var(--button-margin));
-    --maze-size: 4;
+    --maze-size: 5;
 }
 
 .init-vars {
     --max-offset: calc(var(--maze-size) - 1);
     --is-north-border: calc((-1 * min(var(--offset-y), 1) + 1) * var(--is-north));
     --is-west-border: calc((-1 * min(var(--offset-x), 1) + 1) * var(--is-west));
-    --is-east-border: calc(max(0, min(1, calc(var(--offset-x) - 3))) * var(--is-east));
-    --is-south-border: calc(max(0, min(1, calc(var(--offset-y) - 3))) * var(--is-south));
+    --is-east-border: calc(max(0, min(1, calc(var(--offset-x) - var(--max-offset) + 1))) * var(--is-east));
+    --is-south-border: calc(max(0, min(1, calc(var(--offset-y) - var(--max-offset) + 1))) * var(--is-south));
     --is-any-border: calc(var(--is-north-border) + var(--is-west-border) + var(--is-east-border) + var(--is-south-border));
     --is-not-border: calc(-1 * var(--is-any-border) + 1);
 }
