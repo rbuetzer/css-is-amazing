@@ -1,16 +1,5 @@
   /* Default values */
   .counter-x-parent {
-    --counter-x-translate-x-step: calc(-1 * var(--maze-cell-size));
-    --counter-x-translate-y-step: 0;
-
-    --counter-x-button-size: var(--maze-cell-size);
-
-    --increment-x-button-x: calc(var(--counter-x-button-size));
-    --increment-x-button-y: 0;
-
-    --decrement-x-button-x: calc(-1*var(--counter-x-button-size));
-    --decrement-x-button-y: 0;
-
     --offset-x-1: 0;
     --offset-x-2: 0;
     --offset-x-4: 0;
@@ -25,10 +14,12 @@
     margin: 0;
     padding: 0;
     opacity: 0;
-    height: var(--counter-x-button-size);
-    width: var(--counter-x-button-size);
+    height: var(--maze-cell-size);
+    width: var(--maze-cell-size);
     cursor: pointer;
     z-index: 10;
+    left: calc(50% - var(--button-size) / 2);
+    top: calc(50% - var(--button-size) * 1.5);
   }
 
   .counter-x-parent>.counter-x,
@@ -38,8 +29,7 @@
   .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x,
   .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked,
   .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x {
-    left: var(--increment-x-button-x);
-    top: var(--increment-x-button-y);
+    display: var(--display-block-if-west);
   }
 
   .counter-x-parent>.counter-x:checked,
@@ -49,26 +39,7 @@
   .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked,
   .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x,
   .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked {
-    left: var(--decrement-x-button-x);
-    top: var(--decrement-x-button-y);
-  }
-
-  .increment-button,
-  .decrement-button {
-    height: var(--counter-x-button-size);
-    width: var(--counter-x-button-size);
-    box-sizing: border-box;
-    z-index: 20;
-  }
-
-  .increment-button {
-    left: var(--increment-x-button-x);
-    top: var(--increment-x-button-y);
-  }
-
-  .decrement-button {
-    left: var(--decrement-x-button-x);
-    top: var(--decrement-x-button-y);
+    display: var(--display-block-if-east)
   }
 
   .counter-x-parent>.counter-x:nth-last-of-type(6):checked~.offset-x>.offset-x>.offset-x>.offset-x>.offset-x>.offset-x {

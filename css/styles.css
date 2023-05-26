@@ -24,19 +24,3 @@
     top: calc(50% - var(--button-size) * 1.5);
     z-index: 100;
 }
-
-/**
- * Don't allow to go backward. Cover the corresponding checkbox
- */
-.backward {
-    display: block;
-    position: fixed;
-    cursor: initial;
-    background-color: transparent;
-    color: transparent;
-    height: var(--button-size);
-    width: var(--button-size);
-    left: calc(50% - var(--button-size) / 2);
-    top: calc(50% + var(--button-size) /2);
-    z-index: 100;
-}
