@@ -17,38 +17,19 @@
     width: var(--button-size);
 }
 
-#rotate>.rotate-label,
 #rotate>label {
     display: block;
     position: fixed;
-    font-size: calc(0.7 * var(--button-size));
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: var(--inner-button-size);
     width: var(--inner-button-size);
     margin: var(--button-margin);
-    background-color: teal;
-    color: white;
     cursor: pointer;
-    pointer-events: none;
     z-index: 5;
 }
 
-#rotate>.rotate-left {
-    left: var(--button-rotate-left-x);
-    top: var(--button-rotate-left-y);
-}
-
-#rotate>.rotate-right,
 #rotate>label {
     left: var(--button-rotate-right-x);
     top: var(--button-rotate-right-y);
-}
-
-#rotate>label {
-    pointer-events: all;
 }
 
 #rotate>input {

@@ -24,3 +24,30 @@
     top: calc(50% - var(--button-size) * 1.5);
     z-index: 100;
 }
+
+.rotate-label {
+    display: block;
+    position: fixed;
+    font-size: calc(0.7 * var(--button-size));
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--inner-button-size);
+    width: var(--inner-button-size);
+    margin: var(--button-margin);
+    background-color: teal;
+    color: white;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.rotate-left {
+    left: var(--button-rotate-left-x);
+    top: var(--button-rotate-left-y);
+}
+
+.rotate-right {
+    left: var(--button-rotate-right-x);
+    top: var(--button-rotate-right-y);
+}
