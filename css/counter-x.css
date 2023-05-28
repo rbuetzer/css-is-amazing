@@ -1,14 +1,14 @@
   /* Default values */
-  .counter-x-parent {
-    --offset-x-1: 0;
-    --offset-x-2: 0;
-    --offset-x-4: 0;
-    --offset-x-8: 0;
-    --offset-x-16: 0;
-    --offset-x-32: 0;
+  .counter-parent-x {
+    --counter-x-bit-1: 0;
+    --counter-x-bit-2: 0;
+    --counter-x-bit-4: 0;
+    --counter-x-bit-8: 0;
+    --counter-x-bit-16: 0;
+    --counter-x-bit-32: 0;
   }
 
-  .counter-x-parent>.counter-x {
+  .counter-parent-x>.counter {
     display: block;
     position: fixed;
     margin: 0;
@@ -22,100 +22,100 @@
     top: calc(50% - var(--button-size) * 1.5);
   }
 
-  .counter-x-parent>.counter-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x {
+  .counter-parent-x>.counter,
+  .counter-parent-x>.counter:checked~.counter:checked,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter {
     display: var(--display-block-if-east);
   }
 
-  .counter-x-parent>.counter-x:checked,
-  .counter-x-parent>.counter-x:checked~.counter-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked {
+  .counter-parent-x>.counter:checked,
+  .counter-parent-x>.counter:checked~.counter,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked {
     display: var(--display-block-if-west)
   }
 
-  .counter-x-parent>.counter-x:nth-last-of-type(6):checked~.offset-x>.offset-x>.offset-x>.offset-x>.offset-x>.offset-x {
-    --offset-x-32: 32;
+  .counter-parent-x>.counter:nth-last-of-type(6):checked~.counter-result {
+    --counter-x-bit-32: 32;
   }
 
-  .counter-x-parent>.counter-x:nth-last-of-type(5):checked~.offset-x>.offset-x>.offset-x>.offset-x>.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:nth-last-of-type(5):not(:checked)~.offset-x>.offset-x>.offset-x>.offset-x>.offset-x {
-    --offset-x-16: 16;
+  .counter-parent-x>.counter:nth-last-of-type(5):checked~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:nth-last-of-type(5):not(:checked)~.counter-result {
+    --counter-x-bit-16: 16;
   }
 
-  .counter-x-parent>.counter-x:nth-last-of-type(5):not(:checked)~.offset-x>.offset-x>.offset-x>.offset-x>.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:nth-last-of-type(5):checked~.offset-x>.offset-x>.offset-x>.offset-x>.offset-x {
-    --offset-x-16: 0;
+  .counter-parent-x>.counter:nth-last-of-type(5):not(:checked)~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:nth-last-of-type(5):checked~.counter-result {
+    --counter-x-bit-16: 0;
   }
 
-  .counter-x-parent>.counter-x:nth-last-of-type(4):checked~.offset-x>.offset-x>.offset-x>.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:nth-last-of-type(4):not(:checked)~.offset-x>.offset-x>.offset-x>.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:nth-last-of-type(4):checked~.offset-x>.offset-x>.offset-x>.offset-x {
-    --offset-x-8: 8;
+  .counter-parent-x>.counter:nth-last-of-type(4):checked~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:nth-last-of-type(4):not(:checked)~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:nth-last-of-type(4):checked~.counter-result {
+    --counter-x-bit-8: 8;
   }
 
-  .counter-x-parent>.counter-x:nth-last-of-type(4):not(:checked)~.offset-x>.offset-x>.offset-x>.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:nth-last-of-type(4):checked~.offset-x>.offset-x>.offset-x>.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:nth-last-of-type(4):not(:checked)~.offset-x>.offset-x>.offset-x>.offset-x {
-    --offset-x-8: 0;
+  .counter-parent-x>.counter:nth-last-of-type(4):not(:checked)~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:nth-last-of-type(4):checked~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:nth-last-of-type(4):not(:checked)~.counter-result {
+    --counter-x-bit-8: 0;
   }
 
-  .counter-x-parent>.counter-x:nth-last-of-type(3):checked~.offset-x>.offset-x>.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:nth-last-of-type(3):not(:checked)~.offset-x>.offset-x>.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:nth-last-of-type(3):checked~.offset-x>.offset-x>.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:nth-last-of-type(3):not(:checked)~.offset-x>.offset-x>.offset-x {
-    --offset-x-4: 4;
+  .counter-parent-x>.counter:nth-last-of-type(3):checked~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:nth-last-of-type(3):not(:checked)~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:nth-last-of-type(3):checked~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:nth-last-of-type(3):not(:checked)~.counter-result {
+    --counter-x-bit-4: 4;
   }
 
-  .counter-x-parent>.counter-x:nth-last-of-type(3):not(:checked)~.offset-x>.offset-x>.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:nth-last-of-type(3):checked~.offset-x>.offset-x>.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:nth-last-of-type(3):not(:checked)~.offset-x>.offset-x>.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:nth-last-of-type(3):checked~.offset-x>.offset-x>.offset-x {
-    --offset-x-4: 0;
+  .counter-parent-x>.counter:nth-last-of-type(3):not(:checked)~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:nth-last-of-type(3):checked~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:nth-last-of-type(3):not(:checked)~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:nth-last-of-type(3):checked~.counter-result {
+    --counter-x-bit-4: 0;
   }
 
-  .counter-x-parent>.counter-x:nth-last-of-type(2):checked~.offset-x>.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:nth-last-of-type(2):not(:checked)~.offset-x>.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:nth-last-of-type(2):checked~.offset-x>.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:nth-last-of-type(2):not(:checked)~.offset-x>.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:nth-last-of-type(2):checked~.offset-x>.offset-x {
-    --offset-x-2: 2;
+  .counter-parent-x>.counter:nth-last-of-type(2):checked~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:nth-last-of-type(2):not(:checked)~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:nth-last-of-type(2):checked~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:nth-last-of-type(2):not(:checked)~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:nth-last-of-type(2):checked~.counter-result {
+    --counter-x-bit-2: 2;
   }
 
-  .counter-x-parent>.counter-x:nth-last-of-type(2):not(:checked)~.offset-x>.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:nth-last-of-type(2):checked~.offset-x>.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:nth-last-of-type(2):not(:checked)~.offset-x>.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:nth-last-of-type(2):checked~.offset-x>.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:nth-last-of-type(2):not(:checked)~.offset-x>.offset-x {
-    --offset-x-2: 0;
+  .counter-parent-x>.counter:nth-last-of-type(2):not(:checked)~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:nth-last-of-type(2):checked~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:nth-last-of-type(2):not(:checked)~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:nth-last-of-type(2):checked~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:nth-last-of-type(2):not(:checked)~.counter-result {
+    --counter-x-bit-2: 0;
   }
 
-  .counter-x-parent>.counter-x:nth-last-of-type(1):checked~.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:nth-last-of-type(1):not(:checked)~.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:nth-last-of-type(1):checked~.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:nth-last-of-type(1):not(:checked)~.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:nth-last-of-type(1):checked~.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:nth-last-of-type(1):not(:checked)~.offset-x {
-    --offset-x-1: 1;
+  .counter-parent-x>.counter:nth-last-of-type(1):checked~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:nth-last-of-type(1):not(:checked)~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:nth-last-of-type(1):checked~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:nth-last-of-type(1):not(:checked)~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:nth-last-of-type(1):checked~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:nth-last-of-type(1):not(:checked)~.counter-result {
+    --counter-x-bit-1: 1;
   }
 
-  .counter-x-parent>.counter-x:nth-last-of-type(1):not(:checked)~.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:nth-last-of-type(1):checked~.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:nth-last-of-type(1):not(:checked)~.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:nth-last-of-type(1):checked~.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:nth-last-of-type(1):not(:checked)~.offset-x,
-  .counter-x-parent>.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:checked~.counter-x:nth-last-of-type(1):checked~.offset-x {
-    --offset-x-1: 0;
+  .counter-parent-x>.counter:nth-last-of-type(1):not(:checked)~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:nth-last-of-type(1):checked~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:nth-last-of-type(1):not(:checked)~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:nth-last-of-type(1):checked~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:nth-last-of-type(1):not(:checked)~.counter-result,
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:nth-last-of-type(1):checked~.counter-result {
+    --counter-x-bit-1: 0;
   }
 
-  .offset-x-sum {
-    --offset-x: calc(var(--offset-x-1) + var(--offset-x-2) + var(--offset-x-4) + var(--offset-x-8) + var(--offset-x-16) + var(--offset-x-32));
+  .counter-parent-x>.counter-result {
+    --offset-x: calc(var(--counter-x-bit-1) + var(--counter-x-bit-2) + var(--counter-x-bit-4) + var(--counter-x-bit-8) + var(--counter-x-bit-16) + var(--counter-x-bit-32));
   }
