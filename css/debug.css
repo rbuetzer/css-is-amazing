@@ -1,9 +1,21 @@
+@counter-style fisheye {
+    system: cyclic;
+    symbols: ◉;
+    suffix: " ";
+}
+
+@counter-style debug {
+    system: numeric;
+    fallback: fisheye;
+}
+
 .debug {
     position: absolute;
     right: 10px;
     bottom: 10px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
     padding: 10px;
+    background-color: white
 }
 
 .debug details {
@@ -12,19 +24,4 @@
 
 .debug summary {
     cursor: pointer;
-}
-
-.debug-x::before {
-    counter-set: debug var(--offset-x);
-    content: "x: " counter(debug, decimal)
-}
-
-.debug-y::before {
-    counter-set: debug var(--offset-y);
-    content: "y: " counter(debug, decimal)
-}
-
-.debug-direction::before {
-    counter-set: debug calc(var(--is-north) + 2 * var(--is-east) + 3 * var(--is-south) + 4 * var(--is-west));
-    content: "direction: " counter(debug, symbols(cyclic "North" "East" "South" "West"))
 }

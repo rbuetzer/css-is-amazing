@@ -67,3 +67,12 @@
 .rotate-90>input:nth-of-type(1):checked~input:nth-of-type(4):active~* .rotate-target-negative {
     transition: all 0s linear;
 }
+
+/**
+ * DEBUG
+ */
+
+.debug-direction::before {
+    counter-set: debug calc(var(--is-north) + 2 * var(--is-east) + 3 * var(--is-south) + 4 * var(--is-west));
+    content: "direction: " counter(debug, symbols(fixed "North" "East" "South" "West"))
+}
