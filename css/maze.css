@@ -1,4 +1,5 @@
 .perspective-origin {
+    transform-style: preserve-3d;
     position: relative;
     perspective: 10cm;
     /*perspective-origin: calc(var(--offset-x) / var(--max-offset) * 100%) calc(var(--offset-y) / var(--max-offset) * 100%);*/
@@ -11,17 +12,17 @@
 }
 
 .floor-3d {
-    height: 100%;
-    width: 100%;
+    transform-style: preserve-3d;
     --size: calc(var(--maze-cell-size) * var(--maze-size));
 
-    height: var(--size);
-    width: var(--size);
+    height: var(--maze-height);
+    width: var(--maze-width);
 
-    transform: rotateX(50deg)
+    transform: rotateX(45deg)
 }
 
 .floor-translate {
+    transform-style: preserve-3d;
     height: 100%;
     width: 100%;
     --translate-x: calc(-1 * var(--x-direction) * ((var(--offset-y) + 0.5) * var(--maze-cell-size) - 50%) + (var(--y-direction)) * ((var(--offset-x) + 0.5) * var(--maze-cell-size) - 50%));
@@ -32,6 +33,7 @@
 }
 
 .floor-rotate {
+    transform-style: preserve-3d;
     height: 100%;
     width: 100%;
     border: 3px solid black;
@@ -52,4 +54,47 @@
     margin-left: calc(var(--maze-cell-size) * var(--offset-x));
     margin-top: calc(var(--maze-cell-size) * var(--offset-y));
     transition: all 1s ease-out;
+}
+
+.wall {
+    position: absolute;
+    transform-style: preserve-3d;
+
+    border: 3px solid green;
+    background-color: lightgreen;
+
+    opacity: 0.5;
+
+    --wall-height: var(--maze-cell-size);
+    --wall-width: var(--maze-cell-size);
+    --wall-offset-x: 0;
+    --wall-offset-y: 0;
+    --is-wall-orientation-x: 0;
+    --is-wall-orientation-y: 0;
+
+    height: var(--wall-height);
+    width: var(--wall-width);
+    transform: rotateX(calc(-90deg)) rotateY(calc(var(--is-wall-orientation-y) * 90deg)) translateY(calc(var(--wall-height) * -0.5)) translateZ(calc(var(--is-wall-orientation-y) * var(--wall-width) / -2)) translateZ(calc(max(var(--wall-offset-x), var(--wall-offset-y)) * var(--maze-cell-size))) translateZ(calc(var(--is-wall-orientation-x) * var(--wall-height) * -0.5)) translateX(calc(var(--is-wall-orientation-y) * (var(--wall-width) - var(--wall-height)) / -2))
+}
+
+.wall-north {
+    --wall-width: var(--maze-width);
+    --is-wall-orientation-x: 1;
+}
+
+.wall-south {
+    --wall-width: var(--maze-width);
+    --wall-offset-x: var(--maze-size);
+    --is-wall-orientation-x: 1;
+}
+
+.wall-east {
+    --wall-width: var(--maze-width);
+    --is-wall-orientation-y: 1;
+}
+
+.wall-west {
+    --wall-width: var(--maze-width);
+    --wall-offset-y: var(--maze-size);
+    --is-wall-orientation-y: 1;
 }
