@@ -1,54 +1,55 @@
-:root {
-    counter-set: wall-counter 0;
-}
-
-.maze {
-    display: grid;
-    grid-template-columns: repeat(5, var(--maze-cell-size));
-    border: 4px solid black;
-    position: absolute;
-    left: calc(-1 * var(--offset-x) * var(--maze-cell-size));
-    top: calc(-1 * var(--offset-y) * var(--maze-cell-size));
-    transition: all 1s ease-out;
-}
-
-.maze>.maze-cell {
-    counter-increment: wall-counter 1;
-    height: var(--maze-cell-size);
-    width: var(--maze-cell-size);
-
+.perspective-origin {
+    position: relative;
+    perspective: 10cm;
+    /*perspective-origin: calc(var(--offset-x) / var(--max-offset) * 100%) calc(var(--offset-y) / var(--max-offset) * 100%);*/
+    perspective-origin: center center;
+    height: 100vw;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: min(50vh, var(--maze-cell-size));
-    box-sizing: border-box;
-    position: relative;
 }
 
-.maze>.maze-cell::before,
-.maze>.maze-cell::after {
-    overflow: hidden;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    font-size: 200%;
-}
-
-
-.maze>.maze-cell:nth-child(-n + 20)::before {
-    content: counter(wall-counter, random-2-a);
-    width: 5px;
+.floor-3d {
     height: 100%;
-}
-
-.maze>.maze-cell:nth-child(-n + 20)::after {
-    content: counter(wall-counter, random-2-b);
-    height: 5px;
     width: 100%;
+    --size: calc(var(--maze-cell-size) * var(--maze-size));
+
+    height: var(--size);
+    width: var(--size);
+
+    transform: rotateX(50deg)
 }
 
-.maze>.maze-cell:nth-child(5n)::before,
-.maze>.maze-cell:nth-child(5n)::after {
-    content: "";
+.floor-translate {
+    height: 100%;
+    width: 100%;
+    --translate-x: calc(-1 * var(--x-direction) * ((var(--offset-y) + 0.5) * var(--maze-cell-size) - 50%) + (var(--y-direction)) * ((var(--offset-x) + 0.5) * var(--maze-cell-size) - 50%));
+    --translate-y: calc(var(--x-direction) * ((var(--offset-x) + 0.5) * var(--maze-cell-size) - 50%) + (var(--y-direction)) * ((var(--offset-y) + 0.5) * var(--maze-cell-size) - 50%));
+
+    transform: translateX(var(--translate-x)) translateY(var(--translate-y));
+    transition: all 1s ease-out;
+}
+
+.floor-rotate {
+    height: 100%;
+    width: 100%;
+    border: 3px solid black;
+    rotate: var(--rotate-90-angle);
+}
+
+.floor-rotate::after {
+    height: var(--maze-cell-size);
+    width: var(--maze-cell-size);
+    background-color: hotpink;
+
+    counter-set: direction calc(var(--is-north) + 2 * var(--is-east) + 3 * var(--is-south) + 4 * var(--is-west));
+    display: block;
+    --direction-arrow: counter(direction, symbols(fixed "↑" "→" "↓" "←"));
+    content: "↑North↑ " var(--direction-arrow) "Direction" var(--direction-arrow);
+    font-size: smaller;
+    line-height: 300%;
+    margin-left: calc(var(--maze-cell-size) * var(--offset-x));
+    margin-top: calc(var(--maze-cell-size) * var(--offset-y));
+    transition: all 1s ease-out;
 }
