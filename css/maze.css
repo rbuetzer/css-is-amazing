@@ -74,7 +74,17 @@
 
     height: var(--wall-height);
     width: var(--wall-width);
-    transform: rotateX(calc(-90deg)) rotateY(calc(var(--is-wall-orientation-y) * 90deg)) translateY(calc(var(--wall-height) * -0.5)) translateZ(calc(var(--is-wall-orientation-y) * var(--wall-width) / -2)) translateZ(calc(max(var(--wall-offset-x), var(--wall-offset-y)) * var(--maze-cell-size))) translateZ(calc(var(--is-wall-orientation-x) * var(--wall-height) * -0.5)) translateX(calc(var(--is-wall-orientation-y) * (var(--wall-width) - var(--wall-height)) / -2))
+    transform: 
+        rotateX(calc(-90deg))
+        rotateY(calc(var(--is-wall-orientation-y) * 90deg))
+        translateX(calc(var(--is-wall-orientation-y) * (var(--wall-width) - var(--wall-height)) / -2))
+        translateX(calc(var(--is-wall-orientation-y) * var(--wall-offset-y) * var(--maze-cell-size) * -1))
+        translateX(calc(var(--is-wall-orientation-x) * var(--wall-offset-x) * var(--maze-cell-size)))
+        translateY(calc(var(--wall-height) / -2))
+        translateZ(calc(var(--is-wall-orientation-y) * var(--wall-width) / -2))
+        translateZ(calc(var(--is-wall-orientation-y) * var(--wall-offset-x) * var(--maze-cell-size)))
+        translateZ(calc(var(--is-wall-orientation-x) * var(--wall-height) / -2))
+        translateZ(calc(var(--is-wall-orientation-x) * var(--wall-offset-y) * var(--maze-cell-size)))
 }
 
 .wall-north {
@@ -84,7 +94,7 @@
 
 .wall-south {
     --wall-width: var(--maze-width);
-    --wall-offset-x: var(--maze-size);
+    --wall-offset-y: var(--maze-size);
     --is-wall-orientation-x: 1;
 }
 
@@ -95,6 +105,26 @@
 
 .wall-west {
     --wall-width: var(--maze-width);
-    --wall-offset-y: var(--maze-size);
+    --wall-offset-x: var(--maze-size);
     --is-wall-orientation-y: 1;
+}
+
+.walls-x, .walls-y {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+
+}
+
+.walls-x .wall {
+    --is-wall-orientation-x: 1;
+    --wall-offset-y: var(--i);
+    --wall-offset-x: calc(var(--j) - 1);
+}
+
+.walls-y .wall {
+    --is-wall-orientation-y: 1;
+    --wall-offset-x: var(--i);
+    --wall-offset-y: calc(var(--j) - 1);
 }
