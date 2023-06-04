@@ -144,17 +144,25 @@
 
 .walls-x .wall {
     --is-hinge-x-east: clamp(0, calc(var(--center-wall-offset) - var(--wall-offset-x)), 1);
+    --is-hinge-x-west: calc(1 - var(--is-hinge-x-east));
+
     --hinge-x: calc(var(--wall-offset-x) + var(--is-hinge-x-east));
 
+    --is-hinge-y-north: 0;
     --is-hinge-y-south: 0;
+
     --hinge-y: var(--wall-offset-y);
 }
 
 .walls-y .wall {
+    --is-hinge-x-east: 0;
     --is-hinge-x-west: 0;
+
     --hinge-x: var(--wall-offset-x);
 
     --is-hinge-y-south: clamp(0, calc(var(--center-wall-offset) - var(--wall-offset-y)), 1);
+    --is-hinge-y-north: calc(1 - var(--is-hinge-y-south));
+
     --hinge-y: calc(var(--wall-offset-y) + var(--is-wall-orientation-y) * var(--is-hinge-y-south));
 }
 
@@ -167,6 +175,13 @@
     --is-hinge-with-2-walls: max(0, calc(1 - var(--is-center-hinge-x) - var(--is-center-hinge-y)));
     --is-hinge-with-4-walls: max(0, calc(-1 + var(--is-center-hinge-x) + var(--is-center-hinge-y)));
     --is-hinge-with-3-walls: max(0, calc(1 - var(--is-hinge-with-2-walls) - var(--is-hinge-with-4-walls)));
+
+    --random-bit-index: calc(
+        var(--is-hinge-with-2-walls) * var(--is-wall-orientation-y) +
+        var(--is-hinge-with-3-walls) * var(--is-center-hinge-x) * (2 + var(--is-hinge-x-east) + 2 * var(--is-wall-orientation-y)) + 
+        var(--is-hinge-with-3-walls) * var(--is-center-hinge-y) * (2 + var(--is-hinge-y-south) + 2 * var(--is-wall-orientation-x)) + 
+        var(--is-hinge-with-4-walls) * (5 + var(--is-hinge-y-north) + 2 * var(--is-hinge-x-east) + 3 * var(--is-hinge-y-south))
+    );
 }
 
 /**
@@ -179,8 +194,9 @@
     --hinge-count: calc(2 * var(--is-hinge-with-2-walls) + 3 * var(--is-hinge-with-3-walls) + 4 * var(--is-hinge-with-4-walls));
     position: absolute;
     top: -20px;
-    left: 50%;
+    left: 0;
+    width: 100px;
     background-color: white;
-    counter-set: hinge-id var(--hinge-id) debug var(--hinge-count);
-    content: counter(hinge-id, upper-alpha) " - " counter(debug, decimal)
+    counter-set: hinge-id var(--hinge-id) hinge-count var(--hinge-count) random-bit-index calc(1 + var(--random-bit-index, 99));
+    content: counter(hinge-id, upper-alpha) " "  counter(random-bit-index, decimal)
 }
