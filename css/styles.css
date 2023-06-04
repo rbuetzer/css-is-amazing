@@ -5,6 +5,8 @@
     --button-margin: 5px;
     --inner-button-size: calc(var(--button-size) - 2 * var(--button-margin));
     --maze-size: 5;
+    /* set this to floor(var(--maze-size)) -> read the last bit of --maze-size to see if it is even or odd */
+    --center-wall-offset: 2;
 }
 
 .init-vars {
