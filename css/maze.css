@@ -133,7 +133,7 @@
 }
 
 /**
- * hinges
+ * Hinges
  */
 
 .wall {
@@ -159,14 +159,28 @@
 }
 
 /**
+ * Wall randomness
+ */
+
+ .walls-x .wall,
+ .walls-y .wall {
+    --is-hinge-with-2-walls: max(0, calc(1 - var(--is-center-hinge-x) - var(--is-center-hinge-y)));
+    --is-hinge-with-4-walls: max(0, calc(-1 + var(--is-center-hinge-x) + var(--is-center-hinge-y)));
+    --is-hinge-with-3-walls: max(0, calc(1 - var(--is-hinge-with-2-walls) - var(--is-hinge-with-4-walls)));
+}
+
+/**
  * DEBUG
  */
 
-.wall::after {
+ .walls-x .wall::after,
+ .walls-y .wall::after
+ {
+    --hinge-count: calc(2 * var(--is-hinge-with-2-walls) + 3 * var(--is-hinge-with-3-walls) + 4 * var(--is-hinge-with-4-walls));
     position: absolute;
     top: -20px;
     left: 50%;
     background-color: white;
-    counter-set: debug var(--hinge-x);
-    content: "" counter(debug, decimal)
+    counter-set: hinge-id var(--hinge-id) debug var(--hinge-count);
+    content: counter(hinge-id, upper-alpha) " - " counter(debug, decimal)
 }
