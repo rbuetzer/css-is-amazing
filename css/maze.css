@@ -60,8 +60,7 @@
     position: absolute;
     transform-style: preserve-3d;
 
-    border: 3px solid green;
-    background-color: rgb(144, 238, calc(144 * var(--is-center-x, 1)));
+    background-color: rgb(144, 238, 144);
 
     opacity: 0.5;
 
@@ -114,6 +113,15 @@
     width: 100%;
     position: absolute;
     transform-style: preserve-3d;
+}
+
+.walls-x .wall,
+.walls-y .wall {
+    background-color: transparent;
+    color: transparent;
+    border: none;
+    border-bottom: 1px solid grey;
+    opacity: 1;
 }
 
 /**
@@ -176,12 +184,35 @@
     --is-hinge-with-4-walls: max(0, calc(-1 + var(--is-center-hinge-x) + var(--is-center-hinge-y)));
     --is-hinge-with-3-walls: max(0, calc(1 - var(--is-hinge-with-2-walls) - var(--is-hinge-with-4-walls)));
 
-    --random-bit-index: calc(
+    --random-bit-offset: calc(
         var(--is-hinge-with-2-walls) * var(--is-wall-orientation-y) +
         var(--is-hinge-with-3-walls) * var(--is-center-hinge-x) * (2 + var(--is-hinge-x-east) + 2 * var(--is-wall-orientation-y)) + 
         var(--is-hinge-with-3-walls) * var(--is-center-hinge-y) * (2 + var(--is-hinge-y-south) + 2 * var(--is-wall-orientation-x)) + 
         var(--is-hinge-with-4-walls) * (5 + var(--is-hinge-y-north) + 2 * var(--is-hinge-x-east) + 3 * var(--is-hinge-y-south))
     );
+
+    --random-number: calc(var(--random-a) * var(--hinge-id) + var(--random-c));
+    --random-bit: calc(9 * var(--random-number) + var(--random-bit-offset) + 1)
+}
+
+/**
+ * Draw walls where necessary
+ */
+
+.walls-x .wall::before,
+.walls-y .wall::before
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    font-size: 1000px;
+    overflow: hidden;
+   background-color: transparent;
+   color: black;
+   opacity: 1;
+   counter-set: random-bit calc(var(--random-bit, 99));
+   content: counter(random-bit, random-bits)
 }
 
 /**
@@ -191,12 +222,16 @@
  .walls-x .wall::after,
  .walls-y .wall::after
  {
-    --hinge-count: calc(2 * var(--is-hinge-with-2-walls) + 3 * var(--is-hinge-with-3-walls) + 4 * var(--is-hinge-with-4-walls));
+    display: none;
     position: absolute;
     top: -20px;
     left: 0;
     width: 100px;
     background-color: white;
-    counter-set: hinge-id var(--hinge-id) hinge-count var(--hinge-count) random-bit-index calc(1 + var(--random-bit-index, 99));
-    content: counter(hinge-id, upper-alpha) " "  counter(random-bit-index, decimal)
+    counter-set:
+        hinge-id var(--hinge-id)
+        random-number var(--random-number)
+        random-bit-offset var(--random-bit-offset)
+        random-bit calc(var(--random-bit, 99));
+    content: counter(hinge-id, upper-alpha) " "  counter(random-number, decimal) " "  counter(random-bit-offset, decimal) " "  counter(random-bit, decimal)
 }
