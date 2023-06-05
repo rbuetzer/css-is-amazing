@@ -19,7 +19,11 @@
     height: calc(var(--maze-cell-size) * (2 * var(--maze-size) - 1));
     width: calc(var(--maze-cell-size) * (2 * var(--maze-size) - 1));
 
-    transform: rotateX(40deg);
+    transition: all 1s ease-out;
+    transform:
+        rotateX(calc(var(--is-birdeye) * 40deg + var(--is-first-person-view) * 90deg))
+        translateZ(calc(var(--is-first-person-view) * (-0.5 * var(--wall-height))))
+        translateY(calc(var(--is-first-person-view) * 10cm));
 }
 
 .floor-translate {
@@ -27,7 +31,7 @@
     height: calc(var(--maze-cell-size) * var(--maze-size));
     width: calc(var(--maze-cell-size) * var(--maze-size));
     bottom: calc(var(--maze-cell-size) * var(--offset-y));
-    right: calc(var(--maze-cell-size) * var(--offset-x));;
+    right: calc(var(--maze-cell-size) * var(--offset-x));
     transition: all 1s ease-out;
 }
 
@@ -54,7 +58,6 @@
 }
 
 .wall {
-    --wall-height: var(--maze-cell-size);
     --wall-width: var(--maze-cell-size);
     --wall-offset-x: 0;
     --wall-offset-y: 0;
