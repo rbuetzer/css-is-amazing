@@ -125,6 +125,15 @@
 }
 
 /**
+ * Out of bounds wall visibility
+ */
+
+.walls-x .wall,
+.walls-y .wall {
+    opacity: clamp(0, calc(var(--maze-size) - max(var(--wall-offset-x), var(--wall-offset-y))), 1);
+}
+
+/**
  * x-y-position
  */
 
