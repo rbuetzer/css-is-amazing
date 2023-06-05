@@ -1,5 +1,5 @@
 :root {
-    --maze-cell-size: min(10vh, 10vw);
+    --maze-cell-size: calc(0.1 * min(100vh, 100vw));
 
     --button-size: var(--maze-cell-size);
     --button-margin: 5px;

@@ -2,45 +2,42 @@
     transform-style: preserve-3d;
     position: relative;
     perspective: 10cm;
-    /*perspective-origin: calc(var(--offset-x) / var(--max-offset) * 100%) calc(var(--offset-y) / var(--max-offset) * 100%);*/
     perspective-origin: center center;
-    height: 100vw;
+    height: min(100vh, 100vw);
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.floor-3d {
+.perspective-origin * {
     transform-style: preserve-3d;
-    --size: calc(var(--maze-cell-size) * var(--maze-size));
+}
 
-    height: var(--maze-height);
-    width: var(--maze-width);
+.floor-3d {
+    position: absolute;
+    height: calc(var(--maze-cell-size) * (2 * var(--maze-size) - 1));
+    width: calc(var(--maze-cell-size) * (2 * var(--maze-size) - 1));
 
-    transform: rotateX(45deg)
+    transform: rotateX(40deg);
 }
 
 .floor-translate {
-    transform-style: preserve-3d;
-    height: 100%;
-    width: 100%;
-    --translate-x: calc(-1 * var(--x-direction) * ((var(--offset-y) + 0.5) * var(--maze-cell-size) - 50%) + (var(--y-direction)) * ((var(--offset-x) + 0.5) * var(--maze-cell-size) - 50%));
-    --translate-y: calc(var(--x-direction) * ((var(--offset-x) + 0.5) * var(--maze-cell-size) - 50%) + (var(--y-direction)) * ((var(--offset-y) + 0.5) * var(--maze-cell-size) - 50%));
-
-    transform: translateX(var(--translate-x)) translateY(var(--translate-y));
+    position: absolute;
+    height: calc(var(--maze-cell-size) * var(--maze-size));
+    width: calc(var(--maze-cell-size) * var(--maze-size));
+    bottom: calc(var(--maze-cell-size) * var(--offset-y));
+    right: calc(var(--maze-cell-size) * var(--offset-x));;
     transition: all 1s ease-out;
 }
 
 .floor-rotate {
-    transform-style: preserve-3d;
     height: 100%;
     width: 100%;
-    border: 3px solid black;
     rotate: var(--rotate-90-angle);
 }
 
-.floor-rotate::after {
+.floor-translate::after {
     height: var(--maze-cell-size);
     width: var(--maze-cell-size);
     background-color: hotpink;
@@ -57,22 +54,20 @@
 }
 
 .wall {
-    position: absolute;
-    transform-style: preserve-3d;
-
-    background-color: rgb(144, 238, 144);
-
-    opacity: 0.5;
-
     --wall-height: var(--maze-cell-size);
     --wall-width: var(--maze-cell-size);
     --wall-offset-x: 0;
     --wall-offset-y: 0;
     --is-wall-orientation-x: 0;
     --is-wall-orientation-y: 0;
+    --wall-color: oklch(calc(var(--is-wall-orientation-x) * 0.4 + var(--is-wall-orientation-y) * 0.2) 0.5 180deg);
+
+    position: absolute;
+    background-color: var(--wall-color);
 
     height: var(--wall-height);
     width: var(--wall-width);
+
     transform: 
         rotateX(calc(-90deg))
         rotateY(calc(var(--is-wall-orientation-y) * 90deg))
@@ -83,7 +78,7 @@
         translateZ(calc(var(--is-wall-orientation-y) * var(--wall-width) / -2))
         translateZ(calc(var(--is-wall-orientation-y) * var(--wall-offset-x) * var(--maze-cell-size)))
         translateZ(calc(var(--is-wall-orientation-x) * var(--wall-height) / -2))
-        translateZ(calc(var(--is-wall-orientation-x) * var(--wall-offset-y) * var(--maze-cell-size)))
+        translateZ(calc(var(--is-wall-orientation-x) * var(--wall-offset-y) * var(--maze-cell-size)));
 }
 
 .wall-north {
@@ -112,7 +107,6 @@
     height: 100%;
     width: 100%;
     position: absolute;
-    transform-style: preserve-3d;
 }
 
 .walls-x .wall,
@@ -218,7 +212,7 @@
     font-size: 1000px;
     overflow: hidden;
     background-color: transparent;
-    color: oklch(calc(var(--is-wall-orientation-x) * 0.4 + var(--is-wall-orientation-y) * 0.2) 0.5 180deg);
+    color: var(--wall-color);
     opacity: 1;
     counter-set: random-bit calc(var(--random-bit, 99));
     content: counter(random-bit, random-bits)
