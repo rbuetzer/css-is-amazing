@@ -10,7 +10,6 @@
     --center-wall-offset: 6;
 
     --is-birdeye: 0;
-    --is-first-person-view: calc(1 - var(--is-birdeye));
 }
 
 .init-vars {
@@ -24,4 +23,12 @@
 
     --maze-width: calc(var(--maze-cell-size) * var(--maze-size));
     --maze-height: calc(var(--maze-cell-size) * var(--maze-size));
+    
+    --is-first-person-view: calc(1 - var(--is-birdeye));
+}
+
+body {
+    height: 1vh;
+    overflow: hidden;
+    font-family: sans-serif;
 }

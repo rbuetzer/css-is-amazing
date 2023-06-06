@@ -12,13 +12,22 @@
   <link rel="stylesheet" href="./css/maze.css" />
   <link rel="stylesheet" href="./css/debug.css" />
   <link rel="stylesheet" href="./css/navigation-buttons.css" />
+  <link rel="stylesheet" href="./css/settings.css" />
   <link rel="stylesheet" href="./css/styles.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mazed by CSS</title>
 </head>
 
 <body>
-  <!-- rotate -->
+  <div class="settings">
+    <details open>
+      <summary>Settings</summary>
+      <label for="setting-is-birdeye">Toggle perspective</label>
+    </details>
+  </div>
+
+  <input type="checkbox" id="setting-is-birdeye" />
+
   <div id="rotate" class="rotate-90">
     <input type="radio" name="rotate-90" id="rotate-0" />
     <input type="radio" name="rotate-90" />
@@ -631,7 +640,6 @@
         </div>
       </div>
     </div>
-  </div>
   </div>
 </body>
 

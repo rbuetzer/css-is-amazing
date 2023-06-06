@@ -1,0 +1,28 @@
+.settings {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    padding: 1em;
+    background-color: white;
+    z-index: 1000;
+    animation: all 1s ease-out;
+}
+
+
+.settings summary {
+    font-size: larger;
+    cursor: pointer;
+}
+
+input[id^="setting-"] {
+    display: none;
+}
+
+label[for^="setting-"] {
+    cursor: pointer;
+}
+
+input#setting-is-birdeye:checked + div {
+    --is-birdeye: 1;
+}
