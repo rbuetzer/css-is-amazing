@@ -4,8 +4,6 @@
     --counter-x-raw-bit-2: 0;
     --counter-x-raw-bit-3: 0;
     --counter-x-raw-bit-4: 0;
-    --counter-x-raw-bit-5: 0;
-    --counter-x-raw-bit-6: 0;
   }
 
   .counter-parent-x>.counter {
@@ -26,9 +24,7 @@
   .counter-parent-x>.counter:checked~.counter:checked,
   .counter-parent-x>.counter:checked~.counter:checked~.counter,
   .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked,
-  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter,
-  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked,
-  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter {
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter {
     display: var(--display-block-if-east);
   }
 
@@ -36,18 +32,8 @@
   .counter-parent-x>.counter:checked~.counter,
   .counter-parent-x>.counter:checked~.counter:checked~.counter:checked,
   .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter,
-  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked,
-  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter,
-  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked {
+  .counter-parent-x>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked {
     display: var(--display-block-if-west)
-  }
-
-  .counter-parent-x>.counter:nth-last-of-type(6):checked~.counter-result {
-    --counter-x-raw-bit-6: 1;
-  }
-
-  .counter-parent-x>.counter:nth-last-of-type(5):checked~.counter-result {
-    --counter-x-raw-bit-5: 1;
   }
 
   .counter-parent-x>.counter:nth-last-of-type(4):checked~.counter-result {
@@ -67,14 +53,12 @@
   }
 
   .counter-parent-x>.counter-result {
-    --counter-x-bit-6: var(--counter-x-raw-bit-6);
-    --counter-x-bit-5: calc((var(--counter-x-raw-bit-5) - var(--counter-x-bit-6)) * (var(--counter-x-raw-bit-5) - var(--counter-x-bit-6)));
-    --counter-x-bit-4: calc((var(--counter-x-raw-bit-4) - var(--counter-x-bit-5)) * (var(--counter-x-raw-bit-4) - var(--counter-x-bit-5)));
+    --counter-x-bit-4: var(--counter-x-raw-bit-4);
     --counter-x-bit-3: calc((var(--counter-x-raw-bit-3) - var(--counter-x-bit-4)) * (var(--counter-x-raw-bit-3) - var(--counter-x-bit-4)));
     --counter-x-bit-2: calc((var(--counter-x-raw-bit-2) - var(--counter-x-bit-3)) * (var(--counter-x-raw-bit-2) - var(--counter-x-bit-3)));
     --counter-x-bit-1: calc((var(--counter-x-raw-bit-1) - var(--counter-x-bit-2)) * (var(--counter-x-raw-bit-1) - var(--counter-x-bit-2)));
 
-    --offset-x: calc(var(--counter-x-bit-1) + 2 * var(--counter-x-bit-2) + 4 * var(--counter-x-bit-3) + 8 * var(--counter-x-bit-4) + 16 * var(--counter-x-bit-5) + 32 * var(--counter-x-bit-6));
+    --offset-x: calc(var(--counter-x-bit-1) + 2 * var(--counter-x-bit-2) + 4 * var(--counter-x-bit-3) + 8 * var(--counter-x-bit-4));
   }
 
   /**
@@ -87,11 +71,9 @@
   }
 
   .debug-x-raw-bits::before {
-    counter-set: debug-1 var(--counter-x-raw-bit-1, 999) debug-2 var(--counter-x-raw-bit-2, 999) debug-3 var(--counter-x-raw-bit-3, 999) debug-4 var(--counter-x-raw-bit-4, 999) debug-5 var(--counter-x-raw-bit-5, 999) debug-6 var(--counter-x-raw-bit-6, 999);
+    counter-set: debug-1 var(--counter-x-raw-bit-1, 999) debug-2 var(--counter-x-raw-bit-2, 999) debug-3 var(--counter-x-raw-bit-3, 999) debug-4 var(--counter-x-raw-bit-4, 999);
 
     content: "raw bits: "
-      counter(debug-6, decimal) ", "
-      counter(debug-5, decimal) ", "
       counter(debug-4, decimal) ", "
       counter(debug-3, decimal) ", "
       counter(debug-2, decimal) ", "
@@ -99,11 +81,9 @@
   }
 
   .debug-x-bits::before {
-    counter-set: debug-1 var(--counter-x-bit-1, 999) debug-2 var(--counter-x-bit-2, 999) debug-3 var(--counter-x-bit-3, 999) debug-4 var(--counter-x-bit-4, 999) debug-5 var(--counter-x-bit-5, 999) debug-6 var(--counter-x-bit-6, 999);
+    counter-set: debug-1 var(--counter-x-bit-1, 999) debug-2 var(--counter-x-bit-2, 999) debug-3 var(--counter-x-bit-3, 999) debug-4 var(--counter-x-bit-4, 999);
 
     content: "bits: "
-      counter(debug-6, decimal) ", "
-      counter(debug-5, decimal) ", "
       counter(debug-4, decimal) ", "
       counter(debug-3, decimal) ", "
       counter(debug-2, decimal) ", "
