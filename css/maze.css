@@ -44,7 +44,8 @@
 .floor-translate::after {
     height: var(--maze-cell-size);
     width: var(--maze-cell-size);
-    background-color: hotpink;
+    border: 5px solid hotpink;
+    box-sizing: border-box;
 
     counter-set: direction calc(var(--is-north) + 2 * var(--is-east) + 3 * var(--is-south) + 4 * var(--is-west));
     display: block;
@@ -52,8 +53,9 @@
     content: "↑North↑ " var(--direction-arrow) "Direction" var(--direction-arrow);
     font-size: smaller;
     line-height: 300%;
-    margin-left: calc(var(--maze-cell-size) * var(--offset-x));
-    margin-top: calc(var(--maze-cell-size) * var(--offset-y));
+    position: absolute;
+    left: calc(var(--maze-cell-size) * var(--offset-x));
+    top: calc(var(--maze-cell-size) * var(--offset-y));
     transition: all 1s ease-out;
 }
 
@@ -219,6 +221,29 @@
     opacity: 1;
     counter-set: random-bit calc(var(--random-bit, 99));
     content: counter(random-bit, random-bits)
+}
+
+.start-square, 
+.goal-square {
+    height: var(--maze-cell-size);
+    width: var(--maze-cell-size);
+    font-size: calc(var(--maze-cell-size) * 2 / 3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+.start-square {
+    top: 0;
+    left: 0;
+    background-color: greenyellow;
+}
+
+.goal-square {
+    top: calc(var(--max-offset) * var(--maze-cell-size));
+    left: calc(var(--max-offset) * var(--maze-cell-size));
+    background-color: gold;
 }
 
 /**
