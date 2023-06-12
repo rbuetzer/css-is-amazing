@@ -1,0 +1,97 @@
+  /* Default values */
+  .counter-parent-maze-size {
+    --counter-maze-size-raw-bit-1: 0;
+    --counter-maze-size-raw-bit-2: 0;
+    --counter-maze-size-raw-bit-3: 0;
+    --counter-maze-size-raw-bit-4: 0;
+  }
+
+  .counter-parent-maze-size>.counter {
+    display: block;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 0;
+    width: var(--settings-button-size);
+    height: var(--settings-button-size);
+    bottom: var(--settings-button-size);
+    visibility: var(--visible-if-maze-size-open);
+  }
+
+  .counter-parent-maze-size>.counter,
+  .counter-parent-maze-size>.counter:checked~.counter:checked,
+  .counter-parent-maze-size>.counter:checked~.counter:checked~.counter,
+  .counter-parent-maze-size>.counter:checked~.counter:checked~.counter:checked~.counter:checked,
+  .counter-parent-maze-size>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter {
+    left: calc(var(--settings-button-size) * 3);
+  }
+
+  .counter-parent-maze-size>.counter:checked,
+  .counter-parent-maze-size>.counter:checked~.counter,
+  .counter-parent-maze-size>.counter:checked~.counter:checked~.counter:checked,
+  .counter-parent-maze-size>.counter:checked~.counter:checked~.counter:checked~.counter,
+  .counter-parent-maze-size>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked {
+    left: calc(var(--settings-button-size) * 1.75);
+  }
+
+  .counter-parent-maze-size>.counter:nth-last-of-type(4):checked~.counter-result {
+    --counter-maze-size-raw-bit-4: 1;
+  }
+
+  .counter-parent-maze-size>.counter:nth-last-of-type(3):checked~.counter-result {
+    --counter-maze-size-raw-bit-3: 1;
+  }
+
+  .counter-parent-maze-size>.counter:nth-last-of-type(2):checked~.counter-result {
+    --counter-maze-size-raw-bit-2: 1;
+  }
+
+  .counter-parent-maze-size>.counter:nth-last-of-type(1):checked~.counter-result {
+    --counter-maze-size-raw-bit-1: 1;
+  }
+
+  .counter-parent-maze-size>.counter-result {
+    --counter-maze-size-bit-4: var(--counter-maze-size-raw-bit-4);
+    --counter-maze-size-bit-3: calc((var(--counter-maze-size-raw-bit-3) - var(--counter-maze-size-bit-4)) * (var(--counter-maze-size-raw-bit-3) - var(--counter-maze-size-bit-4)));
+    --counter-maze-size-bit-2: calc((var(--counter-maze-size-raw-bit-2) - var(--counter-maze-size-bit-3)) * (var(--counter-maze-size-raw-bit-2) - var(--counter-maze-size-bit-3)));
+    --counter-maze-size-bit-1: calc((var(--counter-maze-size-raw-bit-1) - var(--counter-maze-size-bit-2)) * (var(--counter-maze-size-raw-bit-1) - var(--counter-maze-size-bit-2)));
+
+    --maze-size: calc(1 + var(--counter-maze-size-bit-1) + 2 * var(--counter-maze-size-bit-2) + 4 * var(--counter-maze-size-bit-3) + 8 * var(--counter-maze-size-bit-4));
+    --center-wall-offset: calc((var(--maze-size) - var(--counter-maze-size-bit-1) - 1) / 2 )
+  }
+
+  /**
+ * DEBUG
+ */
+
+  .debug-maze-size::before {
+    counter-set: debug var(--maze-size);
+    content: "Maze size: " counter(debug, decimal)
+  }
+
+  .debug-maze-size-raw-bits::before {
+    counter-set: debug-1 var(--counter-maze-size-raw-bit-1, 999) debug-2 var(--counter-maze-size-raw-bit-2, 999) debug-3 var(--counter-maze-size-raw-bit-3, 999) debug-4 var(--counter-maze-size-raw-bit-4, 999) debug-5;
+
+    content: "raw bits: "
+      counter(debug-4, decimal) ", "
+      counter(debug-3, decimal) ", "
+      counter(debug-2, decimal) ", "
+      counter(debug-1, decimal);
+  }
+
+  .debug-maze-size-bits::before {
+    counter-set: debug-1 var(--counter-maze-size-bit-1, 999) debug-2 var(--counter-maze-size-bit-2, 999) debug-3 var(--counter-maze-size-bit-3, 999) debug-4 var(--counter-maze-size-bit-4, 999);
+
+    content: "bits: "
+      counter(debug-4, decimal) ", "
+      counter(debug-3, decimal) ", "
+      counter(debug-2, decimal) ", "
+      counter(debug-1, decimal);
+  }
+
+  .debug-maze-size-center-wall-offset::before {
+    counter-set: debug var(--center-wall-offset);
+    content: "Center wall offset: " counter(debug, decimal)
+  }

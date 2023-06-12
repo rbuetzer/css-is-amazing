@@ -8,8 +8,6 @@
     --maze-size: 13;
     /* set this to floor(var(--maze-size)) -> read the last bit of --maze-size to see if it is even or odd */
     --center-wall-offset: 6;
-
-    --is-birdeye: 0;
 }
 
 .init-vars {
