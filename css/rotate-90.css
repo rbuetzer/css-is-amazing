@@ -10,8 +10,8 @@
     --is-south: 0;
     --is-west: 0;
 
-    --x-direction: calc(var(--is-east) - var(--is-west));
-    --y-direction: calc(var(--is-south) - var(--is-north));
+    --is-x-direction: max(var(--is-east), var(--is-west));
+    --is-y-direction: max(var(--is-south), var(--is-north));
 }
 
 
@@ -43,6 +43,7 @@
     --rotate-90-angle: -90deg;
     --display-block-if-north: block;
     --is-north: 1;
+    --is-east: 0;
 }
 
 .rotate-90>input:nth-of-type(1):checked~input:nth-of-type(4):active~.rotate-90-vars {

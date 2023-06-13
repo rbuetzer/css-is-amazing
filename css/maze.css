@@ -108,6 +108,48 @@
     --is-wall-orientation-y: 1;
 }
 
+.wall-front-x,
+.wall-front-y {
+    visibility: hidden;
+    transform: none;
+}
+
+.wall-front-x {
+    --is-wall-orientation-x: 1;
+    --is-wall-orientation-y: 0;
+    --wall-offset-x: calc(var(--offset-x));
+    --wall-offset-y: calc(var(--offset-y) + var(--is-south));
+    opacity: var(--is-y-direction);
+}
+
+.wall-front-y {
+    --is-wall-orientation-x: 0;
+    --is-wall-orientation-y: 1;
+    --wall-offset-x: calc(var(--offset-x) + var(--is-east));
+    --wall-offset-y: calc(var(--offset-y));
+    opacity: var(--is-x-direction);
+}
+
+.wall-front-x::before,
+.wall-front-y::before
+{
+    visibility: visible;
+    position: fixed;
+    max-height: var(--inner-button-size);
+    max-width: var(--inner-button-size);
+    margin: var(--button-margin);
+    left: calc(50% - var(--button-size) / 2);
+    top: calc(50% - var(--button-size) * 1.5);
+    font-size: calc(3 * var(--button-size));
+    overflow: hidden;
+    color: transparent;
+    background-color: black;
+    opacity: 0.5;
+    counter-set: random-bit calc(var(--random-bit, 99));
+    content: counter(random-bit, random-bits);
+    z-index: 200;
+}
+
 .walls-x, .walls-y {
     height: 100%;
     width: 100%;
@@ -152,13 +194,16 @@
  * Hinges
  */
 
-.wall {
+.wall,
+.wall-front-x,
+.wall-front-y {
     --is-center-hinge-x: calc(max(0, 1 + (var(--hinge-x) - var(--center-wall-offset)) * (var(--center-wall-offset) - var(--hinge-x))));
     --is-center-hinge-y: calc(max(0, 1 + (var(--hinge-y) - var(--center-wall-offset)) * (var(--center-wall-offset) - var(--hinge-y))));
     --hinge-id: calc(var(--hinge-x) * var(--max-offset) + var(--hinge-y))
 }
 
-.walls-x .wall {
+.walls-x .wall,
+.wall-front-x {
     --is-hinge-x-east: clamp(0, calc(var(--center-wall-offset) - var(--wall-offset-x)), 1);
     --is-hinge-x-west: calc(1 - var(--is-hinge-x-east));
 
@@ -170,7 +215,8 @@
     --hinge-y: var(--wall-offset-y);
 }
 
-.walls-y .wall {
+.walls-y .wall,
+.wall-front-y {
     --is-hinge-x-east: 0;
     --is-hinge-x-west: 0;
 
@@ -187,7 +233,9 @@
  */
 
  .walls-x .wall,
- .walls-y .wall {
+ .walls-y .wall,
+ .wall-front-x,
+ .wall-front-y {
     --is-hinge-with-2-walls: max(0, calc(1 - var(--is-center-hinge-x) - var(--is-center-hinge-y)));
     --is-hinge-with-4-walls: max(0, calc(-1 + var(--is-center-hinge-x) + var(--is-center-hinge-y)));
     --is-hinge-with-3-walls: max(0, calc(1 - var(--is-hinge-with-2-walls) - var(--is-hinge-with-4-walls)));
