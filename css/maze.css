@@ -61,10 +61,6 @@
 
 .wall {
     --wall-width: var(--maze-cell-size);
-    --wall-offset-x: 0;
-    --wall-offset-y: 0;
-    --is-wall-orientation-x: 0;
-    --is-wall-orientation-y: 0;
     --wall-color: oklch(calc(var(--is-wall-orientation-x) * 0.4 + var(--is-wall-orientation-y) * 0.2) 0.5 180deg);
 
     position: absolute;
@@ -88,76 +84,43 @@
 
 .wall-north {
     --wall-width: var(--maze-width);
+    --wall-offset-x: 0;
+    --wall-offset-y: 0;
     --is-wall-orientation-x: 1;
+    --is-wall-orientation-y: 0;
 }
 
 .wall-south {
     --wall-width: var(--maze-width);
+    --wall-offset-x: 0;
     --wall-offset-y: var(--maze-size);
     --is-wall-orientation-x: 1;
+    --is-wall-orientation-y: 0;
 }
 
 .wall-east {
     --wall-width: var(--maze-width);
     --wall-offset-x: var(--maze-size);
+    --wall-offset-y: 0;
+    --is-wall-orientation-x: 0;
     --is-wall-orientation-y: 1;
 }
 
 .wall-west {
     --wall-width: var(--maze-width);
-    --is-wall-orientation-y: 1;
-}
-
-.wall-front-x,
-.wall-front-y {
-    visibility: hidden;
-    transform: none;
-}
-
-.wall-front-x {
-    --is-wall-orientation-x: 1;
-    --is-wall-orientation-y: 0;
-    --wall-offset-x: calc(var(--offset-x));
-    --wall-offset-y: calc(var(--offset-y) + var(--is-south));
-    opacity: var(--is-y-direction);
-}
-
-.wall-front-y {
+    --wall-offset-x: 0;
+    --wall-offset-y: 0;
     --is-wall-orientation-x: 0;
     --is-wall-orientation-y: 1;
-    --wall-offset-x: calc(var(--offset-x) + var(--is-east));
-    --wall-offset-y: calc(var(--offset-y));
-    opacity: var(--is-x-direction);
 }
 
-.wall-front-x::before,
-.wall-front-y::before
-{
-    visibility: visible;
-    position: fixed;
-    max-height: var(--inner-button-size);
-    max-width: var(--inner-button-size);
-    margin: var(--button-margin);
-    left: calc(50% - var(--button-size) / 2);
-    top: calc(50% - var(--button-size) * 1.5);
-    font-size: calc(3 * var(--button-size));
-    overflow: hidden;
-    color: transparent;
-    background-color: black;
-    opacity: 0.5;
-    counter-set: random-bit calc(var(--random-bit, 99));
-    content: counter(random-bit, random-bits);
-    z-index: 200;
-}
-
-.walls-x, .walls-y {
+.walls {
     height: 100%;
     width: 100%;
     position: absolute;
 }
 
-.walls-x .wall,
-.walls-y .wall {
+.walls > .wall {
     background-color: transparent;
     color: transparent;
     border: none;
@@ -169,8 +132,7 @@
  * Out of bounds wall visibility
  */
 
-.walls-x .wall,
-.walls-y .wall {
+.walls > .wall {
     opacity: clamp(0, calc(var(--maze-size) - max(var(--wall-offset-x), var(--wall-offset-y))), 1);
 }
 
@@ -178,85 +140,21 @@
  * x-y-position
  */
 
-.walls-x .wall {
-    --is-wall-orientation-x: 1;
+ .walls > .possible-wall-x {
     --wall-offset-y: var(--i);
     --wall-offset-x: calc(var(--j) - 1);
 }
 
-.walls-y .wall {
-    --is-wall-orientation-y: 1;
+.walls > .possible-wall-y {
     --wall-offset-x: var(--i);
     --wall-offset-y: calc(var(--j) - 1);
-}
-
-/**
- * Hinges
- */
-
-.wall,
-.wall-front-x,
-.wall-front-y {
-    --is-center-hinge-x: calc(max(0, 1 + (var(--hinge-x) - var(--center-wall-offset)) * (var(--center-wall-offset) - var(--hinge-x))));
-    --is-center-hinge-y: calc(max(0, 1 + (var(--hinge-y) - var(--center-wall-offset)) * (var(--center-wall-offset) - var(--hinge-y))));
-    --hinge-id: calc(var(--hinge-x) * var(--max-offset) + var(--hinge-y))
-}
-
-.walls-x .wall,
-.wall-front-x {
-    --is-hinge-x-east: clamp(0, calc(var(--center-wall-offset) - var(--wall-offset-x)), 1);
-    --is-hinge-x-west: calc(1 - var(--is-hinge-x-east));
-
-    --hinge-x: calc(var(--wall-offset-x) + var(--is-hinge-x-east));
-
-    --is-hinge-y-north: 0;
-    --is-hinge-y-south: 0;
-
-    --hinge-y: var(--wall-offset-y);
-}
-
-.walls-y .wall,
-.wall-front-y {
-    --is-hinge-x-east: 0;
-    --is-hinge-x-west: 0;
-
-    --hinge-x: var(--wall-offset-x);
-
-    --is-hinge-y-south: clamp(0, calc(var(--center-wall-offset) - var(--wall-offset-y)), 1);
-    --is-hinge-y-north: calc(1 - var(--is-hinge-y-south));
-
-    --hinge-y: calc(var(--wall-offset-y) + var(--is-wall-orientation-y) * var(--is-hinge-y-south));
-}
-
-/**
- * Wall randomness
- */
-
- .walls-x .wall,
- .walls-y .wall,
- .wall-front-x,
- .wall-front-y {
-    --is-hinge-with-2-walls: max(0, calc(1 - var(--is-center-hinge-x) - var(--is-center-hinge-y)));
-    --is-hinge-with-4-walls: max(0, calc(-1 + var(--is-center-hinge-x) + var(--is-center-hinge-y)));
-    --is-hinge-with-3-walls: max(0, calc(1 - var(--is-hinge-with-2-walls) - var(--is-hinge-with-4-walls)));
-
-    --random-bit-offset: calc(
-        var(--is-hinge-with-2-walls) * var(--is-wall-orientation-y) +
-        var(--is-hinge-with-3-walls) * var(--is-center-hinge-x) * (2 + var(--is-hinge-x-east) + 2 * var(--is-wall-orientation-y)) + 
-        var(--is-hinge-with-3-walls) * var(--is-center-hinge-y) * (2 + var(--is-hinge-y-south) + 2 * var(--is-wall-orientation-x)) + 
-        var(--is-hinge-with-4-walls) * (5 + var(--is-hinge-y-north) + 2 * var(--is-hinge-x-east) + 3 * var(--is-hinge-y-south))
-    );
-
-    --random-number: calc(var(--random-a) * var(--hinge-id) + var(--random-c));
-    --random-bit: calc(9 * var(--random-number) + var(--random-bit-offset) + 1)
 }
 
 /**
  * Draw walls where necessary
  */
 
-.walls-x .wall::before,
-.walls-y .wall::before
+.walls > .wall::before
 {
     position: absolute;
     width: 100%;
@@ -270,6 +168,10 @@
     counter-set: random-bit calc(var(--random-bit, 99));
     content: counter(random-bit, random-bits)
 }
+
+/**
+ * Squares
+ */
 
 .start-square, 
 .goal-square {

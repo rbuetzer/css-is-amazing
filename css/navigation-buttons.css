@@ -17,6 +17,41 @@
     z-index: 100;
 }
 
+.forward-disabled.possible-wall-x {
+    --is-wall-orientation-x: 1;
+    --is-wall-orientation-y: 0;
+    --wall-offset-x: calc(var(--offset-x));
+    --wall-offset-y: calc(var(--offset-y) + var(--is-south));
+    opacity: var(--is-y-direction);
+}
+
+.forward-disabled.possible-wall-y {
+    --is-wall-orientation-x: 0;
+    --is-wall-orientation-y: 1;
+    --wall-offset-x: calc(var(--offset-x) + var(--is-east));
+    --wall-offset-y: calc(var(--offset-y));
+    opacity: var(--is-x-direction);
+}
+
+.forward-disabled::before
+{
+    visibility: visible;
+    position: fixed;
+    max-height: var(--inner-button-size);
+    max-width: var(--inner-button-size);
+    margin: var(--button-margin);
+    left: calc(50% - var(--button-size) / 2);
+    top: calc(50% - var(--button-size) * 1.5);
+    font-size: calc(3 * var(--button-size));
+    overflow: hidden;
+    color: transparent;
+    background-color: black;
+    opacity: 0.5;
+    counter-set: random-bit calc(var(--random-bit, 99));
+    content: counter(random-bit, random-bits);
+    z-index: 200;
+}
+
 .rotate-label {
     display: block;
     position: fixed;

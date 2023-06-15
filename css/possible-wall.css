@@ -1,0 +1,65 @@
+.possible-wall-x {
+    --is-wall-orientation-x: 1;
+    --is-wall-orientation-y: 0;
+}
+
+.possible-wall-y {
+    --is-wall-orientation-x: 0;
+    --is-wall-orientation-y: 1;
+}
+
+/**
+ * Hinges
+ */
+
+ .possible-wall-x,
+ .possible-wall-y {
+    --is-center-hinge-x: calc(max(0, 1 + (var(--hinge-x) - var(--center-wall-offset)) * (var(--center-wall-offset) - var(--hinge-x))));
+    --is-center-hinge-y: calc(max(0, 1 + (var(--hinge-y) - var(--center-wall-offset)) * (var(--center-wall-offset) - var(--hinge-y))));
+    --hinge-id: calc(var(--hinge-x) * var(--max-offset) + var(--hinge-y))
+}
+
+.possible-wall-x {
+    --is-hinge-x-east: clamp(0, calc(var(--center-wall-offset) - var(--wall-offset-x)), 1);
+    --is-hinge-x-west: calc(1 - var(--is-hinge-x-east));
+
+    --hinge-x: calc(var(--wall-offset-x) + var(--is-hinge-x-east));
+
+    --is-hinge-y-north: 0;
+    --is-hinge-y-south: 0;
+
+    --hinge-y: var(--wall-offset-y);
+}
+
+.possible-wall-y {
+    --is-hinge-x-east: 0;
+    --is-hinge-x-west: 0;
+
+    --hinge-x: var(--wall-offset-x);
+
+    --is-hinge-y-south: clamp(0, calc(var(--center-wall-offset) - var(--wall-offset-y)), 1);
+    --is-hinge-y-north: calc(1 - var(--is-hinge-y-south));
+
+    --hinge-y: calc(var(--wall-offset-y) + var(--is-wall-orientation-y) * var(--is-hinge-y-south));
+}
+
+/**
+ * Wall randomness
+ */
+
+ .possible-wall-x,
+ .possible-wall-y {
+    --is-hinge-with-2-walls: max(0, calc(1 - var(--is-center-hinge-x) - var(--is-center-hinge-y)));
+    --is-hinge-with-4-walls: max(0, calc(-1 + var(--is-center-hinge-x) + var(--is-center-hinge-y)));
+    --is-hinge-with-3-walls: max(0, calc(1 - var(--is-hinge-with-2-walls) - var(--is-hinge-with-4-walls)));
+
+    --random-bit-offset: calc(
+        var(--is-hinge-with-2-walls) * var(--is-wall-orientation-y) +
+        var(--is-hinge-with-3-walls) * var(--is-center-hinge-x) * (2 + var(--is-hinge-x-east) + 2 * var(--is-wall-orientation-y)) + 
+        var(--is-hinge-with-3-walls) * var(--is-center-hinge-y) * (2 + var(--is-hinge-y-south) + 2 * var(--is-wall-orientation-x)) + 
+        var(--is-hinge-with-4-walls) * (5 + var(--is-hinge-y-north) + 2 * var(--is-hinge-x-east) + 3 * var(--is-hinge-y-south))
+    );
+
+    --random-number: calc(var(--random-a) * var(--hinge-id) + var(--random-c));
+    --random-bit: calc(9 * var(--random-number) + var(--random-bit-offset) + 1)
+}
