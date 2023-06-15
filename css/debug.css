@@ -1,12 +1,8 @@
-@counter-style fisheye {
-    system: cyclic;
-    symbols: ◉;
-    suffix: " ";
-}
-
-@counter-style debug {
-    system: numeric;
-    fallback: fisheye;
+/* Remember: Counters start at 1, always add +1 before debugging */
+@counter-style boolean {
+    system: fixed;
+    symbols: "No" "Yes";
+    fallback: decimal;
 }
 
 .debug {

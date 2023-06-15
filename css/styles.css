@@ -3,11 +3,15 @@
     --wall-height: var(--maze-cell-size);
 
     --button-size: var(--maze-cell-size);
-    --button-margin: 5px;
-    --inner-button-size: calc(var(--button-size) - 2 * var(--button-margin));
     --maze-size: 13;
     /* set this to floor(var(--maze-size)) -> read the last bit of --maze-size to see if it is even or odd */
     --center-wall-offset: 6;
+}
+
+body {
+    height: 1vh;
+    overflow: hidden;
+    font-family: sans-serif;
 }
 
 .init-vars {
@@ -25,8 +29,12 @@
     --is-first-person-view: calc(1 - var(--is-birdeye));
 }
 
-body {
-    height: 1vh;
-    overflow: hidden;
-    font-family: sans-serif;
+
+/**
+ * DEBUG
+ */
+
+.debug-border::before {
+    counter-set: debug calc(var(--is-any-border, 99) + 1);
+    content: "Is border: " counter(debug, boolean);
 }

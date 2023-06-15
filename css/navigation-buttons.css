@@ -1,3 +1,8 @@
+@counter-style block-if-true {
+    system: fixed;
+    symbols: '' '█';
+}
+
 .forward {
     display: block;
     position: fixed;
@@ -7,11 +12,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: oklch(54.31% calc(var(--is-not-border) * 0.09271003964609457) 194.76894793196388);
+    background-color: teal;
     color: white;
-    height: var(--inner-button-size);
-    width: var(--inner-button-size);
-    margin: var(--button-margin);
+    height: var(--button-size);
+    width: var(--button-size);
     left: calc(50% - var(--button-size) / 2);
     top: calc(50% - var(--button-size) * 1.5);
     z-index: 100;
@@ -37,18 +41,18 @@
 {
     visibility: visible;
     position: fixed;
-    max-height: var(--inner-button-size);
-    max-width: var(--inner-button-size);
-    margin: var(--button-margin);
+    max-height: var(--button-size);
+    max-width: var(--button-size);
     left: calc(50% - var(--button-size) / 2);
     top: calc(50% - var(--button-size) * 1.5);
     font-size: calc(3 * var(--button-size));
+    line-height: 90%;
     overflow: hidden;
-    color: transparent;
-    background-color: black;
+    color: black;
+    background-color: white;
     opacity: 0.5;
-    counter-set: random-bit calc(var(--random-bit, 99));
-    content: counter(random-bit, random-bits);
+    counter-set: is-border calc(var(--is-any-border, 1) + 1) random-bit var(--random-bit, 99);
+    content: counter(is-border, block-if-true) counter(random-bit, random-bits);
     z-index: 200;
 }
 
@@ -60,9 +64,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: var(--inner-button-size);
-    width: var(--inner-button-size);
-    margin: var(--button-margin);
+    height: var(--button-size);
+    width: var(--button-size);
     background-color: teal;
     color: white;
     pointer-events: none;
