@@ -160,7 +160,8 @@
     width: 100%;
     height: 100%;
     left: 0;
-    font-size: 1000px;
+    font-size: calc(2 * var(--maze-cell-size));
+    line-height: 90%;
     overflow: hidden;
     background-color: transparent;
     color: var(--wall-color);
@@ -200,8 +201,7 @@
  * DEBUG
  */
 
- .walls-x .wall::after,
- .walls-y .wall::after
+ .walls .wall::after
  {
     display: none;
     position: absolute;
