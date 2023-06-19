@@ -1,0 +1,20 @@
+.button {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #222;
+    background-color: whitesmoke;
+    border: 5px solid #222;
+    width: var(--button-size);
+    height: var(--button-size);
+    font-size: calc(var(--button-size) * 2 / 3);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.button.button-disabled {
+    color: gray;
+    border-color: gray;
+}

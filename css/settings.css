@@ -22,18 +22,7 @@
 }
 
 .settings-button {
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: whitesmoke;
-    border: 5px solid darkslategray;
-    width: var(--settings-button-size);
-    height: var(--settings-button-size);
-    font-size: calc(var(--settings-button-size) * 2 / 3);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    box-sizing: border-box;
+    --button-size: var(--settings-button-size);
 }
 
 .settings-button-group {

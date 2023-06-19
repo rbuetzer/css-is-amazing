@@ -2,7 +2,7 @@
     --maze-cell-size: calc(0.1 * min(100vh, 100vw));
     --wall-height: var(--maze-cell-size);
 
-    --button-size: var(--maze-cell-size);
+    --navigation-button-size: var(--maze-cell-size);
     --maze-size: 13;
     /* set this to floor(var(--maze-size)) -> read the last bit of --maze-size to see if it is even or odd */
     --center-wall-offset: 6;
