@@ -3,6 +3,20 @@
     symbols: '' '█';
 }
 
+:root {
+    --navigation-button-size: calc(1.5 * var(--settings-button-size));
+
+    --button-rotate-right-x: calc(50% - calc(var(--navigation-button-size) * 1.5));
+    --button-rotate-right-y: calc(100% - calc(var(--navigation-button-size) * 1.5));
+
+    --button-rotate-left-x: calc(var(--button-rotate-right-x) + calc(var(--navigation-button-size) * 2));
+    --button-rotate-left-y: var(--button-rotate-right-y);
+
+    --button-forward-x: calc(50% - var(--navigation-button-size) / 2);
+    --button-forward-y: calc(100% - var(--navigation-button-size) * 2.5);
+
+}
+
 .button.navigation-button {
     --button-size: var(--navigation-button-size);
     position: fixed;
@@ -14,8 +28,8 @@
     display: block;
     position: fixed;
     pointer-events: none;
-    left: calc(50% - var(--navigation-button-size) / 2);
-    top: calc(50% - var(--navigation-button-size) * 1.5);
+    left: var(--button-forward-x);
+    top: var(--button-forward-y);
     z-index: 100;
 }
 
@@ -41,8 +55,8 @@
     position: fixed;
     max-height: var(--navigation-button-size);
     max-width: var(--navigation-button-size);
-    left: calc(50% - var(--navigation-button-size) / 2);
-    top: calc(50% - var(--navigation-button-size) * 1.5);
+    left: var(--button-forward-x);
+    top: var(--button-forward-y);
     font-size: calc(3 * var(--navigation-button-size));
     line-height: 90%;
     overflow: hidden;

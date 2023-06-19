@@ -1,10 +1,5 @@
 #rotate {
     height: 100%;
-    --button-rotate-right-x: calc(50% - calc(var(--navigation-button-size) * 1.5));
-    --button-rotate-right-y: calc(50% - calc(var(--navigation-button-size) / 2));
-
-    --button-rotate-left-x: calc(var(--button-rotate-right-x) + calc(var(--navigation-button-size) * 2));
-    --button-rotate-left-y: var(--button-rotate-right-y);
 }
 
 #rotate>input {
