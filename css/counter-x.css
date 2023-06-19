@@ -11,13 +11,14 @@
     position: fixed;
     margin: 0;
     padding: 0;
-    opacity: 0;
+    opacity: 1;
     height: var(--navigation-button-size);
     width: var(--navigation-button-size);
     cursor: pointer;
     z-index: 10;
     left: var(--button-forward-x);
     top: var(--button-forward-y);
+    clip-path: circle(50%);
   }
 
   .counter-parent-x>.counter,

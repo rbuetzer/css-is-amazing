@@ -10,6 +10,7 @@
     padding: 0;
     height: var(--navigation-button-size);
     width: var(--navigation-button-size);
+    clip-path: circle(50%);
 }
 
 #rotate>label {
@@ -24,6 +25,7 @@
 #rotate>label {
     left: var(--button-rotate-right-x);
     top: var(--button-rotate-right-y);
+    clip-path: circle(50%);
 }
 
 #rotate>input {
