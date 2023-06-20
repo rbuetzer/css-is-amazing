@@ -41,24 +41,6 @@
     rotate: var(--rotate-90-angle);
 }
 
-.floor-translate::after {
-    height: var(--maze-cell-size);
-    width: var(--maze-cell-size);
-    border: 5px solid hotpink;
-    box-sizing: border-box;
-
-    counter-set: direction calc(var(--is-north) + 2 * var(--is-east) + 3 * var(--is-south) + 4 * var(--is-west));
-    display: block;
-    --direction-arrow: counter(direction, symbols(fixed "↑" "→" "↓" "←"));
-    content: "↑North↑ " var(--direction-arrow) "Direction" var(--direction-arrow);
-    font-size: smaller;
-    line-height: 300%;
-    position: absolute;
-    left: calc(var(--maze-cell-size) * var(--offset-x));
-    top: calc(var(--maze-cell-size) * var(--offset-y));
-    transition: all 1s ease-out;
-}
-
 .wall {
     --wall-width: var(--maze-cell-size);
     --wall-color: oklch(calc(var(--is-wall-orientation-x) * 0.4 + var(--is-wall-orientation-y) * 0.2) 0.5 180deg);

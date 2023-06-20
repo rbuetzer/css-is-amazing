@@ -1,0 +1,22 @@
+.avatar-stand {
+    display: block;
+    position: absolute;
+    rotate: calc(-1 * var(--rotate-90-angle));
+    height: var(--maze-cell-size);
+    width: var(--maze-cell-size);
+    left: calc(var(--maze-cell-size) * var(--offset-x));
+    top: calc(var(--maze-cell-size) * var(--offset-y));
+    transition: all 1s ease-out;
+}
+
+.avatar.wall {
+    opacity: calc(var(--is-birdeye));
+    transition: opacity 1s ease-out;
+    --wall-width: var(--maze-cell-size);
+    --is-wall-orientation-x: 1;
+    --is-wall-orientation-y: 0;
+    --wall-offset-x: 0;
+    --wall-offset-y: 0.5;
+    background-color: transparent;
+    font-size: var(--maze-cell-size);
+}

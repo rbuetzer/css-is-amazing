@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./css/counter-maze-size.css" />
   <link rel="stylesheet" href="./css/rotate.css" />
   <link rel="stylesheet" href="./css/rotate-90.css" />
+  <link rel="stylesheet" href="./css/avatar.css" />
   <link rel="stylesheet" href="./css/maze.css" />
   <link rel="stylesheet" href="./css/possible-wall.css" />
   <link rel="stylesheet" href="./css/debug.css" />
@@ -77,6 +78,9 @@
                                 <div class="wall wall-east"></div>
                                 <div class="wall wall-west"></div>
                                 <div class="wall wall-north"></div>
+                                <div class="avatar-stand rotate-transition">
+                                  <div class="wall avatar">🧍</div>
+                                </div>
                                 <div class="walls">
                                   <div class="wall possible-wall-x" style="--i: 1; --j: 1"></div>
                                   <div class="wall possible-wall-x" style="--i: 1; --j: 2"></div>
@@ -598,7 +602,7 @@
                             </div>
                           </div>
                         </div>
-                        <details class="debug" open>
+                        <details class="debug">
                           <summary>Debug</summary>
                           <details>
                             <summary class="debug-maze-size">
