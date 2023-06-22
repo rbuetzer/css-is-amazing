@@ -1,11 +1,4 @@
   /* Default values */
-  .counter-parent-maze-size {
-    --counter-maze-size-raw-bit-1: 0;
-    --counter-maze-size-raw-bit-2: 0;
-    --counter-maze-size-raw-bit-3: 0;
-    --counter-maze-size-raw-bit-4: 0;
-  }
-
   .counter-parent-maze-size>.counter {
     display: block;
     position: fixed;
@@ -20,46 +13,87 @@
     visibility: var(--visible-if-maze-size-open);
   }
 
-  .counter-parent-maze-size>.counter,
-  .counter-parent-maze-size>.counter:checked~.counter:checked,
-  .counter-parent-maze-size>.counter:checked~.counter:checked~.counter,
-  .counter-parent-maze-size>.counter:checked~.counter:checked~.counter:checked~.counter:checked,
-  .counter-parent-maze-size>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter {
+  .counter-parent-maze-size>.counter {
+    left: calc(var(--settings-button-size) * 1.75);
+  }
+
+  .counter-parent-maze-size>.counter:checked+.counter {
     left: calc(var(--settings-button-size) * 3);
   }
 
   .counter-parent-maze-size>.counter:checked,
-  .counter-parent-maze-size>.counter:checked~.counter,
-  .counter-parent-maze-size>.counter:checked~.counter:checked~.counter:checked,
-  .counter-parent-maze-size>.counter:checked~.counter:checked~.counter:checked~.counter,
-  .counter-parent-maze-size>.counter:checked~.counter:checked~.counter:checked~.counter:checked~.counter:checked {
-    left: calc(var(--settings-button-size) * 1.75);
+  .counter-parent-maze-size>.counter:checked + .counter ~ .counter {
+    display: none;
   }
 
-  .counter-parent-maze-size>.counter:nth-last-of-type(4):checked~.counter-result {
-    --counter-maze-size-raw-bit-4: 1;
+  .counter-parent-maze-size>.counter:nth-of-type(1):checked~.counter-result {
+    --maze-size: 3;
+    --center-wall-offset: 1;
   }
 
-  .counter-parent-maze-size>.counter:nth-last-of-type(3):checked~.counter-result {
-    --counter-maze-size-raw-bit-3: 1;
+  .counter-parent-maze-size>.counter:nth-of-type(2):checked~.counter-result {
+    --maze-size: 4;
+    --center-wall-offset: 2;
   }
 
-  .counter-parent-maze-size>.counter:nth-last-of-type(2):checked~.counter-result {
-    --counter-maze-size-raw-bit-2: 1;
+  .counter-parent-maze-size>.counter:nth-of-type(3):checked~.counter-result {
+    --maze-size: 5;
+    --center-wall-offset: 2;
   }
 
-  .counter-parent-maze-size>.counter:nth-last-of-type(1):checked~.counter-result {
-    --counter-maze-size-raw-bit-1: 1;
+  .counter-parent-maze-size>.counter:nth-of-type(4):checked~.counter-result {
+    --maze-size: 6;
+    --center-wall-offset: 3;
   }
 
-  .counter-parent-maze-size>.counter-result {
-    --counter-maze-size-bit-4: var(--counter-maze-size-raw-bit-4);
-    --counter-maze-size-bit-3: calc((var(--counter-maze-size-raw-bit-3) - var(--counter-maze-size-bit-4)) * (var(--counter-maze-size-raw-bit-3) - var(--counter-maze-size-bit-4)));
-    --counter-maze-size-bit-2: calc((var(--counter-maze-size-raw-bit-2) - var(--counter-maze-size-bit-3)) * (var(--counter-maze-size-raw-bit-2) - var(--counter-maze-size-bit-3)));
-    --counter-maze-size-bit-1: calc((var(--counter-maze-size-raw-bit-1) - var(--counter-maze-size-bit-2)) * (var(--counter-maze-size-raw-bit-1) - var(--counter-maze-size-bit-2)));
+  .counter-parent-maze-size>.counter:nth-of-type(5):checked~.counter-result {
+    --maze-size: 7;
+    --center-wall-offset: 3;
+  }
 
-    --maze-size: calc(1 + var(--counter-maze-size-bit-1) + 2 * var(--counter-maze-size-bit-2) + 4 * var(--counter-maze-size-bit-3) + 8 * var(--counter-maze-size-bit-4));
-    --center-wall-offset: calc((var(--maze-size) - var(--counter-maze-size-bit-1) - 1) / 2 )
+  .counter-parent-maze-size>.counter:nth-of-type(6):checked~.counter-result {
+    --maze-size: 8;
+    --center-wall-offset: 4;
+  }
+
+  .counter-parent-maze-size>.counter:nth-of-type(7):checked~.counter-result {
+    --maze-size: 9;
+    --center-wall-offset: 4;
+  }
+
+  .counter-parent-maze-size>.counter:nth-of-type(8):checked~.counter-result {
+    --maze-size: 10;
+    --center-wall-offset: 5;
+  }
+
+  .counter-parent-maze-size>.counter:nth-of-type(9):checked~.counter-result {
+    --maze-size: 11;
+    --center-wall-offset: 5;
+  }
+
+  .counter-parent-maze-size>.counter:nth-of-type(10):checked~.counter-result {
+    --maze-size: 12;
+    --center-wall-offset: 6;
+  }
+
+  .counter-parent-maze-size>.counter:nth-of-type(11):checked~.counter-result {
+    --maze-size: 13;
+    --center-wall-offset: 6;
+  }
+
+  .counter-parent-maze-size>.counter:nth-of-type(12):checked~.counter-result {
+    --maze-size: 14;
+    --center-wall-offset: 7;
+  }
+
+  .counter-parent-maze-size>.counter:nth-of-type(13):checked~.counter-result {
+    --maze-size: 15;
+    --center-wall-offset: 7;
+  }
+
+  .counter-parent-maze-size>.counter:nth-of-type(14):checked~.counter-result {
+    --maze-size: 16;
+    --center-wall-offset: 8;
   }
 
   /**
@@ -69,26 +103,6 @@
   .debug-maze-size::before {
     counter-set: debug var(--maze-size);
     content: "Maze size: " counter(debug, decimal)
-  }
-
-  .debug-maze-size-raw-bits::before {
-    counter-set: debug-1 var(--counter-maze-size-raw-bit-1, 999) debug-2 var(--counter-maze-size-raw-bit-2, 999) debug-3 var(--counter-maze-size-raw-bit-3, 999) debug-4 var(--counter-maze-size-raw-bit-4, 999) debug-5;
-
-    content: "raw bits: "
-      counter(debug-4, decimal) ", "
-      counter(debug-3, decimal) ", "
-      counter(debug-2, decimal) ", "
-      counter(debug-1, decimal);
-  }
-
-  .debug-maze-size-bits::before {
-    counter-set: debug-1 var(--counter-maze-size-bit-1, 999) debug-2 var(--counter-maze-size-bit-2, 999) debug-3 var(--counter-maze-size-bit-3, 999) debug-4 var(--counter-maze-size-bit-4, 999);
-
-    content: "bits: "
-      counter(debug-4, decimal) ", "
-      counter(debug-3, decimal) ", "
-      counter(debug-2, decimal) ", "
-      counter(debug-1, decimal);
   }
 
   .debug-maze-size-center-wall-offset::before {
