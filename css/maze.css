@@ -54,14 +54,11 @@
     transform: 
         rotateX(calc(-90deg))
         rotateY(calc(var(--is-wall-orientation-y) * 90deg))
-        translateX(calc(var(--is-wall-orientation-y) * (var(--wall-width) - var(--wall-height)) / -2))
-        translateX(calc(var(--is-wall-orientation-y) * var(--wall-offset-y) * var(--maze-cell-size) * -1))
+        translateX(calc(var(--is-wall-orientation-y) * ((-0.5 * (var(--wall-width) - var(--wall-height))) - var(--wall-offset-y) * var(--maze-cell-size))))
         translateX(calc(var(--is-wall-orientation-x) * var(--wall-offset-x) * var(--maze-cell-size)))
-        translateY(calc(var(--wall-height) / -2))
-        translateZ(calc(var(--is-wall-orientation-y) * var(--wall-width) / -2))
-        translateZ(calc(var(--is-wall-orientation-y) * var(--wall-offset-x) * var(--maze-cell-size)))
-        translateZ(calc(var(--is-wall-orientation-x) * var(--wall-height) / -2))
-        translateZ(calc(var(--is-wall-orientation-x) * var(--wall-offset-y) * var(--maze-cell-size)));
+        translateY(calc(-0.5 * var(--wall-height)))
+        translateZ(calc(var(--is-wall-orientation-y) * (var(--wall-offset-x) * var(--maze-cell-size) - var(--wall-width) * 0.5)))
+        translateZ(calc(var(--is-wall-orientation-x) * (var(--wall-offset-y) * var(--maze-cell-size) - var(--wall-height) * 0.5)));
 }
 
 .wall-north {
