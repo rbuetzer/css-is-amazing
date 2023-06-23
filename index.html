@@ -19,6 +19,9 @@
   <link rel="stylesheet" href="./css/button.css" />
   <link rel="stylesheet" href="./css/entry-room.css" />
   <link rel="stylesheet" href="./css/exit-room.css" />
+  <link rel="stylesheet" href="./css/doors.css" />
+  <link rel="stylesheet" href="./css/game-state.css" />
+  <link rel="stylesheet" href="./css/init-vars.css" />
   <link rel="stylesheet" href="./css/styles.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mazed by CSS</title>
@@ -39,618 +42,620 @@
         <label for="setting-is-birdeye" class="button settings-button"></label>
       </div>
 
-      <div id="rotate" class="rotate-90">
-        <input type="radio" name="rotate-90" id="rotate-0" />
-        <input type="radio" name="rotate-90" />
-        <input type="radio" name="rotate-90" checked="1" />
-        <input type="radio" name="rotate-90" />
+      <div class="game-state">
+        <input type="checkbox" id="game-state-is-initial" checked>
+        <div id="rotate" class="rotate-90">
+          <input type="radio" name="rotate-90" id="rotate-0" />
+          <input type="radio" name="rotate-90" />
+          <input type="radio" name="rotate-90" checked="1" />
+          <input type="radio" name="rotate-90" />
 
-        <label for="rotate-0"></label>
+          <label for="rotate-0"></label>
 
-        <div class="rotate-90-vars">
-          <div class="counter-parent-maze-size">
-            <input type="radio" name="maze-size" class="counter" />
-            <input type="radio" name="maze-size" class="counter" />
-            <input type="radio" name="maze-size" class="counter" checked />
-            <input type="radio" name="maze-size" class="counter" />
-            <input type="radio" name="maze-size" class="counter" />
-            <input type="radio" name="maze-size" class="counter" />
-            <input type="radio" name="maze-size" class="counter" />
-            <input type="radio" name="maze-size" class="counter" />
-            <input type="radio" name="maze-size" class="counter" />
-            <input type="radio" name="maze-size" class="counter" />
-            <input type="radio" name="maze-size" class="counter" />
-            <input type="radio" name="maze-size" class="counter" />
-            <input type="radio" name="maze-size" class="counter" />
-            <input type="radio" name="maze-size" class="counter" />
-            <div class="counter-result">
-              <div class="counter-parent-x">
-                <input type="checkbox" class="counter" />
-                <input type="checkbox" class="counter" />
-                <input type="checkbox" class="counter" />
-                <input type="checkbox" class="counter" />
-                <div class="counter-result">
-                  <div class="counter-parent-y">
-                    <input type="checkbox" class="counter" />
-                    <input type="checkbox" class="counter" />
-                    <input type="checkbox" class="counter" />
-                    <input type="checkbox" class="counter" />
-                    <div class="counter-result">
-                      <div class="init-vars">
-                        <div class="button navigation-button navigation-left">↷</div>
-                        <div class="button navigation-button navigation-right">↶</div>
-                        <div class="button navigation-button navigation-forward">&uarr;</div>
-                        <div class="forward-disabled possible-wall-x"></div>
-                        <div class="forward-disabled possible-wall-y"></div>
-                        <div class="perspective-origin">
-                          <div class="floor-3d">
-                            <div class="floor-rotate rotate-transition">
-                              <div class="floor-translate">
-                                <div class="wall wall-south"></div>
-                                <div class="wall wall-east"></div>
-                                <div class="wall wall-west"></div>
-                                <div class="wall wall-north"></div>
-                                <div class="avatar-stand rotate-transition">
-                                  <div class="wall avatar">🧍</div>
+          <div class="rotate-90-vars">
+            <div class="counter-parent-maze-size">
+              <input type="radio" name="maze-size" class="counter" />
+              <input type="radio" name="maze-size" class="counter" />
+              <input type="radio" name="maze-size" class="counter" checked />
+              <input type="radio" name="maze-size" class="counter" />
+              <input type="radio" name="maze-size" class="counter" />
+              <input type="radio" name="maze-size" class="counter" />
+              <input type="radio" name="maze-size" class="counter" />
+              <input type="radio" name="maze-size" class="counter" />
+              <input type="radio" name="maze-size" class="counter" />
+              <input type="radio" name="maze-size" class="counter" />
+              <input type="radio" name="maze-size" class="counter" />
+              <input type="radio" name="maze-size" class="counter" />
+              <input type="radio" name="maze-size" class="counter" />
+              <input type="radio" name="maze-size" class="counter" />
+              <div class="counter-result">
+                <div class="counter-parent-x">
+                  <input type="checkbox" class="counter" />
+                  <input type="checkbox" class="counter" />
+                  <input type="checkbox" class="counter" />
+                  <input type="checkbox" class="counter" checked />
+                  <div class="counter-result">
+                    <div class="counter-parent-y">
+                      <input type="checkbox" class="counter" />
+                      <input type="checkbox" class="counter" />
+                      <input type="checkbox" class="counter" />
+                      <input type="checkbox" class="counter" />
+                      <div class="counter-result">
+                        <div class="init-vars">
+                          <div class="button navigation-button navigation-left">↷</div>
+                          <div class="button navigation-button navigation-right">↶</div>
+                          <div class="button navigation-button navigation-forward">&uarr;</div>
+                          <div class="forward-disabled possible-wall-x"></div>
+                          <div class="forward-disabled possible-wall-y"></div>
+                          <div class="perspective-origin">
+                            <div class="floor-3d">
+                              <div class="floor-rotate rotate-transition">
+                                <div class="floor-translate">
+                                  <label for="game-state-is-initial" class="wall door door-north"></label>
+                                  <div class="wall wall-south"></div>
+                                  <div class="wall wall-east"></div>
+                                  <div class="wall wall-west"></div>
+                                  <div class="wall wall-north"></div>
+                                  <div class="avatar-stand rotate-transition">
+                                    <div class="wall avatar">🧍</div>
+                                  </div>
+                                  <div class="entry-room">
+                                    <div class="wall wall-entry-north"></div>
+                                    <div class="wall wall-entry-east"></div>
+                                    <div class="wall wall-entry-west"></div>
+                                  </div>
+                                  <div class="exit-room">
+                                    <div class="wall wall-exit-south"></div>
+                                    <div class="wall wall-exit-east"></div>
+                                    <div class="wall wall-exit-west"></div>
+                                  </div>
+                                  <div class="walls">
+                                    <div class="wall possible-wall-x" style="--i: 1; --j: 1"></div>
+                                    <div class="wall possible-wall-x" style="--i: 1; --j: 2"></div>
+                                    <div class="wall possible-wall-x" style="--i: 1; --j: 3"></div>
+                                    <div class="wall possible-wall-x" style="--i: 1; --j: 4"></div>
+                                    <div class="wall possible-wall-x" style="--i: 1; --j: 5"></div>
+                                    <div class="wall possible-wall-x" style="--i: 1; --j: 6"></div>
+                                    <div class="wall possible-wall-x" style="--i: 1; --j: 7"></div>
+                                    <div class="wall possible-wall-x" style="--i: 1; --j: 8"></div>
+                                    <div class="wall possible-wall-x" style="--i: 1; --j: 9"></div>
+                                    <div class="wall possible-wall-x" style="--i: 1; --j: 10"></div>
+                                    <div class="wall possible-wall-x" style="--i: 1; --j: 11"></div>
+                                    <div class="wall possible-wall-x" style="--i: 1; --j: 12"></div>
+                                    <div class="wall possible-wall-x" style="--i: 1; --j: 13"></div>
+                                    <div class="wall possible-wall-x" style="--i: 1; --j: 14"></div>
+                                    <div class="wall possible-wall-x" style="--i: 1; --j: 15"></div>
+                                    <div class="wall possible-wall-x" style="--i: 1; --j: 16"></div>
+                                    <div class="wall possible-wall-x" style="--i: 2; --j: 1"></div>
+                                    <div class="wall possible-wall-x" style="--i: 2; --j: 2"></div>
+                                    <div class="wall possible-wall-x" style="--i: 2; --j: 3"></div>
+                                    <div class="wall possible-wall-x" style="--i: 2; --j: 4"></div>
+                                    <div class="wall possible-wall-x" style="--i: 2; --j: 5"></div>
+                                    <div class="wall possible-wall-x" style="--i: 2; --j: 6"></div>
+                                    <div class="wall possible-wall-x" style="--i: 2; --j: 7"></div>
+                                    <div class="wall possible-wall-x" style="--i: 2; --j: 8"></div>
+                                    <div class="wall possible-wall-x" style="--i: 2; --j: 9"></div>
+                                    <div class="wall possible-wall-x" style="--i: 2; --j: 10"></div>
+                                    <div class="wall possible-wall-x" style="--i: 2; --j: 11"></div>
+                                    <div class="wall possible-wall-x" style="--i: 2; --j: 12"></div>
+                                    <div class="wall possible-wall-x" style="--i: 2; --j: 13"></div>
+                                    <div class="wall possible-wall-x" style="--i: 2; --j: 14"></div>
+                                    <div class="wall possible-wall-x" style="--i: 2; --j: 15"></div>
+                                    <div class="wall possible-wall-x" style="--i: 2; --j: 16"></div>
+                                    <div class="wall possible-wall-x" style="--i: 3; --j: 1"></div>
+                                    <div class="wall possible-wall-x" style="--i: 3; --j: 2"></div>
+                                    <div class="wall possible-wall-x" style="--i: 3; --j: 3"></div>
+                                    <div class="wall possible-wall-x" style="--i: 3; --j: 4"></div>
+                                    <div class="wall possible-wall-x" style="--i: 3; --j: 5"></div>
+                                    <div class="wall possible-wall-x" style="--i: 3; --j: 6"></div>
+                                    <div class="wall possible-wall-x" style="--i: 3; --j: 7"></div>
+                                    <div class="wall possible-wall-x" style="--i: 3; --j: 8"></div>
+                                    <div class="wall possible-wall-x" style="--i: 3; --j: 9"></div>
+                                    <div class="wall possible-wall-x" style="--i: 3; --j: 10"></div>
+                                    <div class="wall possible-wall-x" style="--i: 3; --j: 11"></div>
+                                    <div class="wall possible-wall-x" style="--i: 3; --j: 12"></div>
+                                    <div class="wall possible-wall-x" style="--i: 3; --j: 13"></div>
+                                    <div class="wall possible-wall-x" style="--i: 3; --j: 14"></div>
+                                    <div class="wall possible-wall-x" style="--i: 3; --j: 15"></div>
+                                    <div class="wall possible-wall-x" style="--i: 3; --j: 16"></div>
+                                    <div class="wall possible-wall-x" style="--i: 4; --j: 1"></div>
+                                    <div class="wall possible-wall-x" style="--i: 4; --j: 2"></div>
+                                    <div class="wall possible-wall-x" style="--i: 4; --j: 3"></div>
+                                    <div class="wall possible-wall-x" style="--i: 4; --j: 4"></div>
+                                    <div class="wall possible-wall-x" style="--i: 4; --j: 5"></div>
+                                    <div class="wall possible-wall-x" style="--i: 4; --j: 6"></div>
+                                    <div class="wall possible-wall-x" style="--i: 4; --j: 7"></div>
+                                    <div class="wall possible-wall-x" style="--i: 4; --j: 8"></div>
+                                    <div class="wall possible-wall-x" style="--i: 4; --j: 9"></div>
+                                    <div class="wall possible-wall-x" style="--i: 4; --j: 10"></div>
+                                    <div class="wall possible-wall-x" style="--i: 4; --j: 11"></div>
+                                    <div class="wall possible-wall-x" style="--i: 4; --j: 12"></div>
+                                    <div class="wall possible-wall-x" style="--i: 4; --j: 13"></div>
+                                    <div class="wall possible-wall-x" style="--i: 4; --j: 14"></div>
+                                    <div class="wall possible-wall-x" style="--i: 4; --j: 15"></div>
+                                    <div class="wall possible-wall-x" style="--i: 4; --j: 16"></div>
+                                    <div class="wall possible-wall-x" style="--i: 5; --j: 1"></div>
+                                    <div class="wall possible-wall-x" style="--i: 5; --j: 2"></div>
+                                    <div class="wall possible-wall-x" style="--i: 5; --j: 3"></div>
+                                    <div class="wall possible-wall-x" style="--i: 5; --j: 4"></div>
+                                    <div class="wall possible-wall-x" style="--i: 5; --j: 5"></div>
+                                    <div class="wall possible-wall-x" style="--i: 5; --j: 6"></div>
+                                    <div class="wall possible-wall-x" style="--i: 5; --j: 7"></div>
+                                    <div class="wall possible-wall-x" style="--i: 5; --j: 8"></div>
+                                    <div class="wall possible-wall-x" style="--i: 5; --j: 9"></div>
+                                    <div class="wall possible-wall-x" style="--i: 5; --j: 10"></div>
+                                    <div class="wall possible-wall-x" style="--i: 5; --j: 11"></div>
+                                    <div class="wall possible-wall-x" style="--i: 5; --j: 12"></div>
+                                    <div class="wall possible-wall-x" style="--i: 5; --j: 13"></div>
+                                    <div class="wall possible-wall-x" style="--i: 5; --j: 14"></div>
+                                    <div class="wall possible-wall-x" style="--i: 5; --j: 15"></div>
+                                    <div class="wall possible-wall-x" style="--i: 5; --j: 16"></div>
+                                    <div class="wall possible-wall-x" style="--i: 6; --j: 1"></div>
+                                    <div class="wall possible-wall-x" style="--i: 6; --j: 2"></div>
+                                    <div class="wall possible-wall-x" style="--i: 6; --j: 3"></div>
+                                    <div class="wall possible-wall-x" style="--i: 6; --j: 4"></div>
+                                    <div class="wall possible-wall-x" style="--i: 6; --j: 5"></div>
+                                    <div class="wall possible-wall-x" style="--i: 6; --j: 6"></div>
+                                    <div class="wall possible-wall-x" style="--i: 6; --j: 7"></div>
+                                    <div class="wall possible-wall-x" style="--i: 6; --j: 8"></div>
+                                    <div class="wall possible-wall-x" style="--i: 6; --j: 9"></div>
+                                    <div class="wall possible-wall-x" style="--i: 6; --j: 10"></div>
+                                    <div class="wall possible-wall-x" style="--i: 6; --j: 11"></div>
+                                    <div class="wall possible-wall-x" style="--i: 6; --j: 12"></div>
+                                    <div class="wall possible-wall-x" style="--i: 6; --j: 13"></div>
+                                    <div class="wall possible-wall-x" style="--i: 6; --j: 14"></div>
+                                    <div class="wall possible-wall-x" style="--i: 6; --j: 15"></div>
+                                    <div class="wall possible-wall-x" style="--i: 6; --j: 16"></div>
+                                    <div class="wall possible-wall-x" style="--i: 7; --j: 1"></div>
+                                    <div class="wall possible-wall-x" style="--i: 7; --j: 2"></div>
+                                    <div class="wall possible-wall-x" style="--i: 7; --j: 3"></div>
+                                    <div class="wall possible-wall-x" style="--i: 7; --j: 4"></div>
+                                    <div class="wall possible-wall-x" style="--i: 7; --j: 5"></div>
+                                    <div class="wall possible-wall-x" style="--i: 7; --j: 6"></div>
+                                    <div class="wall possible-wall-x" style="--i: 7; --j: 7"></div>
+                                    <div class="wall possible-wall-x" style="--i: 7; --j: 8"></div>
+                                    <div class="wall possible-wall-x" style="--i: 7; --j: 9"></div>
+                                    <div class="wall possible-wall-x" style="--i: 7; --j: 10"></div>
+                                    <div class="wall possible-wall-x" style="--i: 7; --j: 11"></div>
+                                    <div class="wall possible-wall-x" style="--i: 7; --j: 12"></div>
+                                    <div class="wall possible-wall-x" style="--i: 7; --j: 13"></div>
+                                    <div class="wall possible-wall-x" style="--i: 7; --j: 14"></div>
+                                    <div class="wall possible-wall-x" style="--i: 7; --j: 15"></div>
+                                    <div class="wall possible-wall-x" style="--i: 7; --j: 16"></div>
+                                    <div class="wall possible-wall-x" style="--i: 8; --j: 1"></div>
+                                    <div class="wall possible-wall-x" style="--i: 8; --j: 2"></div>
+                                    <div class="wall possible-wall-x" style="--i: 8; --j: 3"></div>
+                                    <div class="wall possible-wall-x" style="--i: 8; --j: 4"></div>
+                                    <div class="wall possible-wall-x" style="--i: 8; --j: 5"></div>
+                                    <div class="wall possible-wall-x" style="--i: 8; --j: 6"></div>
+                                    <div class="wall possible-wall-x" style="--i: 8; --j: 7"></div>
+                                    <div class="wall possible-wall-x" style="--i: 8; --j: 8"></div>
+                                    <div class="wall possible-wall-x" style="--i: 8; --j: 9"></div>
+                                    <div class="wall possible-wall-x" style="--i: 8; --j: 10"></div>
+                                    <div class="wall possible-wall-x" style="--i: 8; --j: 11"></div>
+                                    <div class="wall possible-wall-x" style="--i: 8; --j: 12"></div>
+                                    <div class="wall possible-wall-x" style="--i: 8; --j: 13"></div>
+                                    <div class="wall possible-wall-x" style="--i: 8; --j: 14"></div>
+                                    <div class="wall possible-wall-x" style="--i: 8; --j: 15"></div>
+                                    <div class="wall possible-wall-x" style="--i: 8; --j: 16"></div>
+                                    <div class="wall possible-wall-x" style="--i: 9; --j: 1"></div>
+                                    <div class="wall possible-wall-x" style="--i: 9; --j: 2"></div>
+                                    <div class="wall possible-wall-x" style="--i: 9; --j: 3"></div>
+                                    <div class="wall possible-wall-x" style="--i: 9; --j: 4"></div>
+                                    <div class="wall possible-wall-x" style="--i: 9; --j: 5"></div>
+                                    <div class="wall possible-wall-x" style="--i: 9; --j: 6"></div>
+                                    <div class="wall possible-wall-x" style="--i: 9; --j: 7"></div>
+                                    <div class="wall possible-wall-x" style="--i: 9; --j: 8"></div>
+                                    <div class="wall possible-wall-x" style="--i: 9; --j: 9"></div>
+                                    <div class="wall possible-wall-x" style="--i: 9; --j: 10"></div>
+                                    <div class="wall possible-wall-x" style="--i: 9; --j: 11"></div>
+                                    <div class="wall possible-wall-x" style="--i: 9; --j: 12"></div>
+                                    <div class="wall possible-wall-x" style="--i: 9; --j: 13"></div>
+                                    <div class="wall possible-wall-x" style="--i: 9; --j: 14"></div>
+                                    <div class="wall possible-wall-x" style="--i: 9; --j: 15"></div>
+                                    <div class="wall possible-wall-x" style="--i: 9; --j: 16"></div>
+                                    <div class="wall possible-wall-x" style="--i: 10; --j: 1"></div>
+                                    <div class="wall possible-wall-x" style="--i: 10; --j: 2"></div>
+                                    <div class="wall possible-wall-x" style="--i: 10; --j: 3"></div>
+                                    <div class="wall possible-wall-x" style="--i: 10; --j: 4"></div>
+                                    <div class="wall possible-wall-x" style="--i: 10; --j: 5"></div>
+                                    <div class="wall possible-wall-x" style="--i: 10; --j: 6"></div>
+                                    <div class="wall possible-wall-x" style="--i: 10; --j: 7"></div>
+                                    <div class="wall possible-wall-x" style="--i: 10; --j: 8"></div>
+                                    <div class="wall possible-wall-x" style="--i: 10; --j: 9"></div>
+                                    <div class="wall possible-wall-x" style="--i: 10; --j: 10"></div>
+                                    <div class="wall possible-wall-x" style="--i: 10; --j: 11"></div>
+                                    <div class="wall possible-wall-x" style="--i: 10; --j: 12"></div>
+                                    <div class="wall possible-wall-x" style="--i: 10; --j: 13"></div>
+                                    <div class="wall possible-wall-x" style="--i: 10; --j: 14"></div>
+                                    <div class="wall possible-wall-x" style="--i: 10; --j: 15"></div>
+                                    <div class="wall possible-wall-x" style="--i: 10; --j: 16"></div>
+                                    <div class="wall possible-wall-x" style="--i: 11; --j: 1"></div>
+                                    <div class="wall possible-wall-x" style="--i: 11; --j: 2"></div>
+                                    <div class="wall possible-wall-x" style="--i: 11; --j: 3"></div>
+                                    <div class="wall possible-wall-x" style="--i: 11; --j: 4"></div>
+                                    <div class="wall possible-wall-x" style="--i: 11; --j: 5"></div>
+                                    <div class="wall possible-wall-x" style="--i: 11; --j: 6"></div>
+                                    <div class="wall possible-wall-x" style="--i: 11; --j: 7"></div>
+                                    <div class="wall possible-wall-x" style="--i: 11; --j: 8"></div>
+                                    <div class="wall possible-wall-x" style="--i: 11; --j: 9"></div>
+                                    <div class="wall possible-wall-x" style="--i: 11; --j: 10"></div>
+                                    <div class="wall possible-wall-x" style="--i: 11; --j: 11"></div>
+                                    <div class="wall possible-wall-x" style="--i: 11; --j: 12"></div>
+                                    <div class="wall possible-wall-x" style="--i: 11; --j: 13"></div>
+                                    <div class="wall possible-wall-x" style="--i: 11; --j: 14"></div>
+                                    <div class="wall possible-wall-x" style="--i: 11; --j: 15"></div>
+                                    <div class="wall possible-wall-x" style="--i: 11; --j: 16"></div>
+                                    <div class="wall possible-wall-x" style="--i: 12; --j: 1"></div>
+                                    <div class="wall possible-wall-x" style="--i: 12; --j: 2"></div>
+                                    <div class="wall possible-wall-x" style="--i: 12; --j: 3"></div>
+                                    <div class="wall possible-wall-x" style="--i: 12; --j: 4"></div>
+                                    <div class="wall possible-wall-x" style="--i: 12; --j: 5"></div>
+                                    <div class="wall possible-wall-x" style="--i: 12; --j: 6"></div>
+                                    <div class="wall possible-wall-x" style="--i: 12; --j: 7"></div>
+                                    <div class="wall possible-wall-x" style="--i: 12; --j: 8"></div>
+                                    <div class="wall possible-wall-x" style="--i: 12; --j: 9"></div>
+                                    <div class="wall possible-wall-x" style="--i: 12; --j: 10"></div>
+                                    <div class="wall possible-wall-x" style="--i: 12; --j: 11"></div>
+                                    <div class="wall possible-wall-x" style="--i: 12; --j: 12"></div>
+                                    <div class="wall possible-wall-x" style="--i: 12; --j: 13"></div>
+                                    <div class="wall possible-wall-x" style="--i: 12; --j: 14"></div>
+                                    <div class="wall possible-wall-x" style="--i: 12; --j: 15"></div>
+                                    <div class="wall possible-wall-x" style="--i: 12; --j: 16"></div>
+                                    <div class="wall possible-wall-x" style="--i: 13; --j: 1"></div>
+                                    <div class="wall possible-wall-x" style="--i: 13; --j: 2"></div>
+                                    <div class="wall possible-wall-x" style="--i: 13; --j: 3"></div>
+                                    <div class="wall possible-wall-x" style="--i: 13; --j: 4"></div>
+                                    <div class="wall possible-wall-x" style="--i: 13; --j: 5"></div>
+                                    <div class="wall possible-wall-x" style="--i: 13; --j: 6"></div>
+                                    <div class="wall possible-wall-x" style="--i: 13; --j: 7"></div>
+                                    <div class="wall possible-wall-x" style="--i: 13; --j: 8"></div>
+                                    <div class="wall possible-wall-x" style="--i: 13; --j: 9"></div>
+                                    <div class="wall possible-wall-x" style="--i: 13; --j: 10"></div>
+                                    <div class="wall possible-wall-x" style="--i: 13; --j: 11"></div>
+                                    <div class="wall possible-wall-x" style="--i: 13; --j: 12"></div>
+                                    <div class="wall possible-wall-x" style="--i: 13; --j: 13"></div>
+                                    <div class="wall possible-wall-x" style="--i: 13; --j: 14"></div>
+                                    <div class="wall possible-wall-x" style="--i: 13; --j: 15"></div>
+                                    <div class="wall possible-wall-x" style="--i: 13; --j: 16"></div>
+                                    <div class="wall possible-wall-x" style="--i: 14; --j: 1"></div>
+                                    <div class="wall possible-wall-x" style="--i: 14; --j: 2"></div>
+                                    <div class="wall possible-wall-x" style="--i: 14; --j: 3"></div>
+                                    <div class="wall possible-wall-x" style="--i: 14; --j: 4"></div>
+                                    <div class="wall possible-wall-x" style="--i: 14; --j: 5"></div>
+                                    <div class="wall possible-wall-x" style="--i: 14; --j: 6"></div>
+                                    <div class="wall possible-wall-x" style="--i: 14; --j: 7"></div>
+                                    <div class="wall possible-wall-x" style="--i: 14; --j: 8"></div>
+                                    <div class="wall possible-wall-x" style="--i: 14; --j: 9"></div>
+                                    <div class="wall possible-wall-x" style="--i: 14; --j: 10"></div>
+                                    <div class="wall possible-wall-x" style="--i: 14; --j: 11"></div>
+                                    <div class="wall possible-wall-x" style="--i: 14; --j: 12"></div>
+                                    <div class="wall possible-wall-x" style="--i: 14; --j: 13"></div>
+                                    <div class="wall possible-wall-x" style="--i: 14; --j: 14"></div>
+                                    <div class="wall possible-wall-x" style="--i: 14; --j: 15"></div>
+                                    <div class="wall possible-wall-x" style="--i: 14; --j: 16"></div>
+                                    <div class="wall possible-wall-x" style="--i: 15; --j: 1"></div>
+                                    <div class="wall possible-wall-x" style="--i: 15; --j: 2"></div>
+                                    <div class="wall possible-wall-x" style="--i: 15; --j: 3"></div>
+                                    <div class="wall possible-wall-x" style="--i: 15; --j: 4"></div>
+                                    <div class="wall possible-wall-x" style="--i: 15; --j: 5"></div>
+                                    <div class="wall possible-wall-x" style="--i: 15; --j: 6"></div>
+                                    <div class="wall possible-wall-x" style="--i: 15; --j: 7"></div>
+                                    <div class="wall possible-wall-x" style="--i: 15; --j: 8"></div>
+                                    <div class="wall possible-wall-x" style="--i: 15; --j: 9"></div>
+                                    <div class="wall possible-wall-x" style="--i: 15; --j: 10"></div>
+                                    <div class="wall possible-wall-x" style="--i: 15; --j: 11"></div>
+                                    <div class="wall possible-wall-x" style="--i: 15; --j: 12"></div>
+                                    <div class="wall possible-wall-x" style="--i: 15; --j: 13"></div>
+                                    <div class="wall possible-wall-x" style="--i: 15; --j: 14"></div>
+                                    <div class="wall possible-wall-x" style="--i: 15; --j: 15"></div>
+                                    <div class="wall possible-wall-x" style="--i: 15; --j: 16"></div>
+                                    <div class="wall possible-wall-x" style="--i: 16; --j: 1"></div>
+                                    <div class="wall possible-wall-x" style="--i: 16; --j: 2"></div>
+                                    <div class="wall possible-wall-x" style="--i: 16; --j: 3"></div>
+                                    <div class="wall possible-wall-x" style="--i: 16; --j: 4"></div>
+                                    <div class="wall possible-wall-x" style="--i: 16; --j: 5"></div>
+                                    <div class="wall possible-wall-x" style="--i: 16; --j: 6"></div>
+                                    <div class="wall possible-wall-x" style="--i: 16; --j: 7"></div>
+                                    <div class="wall possible-wall-x" style="--i: 16; --j: 8"></div>
+                                    <div class="wall possible-wall-x" style="--i: 16; --j: 9"></div>
+                                    <div class="wall possible-wall-x" style="--i: 16; --j: 10"></div>
+                                    <div class="wall possible-wall-x" style="--i: 16; --j: 11"></div>
+                                    <div class="wall possible-wall-x" style="--i: 16; --j: 12"></div>
+                                    <div class="wall possible-wall-x" style="--i: 16; --j: 13"></div>
+                                    <div class="wall possible-wall-x" style="--i: 16; --j: 14"></div>
+                                    <div class="wall possible-wall-x" style="--i: 16; --j: 15"></div>
+                                    <div class="wall possible-wall-x" style="--i: 16; --j: 16"></div>
+                                    <div class="wall possible-wall-y" style="--i: 1; --j: 1"></div>
+                                    <div class="wall possible-wall-y" style="--i: 1; --j: 2"></div>
+                                    <div class="wall possible-wall-y" style="--i: 1; --j: 3"></div>
+                                    <div class="wall possible-wall-y" style="--i: 1; --j: 4"></div>
+                                    <div class="wall possible-wall-y" style="--i: 1; --j: 5"></div>
+                                    <div class="wall possible-wall-y" style="--i: 1; --j: 6"></div>
+                                    <div class="wall possible-wall-y" style="--i: 1; --j: 7"></div>
+                                    <div class="wall possible-wall-y" style="--i: 1; --j: 8"></div>
+                                    <div class="wall possible-wall-y" style="--i: 1; --j: 9"></div>
+                                    <div class="wall possible-wall-y" style="--i: 1; --j: 10"></div>
+                                    <div class="wall possible-wall-y" style="--i: 1; --j: 11"></div>
+                                    <div class="wall possible-wall-y" style="--i: 1; --j: 12"></div>
+                                    <div class="wall possible-wall-y" style="--i: 1; --j: 13"></div>
+                                    <div class="wall possible-wall-y" style="--i: 1; --j: 14"></div>
+                                    <div class="wall possible-wall-y" style="--i: 1; --j: 15"></div>
+                                    <div class="wall possible-wall-y" style="--i: 1; --j: 16"></div>
+                                    <div class="wall possible-wall-y" style="--i: 2; --j: 1"></div>
+                                    <div class="wall possible-wall-y" style="--i: 2; --j: 2"></div>
+                                    <div class="wall possible-wall-y" style="--i: 2; --j: 3"></div>
+                                    <div class="wall possible-wall-y" style="--i: 2; --j: 4"></div>
+                                    <div class="wall possible-wall-y" style="--i: 2; --j: 5"></div>
+                                    <div class="wall possible-wall-y" style="--i: 2; --j: 6"></div>
+                                    <div class="wall possible-wall-y" style="--i: 2; --j: 7"></div>
+                                    <div class="wall possible-wall-y" style="--i: 2; --j: 8"></div>
+                                    <div class="wall possible-wall-y" style="--i: 2; --j: 9"></div>
+                                    <div class="wall possible-wall-y" style="--i: 2; --j: 10"></div>
+                                    <div class="wall possible-wall-y" style="--i: 2; --j: 11"></div>
+                                    <div class="wall possible-wall-y" style="--i: 2; --j: 12"></div>
+                                    <div class="wall possible-wall-y" style="--i: 2; --j: 13"></div>
+                                    <div class="wall possible-wall-y" style="--i: 2; --j: 14"></div>
+                                    <div class="wall possible-wall-y" style="--i: 2; --j: 15"></div>
+                                    <div class="wall possible-wall-y" style="--i: 2; --j: 16"></div>
+                                    <div class="wall possible-wall-y" style="--i: 3; --j: 1"></div>
+                                    <div class="wall possible-wall-y" style="--i: 3; --j: 2"></div>
+                                    <div class="wall possible-wall-y" style="--i: 3; --j: 3"></div>
+                                    <div class="wall possible-wall-y" style="--i: 3; --j: 4"></div>
+                                    <div class="wall possible-wall-y" style="--i: 3; --j: 5"></div>
+                                    <div class="wall possible-wall-y" style="--i: 3; --j: 6"></div>
+                                    <div class="wall possible-wall-y" style="--i: 3; --j: 7"></div>
+                                    <div class="wall possible-wall-y" style="--i: 3; --j: 8"></div>
+                                    <div class="wall possible-wall-y" style="--i: 3; --j: 9"></div>
+                                    <div class="wall possible-wall-y" style="--i: 3; --j: 10"></div>
+                                    <div class="wall possible-wall-y" style="--i: 3; --j: 11"></div>
+                                    <div class="wall possible-wall-y" style="--i: 3; --j: 12"></div>
+                                    <div class="wall possible-wall-y" style="--i: 3; --j: 13"></div>
+                                    <div class="wall possible-wall-y" style="--i: 3; --j: 14"></div>
+                                    <div class="wall possible-wall-y" style="--i: 3; --j: 15"></div>
+                                    <div class="wall possible-wall-y" style="--i: 3; --j: 16"></div>
+                                    <div class="wall possible-wall-y" style="--i: 4; --j: 1"></div>
+                                    <div class="wall possible-wall-y" style="--i: 4; --j: 2"></div>
+                                    <div class="wall possible-wall-y" style="--i: 4; --j: 3"></div>
+                                    <div class="wall possible-wall-y" style="--i: 4; --j: 4"></div>
+                                    <div class="wall possible-wall-y" style="--i: 4; --j: 5"></div>
+                                    <div class="wall possible-wall-y" style="--i: 4; --j: 6"></div>
+                                    <div class="wall possible-wall-y" style="--i: 4; --j: 7"></div>
+                                    <div class="wall possible-wall-y" style="--i: 4; --j: 8"></div>
+                                    <div class="wall possible-wall-y" style="--i: 4; --j: 9"></div>
+                                    <div class="wall possible-wall-y" style="--i: 4; --j: 10"></div>
+                                    <div class="wall possible-wall-y" style="--i: 4; --j: 11"></div>
+                                    <div class="wall possible-wall-y" style="--i: 4; --j: 12"></div>
+                                    <div class="wall possible-wall-y" style="--i: 4; --j: 13"></div>
+                                    <div class="wall possible-wall-y" style="--i: 4; --j: 14"></div>
+                                    <div class="wall possible-wall-y" style="--i: 4; --j: 15"></div>
+                                    <div class="wall possible-wall-y" style="--i: 4; --j: 16"></div>
+                                    <div class="wall possible-wall-y" style="--i: 5; --j: 1"></div>
+                                    <div class="wall possible-wall-y" style="--i: 5; --j: 2"></div>
+                                    <div class="wall possible-wall-y" style="--i: 5; --j: 3"></div>
+                                    <div class="wall possible-wall-y" style="--i: 5; --j: 4"></div>
+                                    <div class="wall possible-wall-y" style="--i: 5; --j: 5"></div>
+                                    <div class="wall possible-wall-y" style="--i: 5; --j: 6"></div>
+                                    <div class="wall possible-wall-y" style="--i: 5; --j: 7"></div>
+                                    <div class="wall possible-wall-y" style="--i: 5; --j: 8"></div>
+                                    <div class="wall possible-wall-y" style="--i: 5; --j: 9"></div>
+                                    <div class="wall possible-wall-y" style="--i: 5; --j: 10"></div>
+                                    <div class="wall possible-wall-y" style="--i: 5; --j: 11"></div>
+                                    <div class="wall possible-wall-y" style="--i: 5; --j: 12"></div>
+                                    <div class="wall possible-wall-y" style="--i: 5; --j: 13"></div>
+                                    <div class="wall possible-wall-y" style="--i: 5; --j: 14"></div>
+                                    <div class="wall possible-wall-y" style="--i: 5; --j: 15"></div>
+                                    <div class="wall possible-wall-y" style="--i: 5; --j: 16"></div>
+                                    <div class="wall possible-wall-y" style="--i: 6; --j: 1"></div>
+                                    <div class="wall possible-wall-y" style="--i: 6; --j: 2"></div>
+                                    <div class="wall possible-wall-y" style="--i: 6; --j: 3"></div>
+                                    <div class="wall possible-wall-y" style="--i: 6; --j: 4"></div>
+                                    <div class="wall possible-wall-y" style="--i: 6; --j: 5"></div>
+                                    <div class="wall possible-wall-y" style="--i: 6; --j: 6"></div>
+                                    <div class="wall possible-wall-y" style="--i: 6; --j: 7"></div>
+                                    <div class="wall possible-wall-y" style="--i: 6; --j: 8"></div>
+                                    <div class="wall possible-wall-y" style="--i: 6; --j: 9"></div>
+                                    <div class="wall possible-wall-y" style="--i: 6; --j: 10"></div>
+                                    <div class="wall possible-wall-y" style="--i: 6; --j: 11"></div>
+                                    <div class="wall possible-wall-y" style="--i: 6; --j: 12"></div>
+                                    <div class="wall possible-wall-y" style="--i: 6; --j: 13"></div>
+                                    <div class="wall possible-wall-y" style="--i: 6; --j: 14"></div>
+                                    <div class="wall possible-wall-y" style="--i: 6; --j: 15"></div>
+                                    <div class="wall possible-wall-y" style="--i: 6; --j: 16"></div>
+                                    <div class="wall possible-wall-y" style="--i: 7; --j: 1"></div>
+                                    <div class="wall possible-wall-y" style="--i: 7; --j: 2"></div>
+                                    <div class="wall possible-wall-y" style="--i: 7; --j: 3"></div>
+                                    <div class="wall possible-wall-y" style="--i: 7; --j: 4"></div>
+                                    <div class="wall possible-wall-y" style="--i: 7; --j: 5"></div>
+                                    <div class="wall possible-wall-y" style="--i: 7; --j: 6"></div>
+                                    <div class="wall possible-wall-y" style="--i: 7; --j: 7"></div>
+                                    <div class="wall possible-wall-y" style="--i: 7; --j: 8"></div>
+                                    <div class="wall possible-wall-y" style="--i: 7; --j: 9"></div>
+                                    <div class="wall possible-wall-y" style="--i: 7; --j: 10"></div>
+                                    <div class="wall possible-wall-y" style="--i: 7; --j: 11"></div>
+                                    <div class="wall possible-wall-y" style="--i: 7; --j: 12"></div>
+                                    <div class="wall possible-wall-y" style="--i: 7; --j: 13"></div>
+                                    <div class="wall possible-wall-y" style="--i: 7; --j: 14"></div>
+                                    <div class="wall possible-wall-y" style="--i: 7; --j: 15"></div>
+                                    <div class="wall possible-wall-y" style="--i: 7; --j: 16"></div>
+                                    <div class="wall possible-wall-y" style="--i: 8; --j: 1"></div>
+                                    <div class="wall possible-wall-y" style="--i: 8; --j: 2"></div>
+                                    <div class="wall possible-wall-y" style="--i: 8; --j: 3"></div>
+                                    <div class="wall possible-wall-y" style="--i: 8; --j: 4"></div>
+                                    <div class="wall possible-wall-y" style="--i: 8; --j: 5"></div>
+                                    <div class="wall possible-wall-y" style="--i: 8; --j: 6"></div>
+                                    <div class="wall possible-wall-y" style="--i: 8; --j: 7"></div>
+                                    <div class="wall possible-wall-y" style="--i: 8; --j: 8"></div>
+                                    <div class="wall possible-wall-y" style="--i: 8; --j: 9"></div>
+                                    <div class="wall possible-wall-y" style="--i: 8; --j: 10"></div>
+                                    <div class="wall possible-wall-y" style="--i: 8; --j: 11"></div>
+                                    <div class="wall possible-wall-y" style="--i: 8; --j: 12"></div>
+                                    <div class="wall possible-wall-y" style="--i: 8; --j: 13"></div>
+                                    <div class="wall possible-wall-y" style="--i: 8; --j: 14"></div>
+                                    <div class="wall possible-wall-y" style="--i: 8; --j: 15"></div>
+                                    <div class="wall possible-wall-y" style="--i: 8; --j: 16"></div>
+                                    <div class="wall possible-wall-y" style="--i: 9; --j: 1"></div>
+                                    <div class="wall possible-wall-y" style="--i: 9; --j: 2"></div>
+                                    <div class="wall possible-wall-y" style="--i: 9; --j: 3"></div>
+                                    <div class="wall possible-wall-y" style="--i: 9; --j: 4"></div>
+                                    <div class="wall possible-wall-y" style="--i: 9; --j: 5"></div>
+                                    <div class="wall possible-wall-y" style="--i: 9; --j: 6"></div>
+                                    <div class="wall possible-wall-y" style="--i: 9; --j: 7"></div>
+                                    <div class="wall possible-wall-y" style="--i: 9; --j: 8"></div>
+                                    <div class="wall possible-wall-y" style="--i: 9; --j: 9"></div>
+                                    <div class="wall possible-wall-y" style="--i: 9; --j: 10"></div>
+                                    <div class="wall possible-wall-y" style="--i: 9; --j: 11"></div>
+                                    <div class="wall possible-wall-y" style="--i: 9; --j: 12"></div>
+                                    <div class="wall possible-wall-y" style="--i: 9; --j: 13"></div>
+                                    <div class="wall possible-wall-y" style="--i: 9; --j: 14"></div>
+                                    <div class="wall possible-wall-y" style="--i: 9; --j: 15"></div>
+                                    <div class="wall possible-wall-y" style="--i: 9; --j: 16"></div>
+                                    <div class="wall possible-wall-y" style="--i: 10; --j: 1"></div>
+                                    <div class="wall possible-wall-y" style="--i: 10; --j: 2"></div>
+                                    <div class="wall possible-wall-y" style="--i: 10; --j: 3"></div>
+                                    <div class="wall possible-wall-y" style="--i: 10; --j: 4"></div>
+                                    <div class="wall possible-wall-y" style="--i: 10; --j: 5"></div>
+                                    <div class="wall possible-wall-y" style="--i: 10; --j: 6"></div>
+                                    <div class="wall possible-wall-y" style="--i: 10; --j: 7"></div>
+                                    <div class="wall possible-wall-y" style="--i: 10; --j: 8"></div>
+                                    <div class="wall possible-wall-y" style="--i: 10; --j: 9"></div>
+                                    <div class="wall possible-wall-y" style="--i: 10; --j: 10"></div>
+                                    <div class="wall possible-wall-y" style="--i: 10; --j: 11"></div>
+                                    <div class="wall possible-wall-y" style="--i: 10; --j: 12"></div>
+                                    <div class="wall possible-wall-y" style="--i: 10; --j: 13"></div>
+                                    <div class="wall possible-wall-y" style="--i: 10; --j: 14"></div>
+                                    <div class="wall possible-wall-y" style="--i: 10; --j: 15"></div>
+                                    <div class="wall possible-wall-y" style="--i: 10; --j: 16"></div>
+                                    <div class="wall possible-wall-y" style="--i: 11; --j: 1"></div>
+                                    <div class="wall possible-wall-y" style="--i: 11; --j: 2"></div>
+                                    <div class="wall possible-wall-y" style="--i: 11; --j: 3"></div>
+                                    <div class="wall possible-wall-y" style="--i: 11; --j: 4"></div>
+                                    <div class="wall possible-wall-y" style="--i: 11; --j: 5"></div>
+                                    <div class="wall possible-wall-y" style="--i: 11; --j: 6"></div>
+                                    <div class="wall possible-wall-y" style="--i: 11; --j: 7"></div>
+                                    <div class="wall possible-wall-y" style="--i: 11; --j: 8"></div>
+                                    <div class="wall possible-wall-y" style="--i: 11; --j: 9"></div>
+                                    <div class="wall possible-wall-y" style="--i: 11; --j: 10"></div>
+                                    <div class="wall possible-wall-y" style="--i: 11; --j: 11"></div>
+                                    <div class="wall possible-wall-y" style="--i: 11; --j: 12"></div>
+                                    <div class="wall possible-wall-y" style="--i: 11; --j: 13"></div>
+                                    <div class="wall possible-wall-y" style="--i: 11; --j: 14"></div>
+                                    <div class="wall possible-wall-y" style="--i: 11; --j: 15"></div>
+                                    <div class="wall possible-wall-y" style="--i: 11; --j: 16"></div>
+                                    <div class="wall possible-wall-y" style="--i: 12; --j: 1"></div>
+                                    <div class="wall possible-wall-y" style="--i: 12; --j: 2"></div>
+                                    <div class="wall possible-wall-y" style="--i: 12; --j: 3"></div>
+                                    <div class="wall possible-wall-y" style="--i: 12; --j: 4"></div>
+                                    <div class="wall possible-wall-y" style="--i: 12; --j: 5"></div>
+                                    <div class="wall possible-wall-y" style="--i: 12; --j: 6"></div>
+                                    <div class="wall possible-wall-y" style="--i: 12; --j: 7"></div>
+                                    <div class="wall possible-wall-y" style="--i: 12; --j: 8"></div>
+                                    <div class="wall possible-wall-y" style="--i: 12; --j: 9"></div>
+                                    <div class="wall possible-wall-y" style="--i: 12; --j: 10"></div>
+                                    <div class="wall possible-wall-y" style="--i: 12; --j: 11"></div>
+                                    <div class="wall possible-wall-y" style="--i: 12; --j: 12"></div>
+                                    <div class="wall possible-wall-y" style="--i: 12; --j: 13"></div>
+                                    <div class="wall possible-wall-y" style="--i: 12; --j: 14"></div>
+                                    <div class="wall possible-wall-y" style="--i: 12; --j: 15"></div>
+                                    <div class="wall possible-wall-y" style="--i: 12; --j: 16"></div>
+                                    <div class="wall possible-wall-y" style="--i: 13; --j: 1"></div>
+                                    <div class="wall possible-wall-y" style="--i: 13; --j: 2"></div>
+                                    <div class="wall possible-wall-y" style="--i: 13; --j: 3"></div>
+                                    <div class="wall possible-wall-y" style="--i: 13; --j: 4"></div>
+                                    <div class="wall possible-wall-y" style="--i: 13; --j: 5"></div>
+                                    <div class="wall possible-wall-y" style="--i: 13; --j: 6"></div>
+                                    <div class="wall possible-wall-y" style="--i: 13; --j: 7"></div>
+                                    <div class="wall possible-wall-y" style="--i: 13; --j: 8"></div>
+                                    <div class="wall possible-wall-y" style="--i: 13; --j: 9"></div>
+                                    <div class="wall possible-wall-y" style="--i: 13; --j: 10"></div>
+                                    <div class="wall possible-wall-y" style="--i: 13; --j: 11"></div>
+                                    <div class="wall possible-wall-y" style="--i: 13; --j: 12"></div>
+                                    <div class="wall possible-wall-y" style="--i: 13; --j: 13"></div>
+                                    <div class="wall possible-wall-y" style="--i: 13; --j: 14"></div>
+                                    <div class="wall possible-wall-y" style="--i: 13; --j: 15"></div>
+                                    <div class="wall possible-wall-y" style="--i: 13; --j: 16"></div>
+                                    <div class="wall possible-wall-y" style="--i: 14; --j: 1"></div>
+                                    <div class="wall possible-wall-y" style="--i: 14; --j: 2"></div>
+                                    <div class="wall possible-wall-y" style="--i: 14; --j: 3"></div>
+                                    <div class="wall possible-wall-y" style="--i: 14; --j: 4"></div>
+                                    <div class="wall possible-wall-y" style="--i: 14; --j: 5"></div>
+                                    <div class="wall possible-wall-y" style="--i: 14; --j: 6"></div>
+                                    <div class="wall possible-wall-y" style="--i: 14; --j: 7"></div>
+                                    <div class="wall possible-wall-y" style="--i: 14; --j: 8"></div>
+                                    <div class="wall possible-wall-y" style="--i: 14; --j: 9"></div>
+                                    <div class="wall possible-wall-y" style="--i: 14; --j: 10"></div>
+                                    <div class="wall possible-wall-y" style="--i: 14; --j: 11"></div>
+                                    <div class="wall possible-wall-y" style="--i: 14; --j: 12"></div>
+                                    <div class="wall possible-wall-y" style="--i: 14; --j: 13"></div>
+                                    <div class="wall possible-wall-y" style="--i: 14; --j: 14"></div>
+                                    <div class="wall possible-wall-y" style="--i: 14; --j: 15"></div>
+                                    <div class="wall possible-wall-y" style="--i: 14; --j: 16"></div>
+                                    <div class="wall possible-wall-y" style="--i: 15; --j: 1"></div>
+                                    <div class="wall possible-wall-y" style="--i: 15; --j: 2"></div>
+                                    <div class="wall possible-wall-y" style="--i: 15; --j: 3"></div>
+                                    <div class="wall possible-wall-y" style="--i: 15; --j: 4"></div>
+                                    <div class="wall possible-wall-y" style="--i: 15; --j: 5"></div>
+                                    <div class="wall possible-wall-y" style="--i: 15; --j: 6"></div>
+                                    <div class="wall possible-wall-y" style="--i: 15; --j: 7"></div>
+                                    <div class="wall possible-wall-y" style="--i: 15; --j: 8"></div>
+                                    <div class="wall possible-wall-y" style="--i: 15; --j: 9"></div>
+                                    <div class="wall possible-wall-y" style="--i: 15; --j: 10"></div>
+                                    <div class="wall possible-wall-y" style="--i: 15; --j: 11"></div>
+                                    <div class="wall possible-wall-y" style="--i: 15; --j: 12"></div>
+                                    <div class="wall possible-wall-y" style="--i: 15; --j: 13"></div>
+                                    <div class="wall possible-wall-y" style="--i: 15; --j: 14"></div>
+                                    <div class="wall possible-wall-y" style="--i: 15; --j: 15"></div>
+                                    <div class="wall possible-wall-y" style="--i: 15; --j: 16"></div>
+                                    <div class="wall possible-wall-y" style="--i: 16; --j: 1"></div>
+                                    <div class="wall possible-wall-y" style="--i: 16; --j: 2"></div>
+                                    <div class="wall possible-wall-y" style="--i: 16; --j: 3"></div>
+                                    <div class="wall possible-wall-y" style="--i: 16; --j: 4"></div>
+                                    <div class="wall possible-wall-y" style="--i: 16; --j: 5"></div>
+                                    <div class="wall possible-wall-y" style="--i: 16; --j: 6"></div>
+                                    <div class="wall possible-wall-y" style="--i: 16; --j: 7"></div>
+                                    <div class="wall possible-wall-y" style="--i: 16; --j: 8"></div>
+                                    <div class="wall possible-wall-y" style="--i: 16; --j: 9"></div>
+                                    <div class="wall possible-wall-y" style="--i: 16; --j: 10"></div>
+                                    <div class="wall possible-wall-y" style="--i: 16; --j: 11"></div>
+                                    <div class="wall possible-wall-y" style="--i: 16; --j: 12"></div>
+                                    <div class="wall possible-wall-y" style="--i: 16; --j: 13"></div>
+                                    <div class="wall possible-wall-y" style="--i: 16; --j: 14"></div>
+                                    <div class="wall possible-wall-y" style="--i: 16; --j: 15"></div>
+                                    <div class="wall possible-wall-y" style="--i: 16; --j: 16"></div>
+                                  </div>
                                 </div>
-                                <div class="entry-room">
-                                  <div class="wall wall-entry-north"></div>
-                                  <div class="wall wall-entry-east"></div>
-                                  <div class="wall wall-entry-west"></div>
-                                </div>
-                                <div class="exit-room">
-                                  <div class="wall wall-exit-south"></div>
-                                  <div class="wall wall-exit-east"></div>
-                                  <div class="wall wall-exit-west"></div>
-                                </div>
-                                <div class="walls">
-                                  <div class="wall possible-wall-x" style="--i: 1; --j: 1"></div>
-                                  <div class="wall possible-wall-x" style="--i: 1; --j: 2"></div>
-                                  <div class="wall possible-wall-x" style="--i: 1; --j: 3"></div>
-                                  <div class="wall possible-wall-x" style="--i: 1; --j: 4"></div>
-                                  <div class="wall possible-wall-x" style="--i: 1; --j: 5"></div>
-                                  <div class="wall possible-wall-x" style="--i: 1; --j: 6"></div>
-                                  <div class="wall possible-wall-x" style="--i: 1; --j: 7"></div>
-                                  <div class="wall possible-wall-x" style="--i: 1; --j: 8"></div>
-                                  <div class="wall possible-wall-x" style="--i: 1; --j: 9"></div>
-                                  <div class="wall possible-wall-x" style="--i: 1; --j: 10"></div>
-                                  <div class="wall possible-wall-x" style="--i: 1; --j: 11"></div>
-                                  <div class="wall possible-wall-x" style="--i: 1; --j: 12"></div>
-                                  <div class="wall possible-wall-x" style="--i: 1; --j: 13"></div>
-                                  <div class="wall possible-wall-x" style="--i: 1; --j: 14"></div>
-                                  <div class="wall possible-wall-x" style="--i: 1; --j: 15"></div>
-                                  <div class="wall possible-wall-x" style="--i: 1; --j: 16"></div>
-                                  <div class="wall possible-wall-x" style="--i: 2; --j: 1"></div>
-                                  <div class="wall possible-wall-x" style="--i: 2; --j: 2"></div>
-                                  <div class="wall possible-wall-x" style="--i: 2; --j: 3"></div>
-                                  <div class="wall possible-wall-x" style="--i: 2; --j: 4"></div>
-                                  <div class="wall possible-wall-x" style="--i: 2; --j: 5"></div>
-                                  <div class="wall possible-wall-x" style="--i: 2; --j: 6"></div>
-                                  <div class="wall possible-wall-x" style="--i: 2; --j: 7"></div>
-                                  <div class="wall possible-wall-x" style="--i: 2; --j: 8"></div>
-                                  <div class="wall possible-wall-x" style="--i: 2; --j: 9"></div>
-                                  <div class="wall possible-wall-x" style="--i: 2; --j: 10"></div>
-                                  <div class="wall possible-wall-x" style="--i: 2; --j: 11"></div>
-                                  <div class="wall possible-wall-x" style="--i: 2; --j: 12"></div>
-                                  <div class="wall possible-wall-x" style="--i: 2; --j: 13"></div>
-                                  <div class="wall possible-wall-x" style="--i: 2; --j: 14"></div>
-                                  <div class="wall possible-wall-x" style="--i: 2; --j: 15"></div>
-                                  <div class="wall possible-wall-x" style="--i: 2; --j: 16"></div>
-                                  <div class="wall possible-wall-x" style="--i: 3; --j: 1"></div>
-                                  <div class="wall possible-wall-x" style="--i: 3; --j: 2"></div>
-                                  <div class="wall possible-wall-x" style="--i: 3; --j: 3"></div>
-                                  <div class="wall possible-wall-x" style="--i: 3; --j: 4"></div>
-                                  <div class="wall possible-wall-x" style="--i: 3; --j: 5"></div>
-                                  <div class="wall possible-wall-x" style="--i: 3; --j: 6"></div>
-                                  <div class="wall possible-wall-x" style="--i: 3; --j: 7"></div>
-                                  <div class="wall possible-wall-x" style="--i: 3; --j: 8"></div>
-                                  <div class="wall possible-wall-x" style="--i: 3; --j: 9"></div>
-                                  <div class="wall possible-wall-x" style="--i: 3; --j: 10"></div>
-                                  <div class="wall possible-wall-x" style="--i: 3; --j: 11"></div>
-                                  <div class="wall possible-wall-x" style="--i: 3; --j: 12"></div>
-                                  <div class="wall possible-wall-x" style="--i: 3; --j: 13"></div>
-                                  <div class="wall possible-wall-x" style="--i: 3; --j: 14"></div>
-                                  <div class="wall possible-wall-x" style="--i: 3; --j: 15"></div>
-                                  <div class="wall possible-wall-x" style="--i: 3; --j: 16"></div>
-                                  <div class="wall possible-wall-x" style="--i: 4; --j: 1"></div>
-                                  <div class="wall possible-wall-x" style="--i: 4; --j: 2"></div>
-                                  <div class="wall possible-wall-x" style="--i: 4; --j: 3"></div>
-                                  <div class="wall possible-wall-x" style="--i: 4; --j: 4"></div>
-                                  <div class="wall possible-wall-x" style="--i: 4; --j: 5"></div>
-                                  <div class="wall possible-wall-x" style="--i: 4; --j: 6"></div>
-                                  <div class="wall possible-wall-x" style="--i: 4; --j: 7"></div>
-                                  <div class="wall possible-wall-x" style="--i: 4; --j: 8"></div>
-                                  <div class="wall possible-wall-x" style="--i: 4; --j: 9"></div>
-                                  <div class="wall possible-wall-x" style="--i: 4; --j: 10"></div>
-                                  <div class="wall possible-wall-x" style="--i: 4; --j: 11"></div>
-                                  <div class="wall possible-wall-x" style="--i: 4; --j: 12"></div>
-                                  <div class="wall possible-wall-x" style="--i: 4; --j: 13"></div>
-                                  <div class="wall possible-wall-x" style="--i: 4; --j: 14"></div>
-                                  <div class="wall possible-wall-x" style="--i: 4; --j: 15"></div>
-                                  <div class="wall possible-wall-x" style="--i: 4; --j: 16"></div>
-                                  <div class="wall possible-wall-x" style="--i: 5; --j: 1"></div>
-                                  <div class="wall possible-wall-x" style="--i: 5; --j: 2"></div>
-                                  <div class="wall possible-wall-x" style="--i: 5; --j: 3"></div>
-                                  <div class="wall possible-wall-x" style="--i: 5; --j: 4"></div>
-                                  <div class="wall possible-wall-x" style="--i: 5; --j: 5"></div>
-                                  <div class="wall possible-wall-x" style="--i: 5; --j: 6"></div>
-                                  <div class="wall possible-wall-x" style="--i: 5; --j: 7"></div>
-                                  <div class="wall possible-wall-x" style="--i: 5; --j: 8"></div>
-                                  <div class="wall possible-wall-x" style="--i: 5; --j: 9"></div>
-                                  <div class="wall possible-wall-x" style="--i: 5; --j: 10"></div>
-                                  <div class="wall possible-wall-x" style="--i: 5; --j: 11"></div>
-                                  <div class="wall possible-wall-x" style="--i: 5; --j: 12"></div>
-                                  <div class="wall possible-wall-x" style="--i: 5; --j: 13"></div>
-                                  <div class="wall possible-wall-x" style="--i: 5; --j: 14"></div>
-                                  <div class="wall possible-wall-x" style="--i: 5; --j: 15"></div>
-                                  <div class="wall possible-wall-x" style="--i: 5; --j: 16"></div>
-                                  <div class="wall possible-wall-x" style="--i: 6; --j: 1"></div>
-                                  <div class="wall possible-wall-x" style="--i: 6; --j: 2"></div>
-                                  <div class="wall possible-wall-x" style="--i: 6; --j: 3"></div>
-                                  <div class="wall possible-wall-x" style="--i: 6; --j: 4"></div>
-                                  <div class="wall possible-wall-x" style="--i: 6; --j: 5"></div>
-                                  <div class="wall possible-wall-x" style="--i: 6; --j: 6"></div>
-                                  <div class="wall possible-wall-x" style="--i: 6; --j: 7"></div>
-                                  <div class="wall possible-wall-x" style="--i: 6; --j: 8"></div>
-                                  <div class="wall possible-wall-x" style="--i: 6; --j: 9"></div>
-                                  <div class="wall possible-wall-x" style="--i: 6; --j: 10"></div>
-                                  <div class="wall possible-wall-x" style="--i: 6; --j: 11"></div>
-                                  <div class="wall possible-wall-x" style="--i: 6; --j: 12"></div>
-                                  <div class="wall possible-wall-x" style="--i: 6; --j: 13"></div>
-                                  <div class="wall possible-wall-x" style="--i: 6; --j: 14"></div>
-                                  <div class="wall possible-wall-x" style="--i: 6; --j: 15"></div>
-                                  <div class="wall possible-wall-x" style="--i: 6; --j: 16"></div>
-                                  <div class="wall possible-wall-x" style="--i: 7; --j: 1"></div>
-                                  <div class="wall possible-wall-x" style="--i: 7; --j: 2"></div>
-                                  <div class="wall possible-wall-x" style="--i: 7; --j: 3"></div>
-                                  <div class="wall possible-wall-x" style="--i: 7; --j: 4"></div>
-                                  <div class="wall possible-wall-x" style="--i: 7; --j: 5"></div>
-                                  <div class="wall possible-wall-x" style="--i: 7; --j: 6"></div>
-                                  <div class="wall possible-wall-x" style="--i: 7; --j: 7"></div>
-                                  <div class="wall possible-wall-x" style="--i: 7; --j: 8"></div>
-                                  <div class="wall possible-wall-x" style="--i: 7; --j: 9"></div>
-                                  <div class="wall possible-wall-x" style="--i: 7; --j: 10"></div>
-                                  <div class="wall possible-wall-x" style="--i: 7; --j: 11"></div>
-                                  <div class="wall possible-wall-x" style="--i: 7; --j: 12"></div>
-                                  <div class="wall possible-wall-x" style="--i: 7; --j: 13"></div>
-                                  <div class="wall possible-wall-x" style="--i: 7; --j: 14"></div>
-                                  <div class="wall possible-wall-x" style="--i: 7; --j: 15"></div>
-                                  <div class="wall possible-wall-x" style="--i: 7; --j: 16"></div>
-                                  <div class="wall possible-wall-x" style="--i: 8; --j: 1"></div>
-                                  <div class="wall possible-wall-x" style="--i: 8; --j: 2"></div>
-                                  <div class="wall possible-wall-x" style="--i: 8; --j: 3"></div>
-                                  <div class="wall possible-wall-x" style="--i: 8; --j: 4"></div>
-                                  <div class="wall possible-wall-x" style="--i: 8; --j: 5"></div>
-                                  <div class="wall possible-wall-x" style="--i: 8; --j: 6"></div>
-                                  <div class="wall possible-wall-x" style="--i: 8; --j: 7"></div>
-                                  <div class="wall possible-wall-x" style="--i: 8; --j: 8"></div>
-                                  <div class="wall possible-wall-x" style="--i: 8; --j: 9"></div>
-                                  <div class="wall possible-wall-x" style="--i: 8; --j: 10"></div>
-                                  <div class="wall possible-wall-x" style="--i: 8; --j: 11"></div>
-                                  <div class="wall possible-wall-x" style="--i: 8; --j: 12"></div>
-                                  <div class="wall possible-wall-x" style="--i: 8; --j: 13"></div>
-                                  <div class="wall possible-wall-x" style="--i: 8; --j: 14"></div>
-                                  <div class="wall possible-wall-x" style="--i: 8; --j: 15"></div>
-                                  <div class="wall possible-wall-x" style="--i: 8; --j: 16"></div>
-                                  <div class="wall possible-wall-x" style="--i: 9; --j: 1"></div>
-                                  <div class="wall possible-wall-x" style="--i: 9; --j: 2"></div>
-                                  <div class="wall possible-wall-x" style="--i: 9; --j: 3"></div>
-                                  <div class="wall possible-wall-x" style="--i: 9; --j: 4"></div>
-                                  <div class="wall possible-wall-x" style="--i: 9; --j: 5"></div>
-                                  <div class="wall possible-wall-x" style="--i: 9; --j: 6"></div>
-                                  <div class="wall possible-wall-x" style="--i: 9; --j: 7"></div>
-                                  <div class="wall possible-wall-x" style="--i: 9; --j: 8"></div>
-                                  <div class="wall possible-wall-x" style="--i: 9; --j: 9"></div>
-                                  <div class="wall possible-wall-x" style="--i: 9; --j: 10"></div>
-                                  <div class="wall possible-wall-x" style="--i: 9; --j: 11"></div>
-                                  <div class="wall possible-wall-x" style="--i: 9; --j: 12"></div>
-                                  <div class="wall possible-wall-x" style="--i: 9; --j: 13"></div>
-                                  <div class="wall possible-wall-x" style="--i: 9; --j: 14"></div>
-                                  <div class="wall possible-wall-x" style="--i: 9; --j: 15"></div>
-                                  <div class="wall possible-wall-x" style="--i: 9; --j: 16"></div>
-                                  <div class="wall possible-wall-x" style="--i: 10; --j: 1"></div>
-                                  <div class="wall possible-wall-x" style="--i: 10; --j: 2"></div>
-                                  <div class="wall possible-wall-x" style="--i: 10; --j: 3"></div>
-                                  <div class="wall possible-wall-x" style="--i: 10; --j: 4"></div>
-                                  <div class="wall possible-wall-x" style="--i: 10; --j: 5"></div>
-                                  <div class="wall possible-wall-x" style="--i: 10; --j: 6"></div>
-                                  <div class="wall possible-wall-x" style="--i: 10; --j: 7"></div>
-                                  <div class="wall possible-wall-x" style="--i: 10; --j: 8"></div>
-                                  <div class="wall possible-wall-x" style="--i: 10; --j: 9"></div>
-                                  <div class="wall possible-wall-x" style="--i: 10; --j: 10"></div>
-                                  <div class="wall possible-wall-x" style="--i: 10; --j: 11"></div>
-                                  <div class="wall possible-wall-x" style="--i: 10; --j: 12"></div>
-                                  <div class="wall possible-wall-x" style="--i: 10; --j: 13"></div>
-                                  <div class="wall possible-wall-x" style="--i: 10; --j: 14"></div>
-                                  <div class="wall possible-wall-x" style="--i: 10; --j: 15"></div>
-                                  <div class="wall possible-wall-x" style="--i: 10; --j: 16"></div>
-                                  <div class="wall possible-wall-x" style="--i: 11; --j: 1"></div>
-                                  <div class="wall possible-wall-x" style="--i: 11; --j: 2"></div>
-                                  <div class="wall possible-wall-x" style="--i: 11; --j: 3"></div>
-                                  <div class="wall possible-wall-x" style="--i: 11; --j: 4"></div>
-                                  <div class="wall possible-wall-x" style="--i: 11; --j: 5"></div>
-                                  <div class="wall possible-wall-x" style="--i: 11; --j: 6"></div>
-                                  <div class="wall possible-wall-x" style="--i: 11; --j: 7"></div>
-                                  <div class="wall possible-wall-x" style="--i: 11; --j: 8"></div>
-                                  <div class="wall possible-wall-x" style="--i: 11; --j: 9"></div>
-                                  <div class="wall possible-wall-x" style="--i: 11; --j: 10"></div>
-                                  <div class="wall possible-wall-x" style="--i: 11; --j: 11"></div>
-                                  <div class="wall possible-wall-x" style="--i: 11; --j: 12"></div>
-                                  <div class="wall possible-wall-x" style="--i: 11; --j: 13"></div>
-                                  <div class="wall possible-wall-x" style="--i: 11; --j: 14"></div>
-                                  <div class="wall possible-wall-x" style="--i: 11; --j: 15"></div>
-                                  <div class="wall possible-wall-x" style="--i: 11; --j: 16"></div>
-                                  <div class="wall possible-wall-x" style="--i: 12; --j: 1"></div>
-                                  <div class="wall possible-wall-x" style="--i: 12; --j: 2"></div>
-                                  <div class="wall possible-wall-x" style="--i: 12; --j: 3"></div>
-                                  <div class="wall possible-wall-x" style="--i: 12; --j: 4"></div>
-                                  <div class="wall possible-wall-x" style="--i: 12; --j: 5"></div>
-                                  <div class="wall possible-wall-x" style="--i: 12; --j: 6"></div>
-                                  <div class="wall possible-wall-x" style="--i: 12; --j: 7"></div>
-                                  <div class="wall possible-wall-x" style="--i: 12; --j: 8"></div>
-                                  <div class="wall possible-wall-x" style="--i: 12; --j: 9"></div>
-                                  <div class="wall possible-wall-x" style="--i: 12; --j: 10"></div>
-                                  <div class="wall possible-wall-x" style="--i: 12; --j: 11"></div>
-                                  <div class="wall possible-wall-x" style="--i: 12; --j: 12"></div>
-                                  <div class="wall possible-wall-x" style="--i: 12; --j: 13"></div>
-                                  <div class="wall possible-wall-x" style="--i: 12; --j: 14"></div>
-                                  <div class="wall possible-wall-x" style="--i: 12; --j: 15"></div>
-                                  <div class="wall possible-wall-x" style="--i: 12; --j: 16"></div>
-                                  <div class="wall possible-wall-x" style="--i: 13; --j: 1"></div>
-                                  <div class="wall possible-wall-x" style="--i: 13; --j: 2"></div>
-                                  <div class="wall possible-wall-x" style="--i: 13; --j: 3"></div>
-                                  <div class="wall possible-wall-x" style="--i: 13; --j: 4"></div>
-                                  <div class="wall possible-wall-x" style="--i: 13; --j: 5"></div>
-                                  <div class="wall possible-wall-x" style="--i: 13; --j: 6"></div>
-                                  <div class="wall possible-wall-x" style="--i: 13; --j: 7"></div>
-                                  <div class="wall possible-wall-x" style="--i: 13; --j: 8"></div>
-                                  <div class="wall possible-wall-x" style="--i: 13; --j: 9"></div>
-                                  <div class="wall possible-wall-x" style="--i: 13; --j: 10"></div>
-                                  <div class="wall possible-wall-x" style="--i: 13; --j: 11"></div>
-                                  <div class="wall possible-wall-x" style="--i: 13; --j: 12"></div>
-                                  <div class="wall possible-wall-x" style="--i: 13; --j: 13"></div>
-                                  <div class="wall possible-wall-x" style="--i: 13; --j: 14"></div>
-                                  <div class="wall possible-wall-x" style="--i: 13; --j: 15"></div>
-                                  <div class="wall possible-wall-x" style="--i: 13; --j: 16"></div>
-                                  <div class="wall possible-wall-x" style="--i: 14; --j: 1"></div>
-                                  <div class="wall possible-wall-x" style="--i: 14; --j: 2"></div>
-                                  <div class="wall possible-wall-x" style="--i: 14; --j: 3"></div>
-                                  <div class="wall possible-wall-x" style="--i: 14; --j: 4"></div>
-                                  <div class="wall possible-wall-x" style="--i: 14; --j: 5"></div>
-                                  <div class="wall possible-wall-x" style="--i: 14; --j: 6"></div>
-                                  <div class="wall possible-wall-x" style="--i: 14; --j: 7"></div>
-                                  <div class="wall possible-wall-x" style="--i: 14; --j: 8"></div>
-                                  <div class="wall possible-wall-x" style="--i: 14; --j: 9"></div>
-                                  <div class="wall possible-wall-x" style="--i: 14; --j: 10"></div>
-                                  <div class="wall possible-wall-x" style="--i: 14; --j: 11"></div>
-                                  <div class="wall possible-wall-x" style="--i: 14; --j: 12"></div>
-                                  <div class="wall possible-wall-x" style="--i: 14; --j: 13"></div>
-                                  <div class="wall possible-wall-x" style="--i: 14; --j: 14"></div>
-                                  <div class="wall possible-wall-x" style="--i: 14; --j: 15"></div>
-                                  <div class="wall possible-wall-x" style="--i: 14; --j: 16"></div>
-                                  <div class="wall possible-wall-x" style="--i: 15; --j: 1"></div>
-                                  <div class="wall possible-wall-x" style="--i: 15; --j: 2"></div>
-                                  <div class="wall possible-wall-x" style="--i: 15; --j: 3"></div>
-                                  <div class="wall possible-wall-x" style="--i: 15; --j: 4"></div>
-                                  <div class="wall possible-wall-x" style="--i: 15; --j: 5"></div>
-                                  <div class="wall possible-wall-x" style="--i: 15; --j: 6"></div>
-                                  <div class="wall possible-wall-x" style="--i: 15; --j: 7"></div>
-                                  <div class="wall possible-wall-x" style="--i: 15; --j: 8"></div>
-                                  <div class="wall possible-wall-x" style="--i: 15; --j: 9"></div>
-                                  <div class="wall possible-wall-x" style="--i: 15; --j: 10"></div>
-                                  <div class="wall possible-wall-x" style="--i: 15; --j: 11"></div>
-                                  <div class="wall possible-wall-x" style="--i: 15; --j: 12"></div>
-                                  <div class="wall possible-wall-x" style="--i: 15; --j: 13"></div>
-                                  <div class="wall possible-wall-x" style="--i: 15; --j: 14"></div>
-                                  <div class="wall possible-wall-x" style="--i: 15; --j: 15"></div>
-                                  <div class="wall possible-wall-x" style="--i: 15; --j: 16"></div>
-                                  <div class="wall possible-wall-x" style="--i: 16; --j: 1"></div>
-                                  <div class="wall possible-wall-x" style="--i: 16; --j: 2"></div>
-                                  <div class="wall possible-wall-x" style="--i: 16; --j: 3"></div>
-                                  <div class="wall possible-wall-x" style="--i: 16; --j: 4"></div>
-                                  <div class="wall possible-wall-x" style="--i: 16; --j: 5"></div>
-                                  <div class="wall possible-wall-x" style="--i: 16; --j: 6"></div>
-                                  <div class="wall possible-wall-x" style="--i: 16; --j: 7"></div>
-                                  <div class="wall possible-wall-x" style="--i: 16; --j: 8"></div>
-                                  <div class="wall possible-wall-x" style="--i: 16; --j: 9"></div>
-                                  <div class="wall possible-wall-x" style="--i: 16; --j: 10"></div>
-                                  <div class="wall possible-wall-x" style="--i: 16; --j: 11"></div>
-                                  <div class="wall possible-wall-x" style="--i: 16; --j: 12"></div>
-                                  <div class="wall possible-wall-x" style="--i: 16; --j: 13"></div>
-                                  <div class="wall possible-wall-x" style="--i: 16; --j: 14"></div>
-                                  <div class="wall possible-wall-x" style="--i: 16; --j: 15"></div>
-                                  <div class="wall possible-wall-x" style="--i: 16; --j: 16"></div>
-                                  <div class="wall possible-wall-y" style="--i: 1; --j: 1"></div>
-                                  <div class="wall possible-wall-y" style="--i: 1; --j: 2"></div>
-                                  <div class="wall possible-wall-y" style="--i: 1; --j: 3"></div>
-                                  <div class="wall possible-wall-y" style="--i: 1; --j: 4"></div>
-                                  <div class="wall possible-wall-y" style="--i: 1; --j: 5"></div>
-                                  <div class="wall possible-wall-y" style="--i: 1; --j: 6"></div>
-                                  <div class="wall possible-wall-y" style="--i: 1; --j: 7"></div>
-                                  <div class="wall possible-wall-y" style="--i: 1; --j: 8"></div>
-                                  <div class="wall possible-wall-y" style="--i: 1; --j: 9"></div>
-                                  <div class="wall possible-wall-y" style="--i: 1; --j: 10"></div>
-                                  <div class="wall possible-wall-y" style="--i: 1; --j: 11"></div>
-                                  <div class="wall possible-wall-y" style="--i: 1; --j: 12"></div>
-                                  <div class="wall possible-wall-y" style="--i: 1; --j: 13"></div>
-                                  <div class="wall possible-wall-y" style="--i: 1; --j: 14"></div>
-                                  <div class="wall possible-wall-y" style="--i: 1; --j: 15"></div>
-                                  <div class="wall possible-wall-y" style="--i: 1; --j: 16"></div>
-                                  <div class="wall possible-wall-y" style="--i: 2; --j: 1"></div>
-                                  <div class="wall possible-wall-y" style="--i: 2; --j: 2"></div>
-                                  <div class="wall possible-wall-y" style="--i: 2; --j: 3"></div>
-                                  <div class="wall possible-wall-y" style="--i: 2; --j: 4"></div>
-                                  <div class="wall possible-wall-y" style="--i: 2; --j: 5"></div>
-                                  <div class="wall possible-wall-y" style="--i: 2; --j: 6"></div>
-                                  <div class="wall possible-wall-y" style="--i: 2; --j: 7"></div>
-                                  <div class="wall possible-wall-y" style="--i: 2; --j: 8"></div>
-                                  <div class="wall possible-wall-y" style="--i: 2; --j: 9"></div>
-                                  <div class="wall possible-wall-y" style="--i: 2; --j: 10"></div>
-                                  <div class="wall possible-wall-y" style="--i: 2; --j: 11"></div>
-                                  <div class="wall possible-wall-y" style="--i: 2; --j: 12"></div>
-                                  <div class="wall possible-wall-y" style="--i: 2; --j: 13"></div>
-                                  <div class="wall possible-wall-y" style="--i: 2; --j: 14"></div>
-                                  <div class="wall possible-wall-y" style="--i: 2; --j: 15"></div>
-                                  <div class="wall possible-wall-y" style="--i: 2; --j: 16"></div>
-                                  <div class="wall possible-wall-y" style="--i: 3; --j: 1"></div>
-                                  <div class="wall possible-wall-y" style="--i: 3; --j: 2"></div>
-                                  <div class="wall possible-wall-y" style="--i: 3; --j: 3"></div>
-                                  <div class="wall possible-wall-y" style="--i: 3; --j: 4"></div>
-                                  <div class="wall possible-wall-y" style="--i: 3; --j: 5"></div>
-                                  <div class="wall possible-wall-y" style="--i: 3; --j: 6"></div>
-                                  <div class="wall possible-wall-y" style="--i: 3; --j: 7"></div>
-                                  <div class="wall possible-wall-y" style="--i: 3; --j: 8"></div>
-                                  <div class="wall possible-wall-y" style="--i: 3; --j: 9"></div>
-                                  <div class="wall possible-wall-y" style="--i: 3; --j: 10"></div>
-                                  <div class="wall possible-wall-y" style="--i: 3; --j: 11"></div>
-                                  <div class="wall possible-wall-y" style="--i: 3; --j: 12"></div>
-                                  <div class="wall possible-wall-y" style="--i: 3; --j: 13"></div>
-                                  <div class="wall possible-wall-y" style="--i: 3; --j: 14"></div>
-                                  <div class="wall possible-wall-y" style="--i: 3; --j: 15"></div>
-                                  <div class="wall possible-wall-y" style="--i: 3; --j: 16"></div>
-                                  <div class="wall possible-wall-y" style="--i: 4; --j: 1"></div>
-                                  <div class="wall possible-wall-y" style="--i: 4; --j: 2"></div>
-                                  <div class="wall possible-wall-y" style="--i: 4; --j: 3"></div>
-                                  <div class="wall possible-wall-y" style="--i: 4; --j: 4"></div>
-                                  <div class="wall possible-wall-y" style="--i: 4; --j: 5"></div>
-                                  <div class="wall possible-wall-y" style="--i: 4; --j: 6"></div>
-                                  <div class="wall possible-wall-y" style="--i: 4; --j: 7"></div>
-                                  <div class="wall possible-wall-y" style="--i: 4; --j: 8"></div>
-                                  <div class="wall possible-wall-y" style="--i: 4; --j: 9"></div>
-                                  <div class="wall possible-wall-y" style="--i: 4; --j: 10"></div>
-                                  <div class="wall possible-wall-y" style="--i: 4; --j: 11"></div>
-                                  <div class="wall possible-wall-y" style="--i: 4; --j: 12"></div>
-                                  <div class="wall possible-wall-y" style="--i: 4; --j: 13"></div>
-                                  <div class="wall possible-wall-y" style="--i: 4; --j: 14"></div>
-                                  <div class="wall possible-wall-y" style="--i: 4; --j: 15"></div>
-                                  <div class="wall possible-wall-y" style="--i: 4; --j: 16"></div>
-                                  <div class="wall possible-wall-y" style="--i: 5; --j: 1"></div>
-                                  <div class="wall possible-wall-y" style="--i: 5; --j: 2"></div>
-                                  <div class="wall possible-wall-y" style="--i: 5; --j: 3"></div>
-                                  <div class="wall possible-wall-y" style="--i: 5; --j: 4"></div>
-                                  <div class="wall possible-wall-y" style="--i: 5; --j: 5"></div>
-                                  <div class="wall possible-wall-y" style="--i: 5; --j: 6"></div>
-                                  <div class="wall possible-wall-y" style="--i: 5; --j: 7"></div>
-                                  <div class="wall possible-wall-y" style="--i: 5; --j: 8"></div>
-                                  <div class="wall possible-wall-y" style="--i: 5; --j: 9"></div>
-                                  <div class="wall possible-wall-y" style="--i: 5; --j: 10"></div>
-                                  <div class="wall possible-wall-y" style="--i: 5; --j: 11"></div>
-                                  <div class="wall possible-wall-y" style="--i: 5; --j: 12"></div>
-                                  <div class="wall possible-wall-y" style="--i: 5; --j: 13"></div>
-                                  <div class="wall possible-wall-y" style="--i: 5; --j: 14"></div>
-                                  <div class="wall possible-wall-y" style="--i: 5; --j: 15"></div>
-                                  <div class="wall possible-wall-y" style="--i: 5; --j: 16"></div>
-                                  <div class="wall possible-wall-y" style="--i: 6; --j: 1"></div>
-                                  <div class="wall possible-wall-y" style="--i: 6; --j: 2"></div>
-                                  <div class="wall possible-wall-y" style="--i: 6; --j: 3"></div>
-                                  <div class="wall possible-wall-y" style="--i: 6; --j: 4"></div>
-                                  <div class="wall possible-wall-y" style="--i: 6; --j: 5"></div>
-                                  <div class="wall possible-wall-y" style="--i: 6; --j: 6"></div>
-                                  <div class="wall possible-wall-y" style="--i: 6; --j: 7"></div>
-                                  <div class="wall possible-wall-y" style="--i: 6; --j: 8"></div>
-                                  <div class="wall possible-wall-y" style="--i: 6; --j: 9"></div>
-                                  <div class="wall possible-wall-y" style="--i: 6; --j: 10"></div>
-                                  <div class="wall possible-wall-y" style="--i: 6; --j: 11"></div>
-                                  <div class="wall possible-wall-y" style="--i: 6; --j: 12"></div>
-                                  <div class="wall possible-wall-y" style="--i: 6; --j: 13"></div>
-                                  <div class="wall possible-wall-y" style="--i: 6; --j: 14"></div>
-                                  <div class="wall possible-wall-y" style="--i: 6; --j: 15"></div>
-                                  <div class="wall possible-wall-y" style="--i: 6; --j: 16"></div>
-                                  <div class="wall possible-wall-y" style="--i: 7; --j: 1"></div>
-                                  <div class="wall possible-wall-y" style="--i: 7; --j: 2"></div>
-                                  <div class="wall possible-wall-y" style="--i: 7; --j: 3"></div>
-                                  <div class="wall possible-wall-y" style="--i: 7; --j: 4"></div>
-                                  <div class="wall possible-wall-y" style="--i: 7; --j: 5"></div>
-                                  <div class="wall possible-wall-y" style="--i: 7; --j: 6"></div>
-                                  <div class="wall possible-wall-y" style="--i: 7; --j: 7"></div>
-                                  <div class="wall possible-wall-y" style="--i: 7; --j: 8"></div>
-                                  <div class="wall possible-wall-y" style="--i: 7; --j: 9"></div>
-                                  <div class="wall possible-wall-y" style="--i: 7; --j: 10"></div>
-                                  <div class="wall possible-wall-y" style="--i: 7; --j: 11"></div>
-                                  <div class="wall possible-wall-y" style="--i: 7; --j: 12"></div>
-                                  <div class="wall possible-wall-y" style="--i: 7; --j: 13"></div>
-                                  <div class="wall possible-wall-y" style="--i: 7; --j: 14"></div>
-                                  <div class="wall possible-wall-y" style="--i: 7; --j: 15"></div>
-                                  <div class="wall possible-wall-y" style="--i: 7; --j: 16"></div>
-                                  <div class="wall possible-wall-y" style="--i: 8; --j: 1"></div>
-                                  <div class="wall possible-wall-y" style="--i: 8; --j: 2"></div>
-                                  <div class="wall possible-wall-y" style="--i: 8; --j: 3"></div>
-                                  <div class="wall possible-wall-y" style="--i: 8; --j: 4"></div>
-                                  <div class="wall possible-wall-y" style="--i: 8; --j: 5"></div>
-                                  <div class="wall possible-wall-y" style="--i: 8; --j: 6"></div>
-                                  <div class="wall possible-wall-y" style="--i: 8; --j: 7"></div>
-                                  <div class="wall possible-wall-y" style="--i: 8; --j: 8"></div>
-                                  <div class="wall possible-wall-y" style="--i: 8; --j: 9"></div>
-                                  <div class="wall possible-wall-y" style="--i: 8; --j: 10"></div>
-                                  <div class="wall possible-wall-y" style="--i: 8; --j: 11"></div>
-                                  <div class="wall possible-wall-y" style="--i: 8; --j: 12"></div>
-                                  <div class="wall possible-wall-y" style="--i: 8; --j: 13"></div>
-                                  <div class="wall possible-wall-y" style="--i: 8; --j: 14"></div>
-                                  <div class="wall possible-wall-y" style="--i: 8; --j: 15"></div>
-                                  <div class="wall possible-wall-y" style="--i: 8; --j: 16"></div>
-                                  <div class="wall possible-wall-y" style="--i: 9; --j: 1"></div>
-                                  <div class="wall possible-wall-y" style="--i: 9; --j: 2"></div>
-                                  <div class="wall possible-wall-y" style="--i: 9; --j: 3"></div>
-                                  <div class="wall possible-wall-y" style="--i: 9; --j: 4"></div>
-                                  <div class="wall possible-wall-y" style="--i: 9; --j: 5"></div>
-                                  <div class="wall possible-wall-y" style="--i: 9; --j: 6"></div>
-                                  <div class="wall possible-wall-y" style="--i: 9; --j: 7"></div>
-                                  <div class="wall possible-wall-y" style="--i: 9; --j: 8"></div>
-                                  <div class="wall possible-wall-y" style="--i: 9; --j: 9"></div>
-                                  <div class="wall possible-wall-y" style="--i: 9; --j: 10"></div>
-                                  <div class="wall possible-wall-y" style="--i: 9; --j: 11"></div>
-                                  <div class="wall possible-wall-y" style="--i: 9; --j: 12"></div>
-                                  <div class="wall possible-wall-y" style="--i: 9; --j: 13"></div>
-                                  <div class="wall possible-wall-y" style="--i: 9; --j: 14"></div>
-                                  <div class="wall possible-wall-y" style="--i: 9; --j: 15"></div>
-                                  <div class="wall possible-wall-y" style="--i: 9; --j: 16"></div>
-                                  <div class="wall possible-wall-y" style="--i: 10; --j: 1"></div>
-                                  <div class="wall possible-wall-y" style="--i: 10; --j: 2"></div>
-                                  <div class="wall possible-wall-y" style="--i: 10; --j: 3"></div>
-                                  <div class="wall possible-wall-y" style="--i: 10; --j: 4"></div>
-                                  <div class="wall possible-wall-y" style="--i: 10; --j: 5"></div>
-                                  <div class="wall possible-wall-y" style="--i: 10; --j: 6"></div>
-                                  <div class="wall possible-wall-y" style="--i: 10; --j: 7"></div>
-                                  <div class="wall possible-wall-y" style="--i: 10; --j: 8"></div>
-                                  <div class="wall possible-wall-y" style="--i: 10; --j: 9"></div>
-                                  <div class="wall possible-wall-y" style="--i: 10; --j: 10"></div>
-                                  <div class="wall possible-wall-y" style="--i: 10; --j: 11"></div>
-                                  <div class="wall possible-wall-y" style="--i: 10; --j: 12"></div>
-                                  <div class="wall possible-wall-y" style="--i: 10; --j: 13"></div>
-                                  <div class="wall possible-wall-y" style="--i: 10; --j: 14"></div>
-                                  <div class="wall possible-wall-y" style="--i: 10; --j: 15"></div>
-                                  <div class="wall possible-wall-y" style="--i: 10; --j: 16"></div>
-                                  <div class="wall possible-wall-y" style="--i: 11; --j: 1"></div>
-                                  <div class="wall possible-wall-y" style="--i: 11; --j: 2"></div>
-                                  <div class="wall possible-wall-y" style="--i: 11; --j: 3"></div>
-                                  <div class="wall possible-wall-y" style="--i: 11; --j: 4"></div>
-                                  <div class="wall possible-wall-y" style="--i: 11; --j: 5"></div>
-                                  <div class="wall possible-wall-y" style="--i: 11; --j: 6"></div>
-                                  <div class="wall possible-wall-y" style="--i: 11; --j: 7"></div>
-                                  <div class="wall possible-wall-y" style="--i: 11; --j: 8"></div>
-                                  <div class="wall possible-wall-y" style="--i: 11; --j: 9"></div>
-                                  <div class="wall possible-wall-y" style="--i: 11; --j: 10"></div>
-                                  <div class="wall possible-wall-y" style="--i: 11; --j: 11"></div>
-                                  <div class="wall possible-wall-y" style="--i: 11; --j: 12"></div>
-                                  <div class="wall possible-wall-y" style="--i: 11; --j: 13"></div>
-                                  <div class="wall possible-wall-y" style="--i: 11; --j: 14"></div>
-                                  <div class="wall possible-wall-y" style="--i: 11; --j: 15"></div>
-                                  <div class="wall possible-wall-y" style="--i: 11; --j: 16"></div>
-                                  <div class="wall possible-wall-y" style="--i: 12; --j: 1"></div>
-                                  <div class="wall possible-wall-y" style="--i: 12; --j: 2"></div>
-                                  <div class="wall possible-wall-y" style="--i: 12; --j: 3"></div>
-                                  <div class="wall possible-wall-y" style="--i: 12; --j: 4"></div>
-                                  <div class="wall possible-wall-y" style="--i: 12; --j: 5"></div>
-                                  <div class="wall possible-wall-y" style="--i: 12; --j: 6"></div>
-                                  <div class="wall possible-wall-y" style="--i: 12; --j: 7"></div>
-                                  <div class="wall possible-wall-y" style="--i: 12; --j: 8"></div>
-                                  <div class="wall possible-wall-y" style="--i: 12; --j: 9"></div>
-                                  <div class="wall possible-wall-y" style="--i: 12; --j: 10"></div>
-                                  <div class="wall possible-wall-y" style="--i: 12; --j: 11"></div>
-                                  <div class="wall possible-wall-y" style="--i: 12; --j: 12"></div>
-                                  <div class="wall possible-wall-y" style="--i: 12; --j: 13"></div>
-                                  <div class="wall possible-wall-y" style="--i: 12; --j: 14"></div>
-                                  <div class="wall possible-wall-y" style="--i: 12; --j: 15"></div>
-                                  <div class="wall possible-wall-y" style="--i: 12; --j: 16"></div>
-                                  <div class="wall possible-wall-y" style="--i: 13; --j: 1"></div>
-                                  <div class="wall possible-wall-y" style="--i: 13; --j: 2"></div>
-                                  <div class="wall possible-wall-y" style="--i: 13; --j: 3"></div>
-                                  <div class="wall possible-wall-y" style="--i: 13; --j: 4"></div>
-                                  <div class="wall possible-wall-y" style="--i: 13; --j: 5"></div>
-                                  <div class="wall possible-wall-y" style="--i: 13; --j: 6"></div>
-                                  <div class="wall possible-wall-y" style="--i: 13; --j: 7"></div>
-                                  <div class="wall possible-wall-y" style="--i: 13; --j: 8"></div>
-                                  <div class="wall possible-wall-y" style="--i: 13; --j: 9"></div>
-                                  <div class="wall possible-wall-y" style="--i: 13; --j: 10"></div>
-                                  <div class="wall possible-wall-y" style="--i: 13; --j: 11"></div>
-                                  <div class="wall possible-wall-y" style="--i: 13; --j: 12"></div>
-                                  <div class="wall possible-wall-y" style="--i: 13; --j: 13"></div>
-                                  <div class="wall possible-wall-y" style="--i: 13; --j: 14"></div>
-                                  <div class="wall possible-wall-y" style="--i: 13; --j: 15"></div>
-                                  <div class="wall possible-wall-y" style="--i: 13; --j: 16"></div>
-                                  <div class="wall possible-wall-y" style="--i: 14; --j: 1"></div>
-                                  <div class="wall possible-wall-y" style="--i: 14; --j: 2"></div>
-                                  <div class="wall possible-wall-y" style="--i: 14; --j: 3"></div>
-                                  <div class="wall possible-wall-y" style="--i: 14; --j: 4"></div>
-                                  <div class="wall possible-wall-y" style="--i: 14; --j: 5"></div>
-                                  <div class="wall possible-wall-y" style="--i: 14; --j: 6"></div>
-                                  <div class="wall possible-wall-y" style="--i: 14; --j: 7"></div>
-                                  <div class="wall possible-wall-y" style="--i: 14; --j: 8"></div>
-                                  <div class="wall possible-wall-y" style="--i: 14; --j: 9"></div>
-                                  <div class="wall possible-wall-y" style="--i: 14; --j: 10"></div>
-                                  <div class="wall possible-wall-y" style="--i: 14; --j: 11"></div>
-                                  <div class="wall possible-wall-y" style="--i: 14; --j: 12"></div>
-                                  <div class="wall possible-wall-y" style="--i: 14; --j: 13"></div>
-                                  <div class="wall possible-wall-y" style="--i: 14; --j: 14"></div>
-                                  <div class="wall possible-wall-y" style="--i: 14; --j: 15"></div>
-                                  <div class="wall possible-wall-y" style="--i: 14; --j: 16"></div>
-                                  <div class="wall possible-wall-y" style="--i: 15; --j: 1"></div>
-                                  <div class="wall possible-wall-y" style="--i: 15; --j: 2"></div>
-                                  <div class="wall possible-wall-y" style="--i: 15; --j: 3"></div>
-                                  <div class="wall possible-wall-y" style="--i: 15; --j: 4"></div>
-                                  <div class="wall possible-wall-y" style="--i: 15; --j: 5"></div>
-                                  <div class="wall possible-wall-y" style="--i: 15; --j: 6"></div>
-                                  <div class="wall possible-wall-y" style="--i: 15; --j: 7"></div>
-                                  <div class="wall possible-wall-y" style="--i: 15; --j: 8"></div>
-                                  <div class="wall possible-wall-y" style="--i: 15; --j: 9"></div>
-                                  <div class="wall possible-wall-y" style="--i: 15; --j: 10"></div>
-                                  <div class="wall possible-wall-y" style="--i: 15; --j: 11"></div>
-                                  <div class="wall possible-wall-y" style="--i: 15; --j: 12"></div>
-                                  <div class="wall possible-wall-y" style="--i: 15; --j: 13"></div>
-                                  <div class="wall possible-wall-y" style="--i: 15; --j: 14"></div>
-                                  <div class="wall possible-wall-y" style="--i: 15; --j: 15"></div>
-                                  <div class="wall possible-wall-y" style="--i: 15; --j: 16"></div>
-                                  <div class="wall possible-wall-y" style="--i: 16; --j: 1"></div>
-                                  <div class="wall possible-wall-y" style="--i: 16; --j: 2"></div>
-                                  <div class="wall possible-wall-y" style="--i: 16; --j: 3"></div>
-                                  <div class="wall possible-wall-y" style="--i: 16; --j: 4"></div>
-                                  <div class="wall possible-wall-y" style="--i: 16; --j: 5"></div>
-                                  <div class="wall possible-wall-y" style="--i: 16; --j: 6"></div>
-                                  <div class="wall possible-wall-y" style="--i: 16; --j: 7"></div>
-                                  <div class="wall possible-wall-y" style="--i: 16; --j: 8"></div>
-                                  <div class="wall possible-wall-y" style="--i: 16; --j: 9"></div>
-                                  <div class="wall possible-wall-y" style="--i: 16; --j: 10"></div>
-                                  <div class="wall possible-wall-y" style="--i: 16; --j: 11"></div>
-                                  <div class="wall possible-wall-y" style="--i: 16; --j: 12"></div>
-                                  <div class="wall possible-wall-y" style="--i: 16; --j: 13"></div>
-                                  <div class="wall possible-wall-y" style="--i: 16; --j: 14"></div>
-                                  <div class="wall possible-wall-y" style="--i: 16; --j: 15"></div>
-                                  <div class="wall possible-wall-y" style="--i: 16; --j: 16"></div>
-                                </div>
-                                <div class="start-square">🏠</div>
-                                <div class="goal-square">🏆</div>
                               </div>
                             </div>
                           </div>
+                          <details class="debug">
+                            <summary>Debug</summary>
+                            <details>
+                              <summary class="debug-maze-size">
+                              </summary>
+                              <div class="debug-maze-size-center-wall-offset"></div>
+                            </details>
+                            <details>
+                              <summary class="debug-x">
+                              </summary>
+                              <div class="debug-x-raw-bits"></div>
+                              <div class="debug-x-bits"></div>
+                            </details>
+                            <details>
+                              <summary class="debug-y">
+                              </summary>
+                              <div class="debug-y-raw-bits"></div>
+                              <div class="debug-y-bits"></div>
+                            </details>
+                            <div class="debug-direction"></div>
+                            <details>
+                              <summary class="debug-border">
+                              </summary>
+                              <div class="debug-border-north"></div>
+                              <div class="debug-border-east"></div>
+                              <div class="debug-border-south"></div>
+                              <div class="debug-border-west"></div>
+                            </details>
                         </div>
-                        <details class="debug">
-                          <summary>Debug</summary>
-                          <details>
-                            <summary class="debug-maze-size">
-                            </summary>
-                            <div class="debug-maze-size-center-wall-offset"></div>
-                          </details>
-                          <details>
-                            <summary class="debug-x">
-                            </summary>
-                            <div class="debug-x-raw-bits"></div>
-                            <div class="debug-x-bits"></div>
-                          </details>
-                          <details>
-                            <summary class="debug-y">
-                            </summary>
-                            <div class="debug-y-raw-bits"></div>
-                            <div class="debug-y-bits"></div>
-                          </details>
-                          <div class="debug-direction"></div>
-                          <details>
-                            <summary class="debug-border">
-                            </summary>
-                            <div class="debug-border-north"></div>
-                            <div class="debug-border-east"></div>
-                            <div class="debug-border-south"></div>
-                            <div class="debug-border-west"></div>
-                          </details>
                       </div>
                     </div>
                   </div>

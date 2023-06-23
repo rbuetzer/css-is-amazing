@@ -1,0 +1,21 @@
+.door {
+    display: block;
+    background-color: burlywood;
+    border: 3px solid brown;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.door:hover {
+    background-color: wheat;
+    cursor: pointer;
+}
+
+.wall.door-north {
+    --wall-width: var(--maze-cell-size);
+    --wall-height: calc(var(--maze-cell-size) - 10px);
+    --wall-offset-x: 1;
+    --wall-offset-y: 0;
+    --is-wall-orientation-x: 1;
+    --is-wall-orientation-y: 0;
+}

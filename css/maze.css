@@ -67,6 +67,16 @@
     --wall-offset-y: 0;
     --is-wall-orientation-x: 1;
     --is-wall-orientation-y: 0;
+    clip-path: polygon(
+        0 0,
+        var(--maze-width) 0,
+        var(--maze-width) var(--wall-height),
+        calc(2 * var(--maze-cell-size)) var(--wall-height),
+        calc(2 * var(--maze-cell-size)) 10px,
+        calc(1 * var(--maze-cell-size)) 10px,
+        calc(1 * var(--maze-cell-size)) var(--wall-height),
+        0 var(--wall-height)
+    );
 }
 
 .wall-south {
