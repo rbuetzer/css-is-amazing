@@ -1,0 +1,25 @@
+
+
+.wall-entry-west {
+    --wall-width: calc(1.5 * var(--maze-cell-size));
+    --wall-offset-x: 0.5;
+    --wall-offset-y: -1.5;
+    --is-wall-orientation-x: 0;
+    --is-wall-orientation-y: 1;
+}
+
+.wall-entry-east {
+    --wall-width: calc(1.5 * var(--maze-cell-size));
+    --wall-offset-x: 2.5;
+    --wall-offset-y: -1.5;
+    --is-wall-orientation-x: 0;
+    --is-wall-orientation-y: 1;
+}
+
+.wall-entry-north {
+    --wall-width: calc(2 * var(--maze-cell-size));
+    --wall-offset-x: 0.5;
+    --wall-offset-y: -1.5;
+    --is-wall-orientation-x: 1;
+    --is-wall-orientation-y: 0;
+}
