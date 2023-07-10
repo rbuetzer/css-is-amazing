@@ -41,35 +41,35 @@
         </div>
         <label for="setting-is-birdeye" class="button settings-button"></label>
       </div>
+      <div class="counter-parent-maze-size">
+        <input type="radio" name="maze-size" class="counter" />
+        <input type="radio" name="maze-size" class="counter" />
+        <input type="radio" name="maze-size" class="counter" checked />
+        <input type="radio" name="maze-size" class="counter" />
+        <input type="radio" name="maze-size" class="counter" />
+        <input type="radio" name="maze-size" class="counter" />
+        <input type="radio" name="maze-size" class="counter" />
+        <input type="radio" name="maze-size" class="counter" />
+        <input type="radio" name="maze-size" class="counter" />
+        <input type="radio" name="maze-size" class="counter" />
+        <input type="radio" name="maze-size" class="counter" />
+        <input type="radio" name="maze-size" class="counter" />
+        <input type="radio" name="maze-size" class="counter" />
+        <input type="radio" name="maze-size" class="counter" />
+        <div class="counter-result">
+          <form class="game-state">
+            <input type="reset" id="reset" />
+            <input type="checkbox" id="game-state-is-initial" checked>
+            <input type="checkbox" id="game-state-is-final">
+            <div id="rotate" class="rotate-90">
+              <input type="radio" name="rotate-90" id="rotate-0" />
+              <input type="radio" name="rotate-90" />
+              <input type="radio" name="rotate-90" checked="1" />
+              <input type="radio" name="rotate-90" />
 
-      <div class="game-state">
-        <input type="checkbox" id="game-state-is-initial" checked>
-        <input type="checkbox" id="game-state-is-final">
-        <div id="rotate" class="rotate-90">
-          <input type="radio" name="rotate-90" id="rotate-0" />
-          <input type="radio" name="rotate-90" />
-          <input type="radio" name="rotate-90" checked="1" />
-          <input type="radio" name="rotate-90" />
+              <label for="rotate-0"></label>
 
-          <label for="rotate-0"></label>
-
-          <div class="rotate-90-vars">
-            <div class="counter-parent-maze-size">
-              <input type="radio" name="maze-size" class="counter" />
-              <input type="radio" name="maze-size" class="counter" />
-              <input type="radio" name="maze-size" class="counter" checked />
-              <input type="radio" name="maze-size" class="counter" />
-              <input type="radio" name="maze-size" class="counter" />
-              <input type="radio" name="maze-size" class="counter" />
-              <input type="radio" name="maze-size" class="counter" />
-              <input type="radio" name="maze-size" class="counter" />
-              <input type="radio" name="maze-size" class="counter" />
-              <input type="radio" name="maze-size" class="counter" />
-              <input type="radio" name="maze-size" class="counter" />
-              <input type="radio" name="maze-size" class="counter" />
-              <input type="radio" name="maze-size" class="counter" />
-              <input type="radio" name="maze-size" class="counter" />
-              <div class="counter-result">
+              <div class="rotate-90-vars">
                 <div class="counter-parent-x">
                   <input type="checkbox" class="counter" />
                   <input type="checkbox" class="counter" />
@@ -110,6 +110,7 @@
                                     <div class="wall wall-exit-south"></div>
                                     <div class="wall wall-exit-east"></div>
                                     <div class="wall wall-exit-west"></div>
+                                    <label for="reset" class="wall trophy">🏆</label>
                                   </div>
                                   <div class="walls">
                                     <div class="wall possible-wall-x" style="--i: 1; --j: 1"></div>
@@ -664,7 +665,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

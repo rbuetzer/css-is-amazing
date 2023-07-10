@@ -22,3 +22,15 @@
     --is-wall-orientation-x: 1;
     --is-wall-orientation-y: 0;
 }
+
+.trophy.wall {
+    --wall-width: var(--maze-cell-size);
+    --is-wall-orientation-x: 1;
+    --is-wall-orientation-y: 0;
+    --wall-offset-x: calc(var(--maze-size) - 2);
+    --wall-offset-y: calc(var(--maze-size) + 1.4);
+    display: block;
+    background-color: transparent;
+    font-size: var(--maze-cell-size);
+    cursor: pointer;
+}

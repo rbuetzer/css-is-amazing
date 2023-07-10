@@ -16,7 +16,8 @@
  .possible-wall-y {
     --is-center-hinge-x: calc(max(0, 1 + (var(--hinge-x) - var(--center-wall-offset)) * (var(--center-wall-offset) - var(--hinge-x))));
     --is-center-hinge-y: calc(max(0, 1 + (var(--hinge-y) - var(--center-wall-offset)) * (var(--center-wall-offset) - var(--hinge-y))));
-    --hinge-id: calc(var(--hinge-x) * var(--max-offset) + var(--hinge-y))
+    --hinge-id: calc(var(--hinge-x) * var(--max-offset) + var(--hinge-y));
+    pointer-events: none;
 }
 
 .possible-wall-x {
