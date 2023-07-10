@@ -12,10 +12,17 @@
     
     --is-first-person-view: calc(1 - var(--is-birdeye));
     --is-initial-state: 0;
+    --is-final-state: 0;
 }
 
 #game-state-is-initial:checked ~ * .init-vars {
     --offset-x: 1;
     --offset-y: -1.25;
+    --is-initial-state: 1;
+}
+
+#game-state-is-final:checked ~ * .init-vars {
+    --offset-x: calc(var(--maze-size) - 2);
+    --offset-y: calc(var(--maze-size) + 0.25);
     --is-initial-state: 1;
 }
