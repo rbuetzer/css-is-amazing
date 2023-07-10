@@ -11,9 +11,11 @@
     --maze-height: calc(var(--maze-cell-size) * var(--maze-size));
     
     --is-first-person-view: calc(1 - var(--is-birdeye));
+    --is-initial-state: 0;
 }
 
 #game-state-is-initial:checked ~ * .init-vars {
     --offset-x: 1;
     --offset-y: -1.25;
+    --is-initial-state: 1;
 }
