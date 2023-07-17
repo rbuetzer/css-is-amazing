@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="./css/exit-room.css" />
   <link rel="stylesheet" href="./css/doors.css" />
   <link rel="stylesheet" href="./css/game-state.css" />
+  <link rel="stylesheet" href="./css/splashscreen.css" />
   <link rel="stylesheet" href="./css/init-vars.css" />
   <link rel="stylesheet" href="./css/styles.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -59,8 +60,11 @@
         <div class="counter-result">
           <form class="game-state">
             <input type="reset" id="reset" />
-            <input type="checkbox" id="game-state-is-initial" checked>
-            <input type="checkbox" id="game-state-is-final">
+            <input type="checkbox" id="game-state-is-initial" checked />
+            <input type="checkbox" id="game-state-is-final" />
+            <input type="checkbox" id="game-state-show-splashscreen" checked />
+            <div class="splashscreen-backdrop">asdf</div>
+            <label for="game-state-show-splashscreen" class="splashscreen"></label>
             <div id="rotate" class="rotate-90">
               <input type="radio" name="rotate-90" id="rotate-0" />
               <input type="radio" name="rotate-90" />
