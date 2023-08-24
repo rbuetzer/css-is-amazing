@@ -1,1 +1,1 @@
-![CSS IS MAZING](./mazing.svg)
+![CSS IS AMAZING](./css-is-amazing.svg)
