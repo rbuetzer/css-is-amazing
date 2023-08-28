@@ -1,0 +1,7 @@
+.my-hint {
+  display: none;
+}
+
+.my-checkbox:checked ~ .my-hint {
+  display: block;
+}
