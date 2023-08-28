@@ -1,8 +1,30 @@
-import CodeSample from "../components/examples/the-checked-state.astro";
+import CheckedStateCodeSample from "../components/examples/the-checked-state.astro";
 
-## The `:checked` selector
+## Abusing the `:checked` selector
 
-The `:checked` selector is often used to show and hide content in forms based on
-the state of a checkbox or radio button, like in the following example:
+The [`:checked`](https://developer.mozilla.org/en-US/docs/Web/CSS/:checked)
+selector is often used to show and hide content in forms based on the state of a
+checkbox or radio button, like in the following example.
 
-<CodeSample />
+<CheckedStateCodeSample />
+
+### Let's get moving with the `:checked` selector
+
+Conditionally showing content is a nice application of the `:checked` selector,
+but we can do a lot more. The following example shows how we can position a
+container based on which radio button is checked.
+
+> TODO: example
+
+To spice things up, we can animate the container.
+
+> TODO: example
+
+What's more, we are not limited to styling the blue box. Instead we can style
+the form elements themselves using the `:checked` pseudoclass. In the following
+example, we can simulate increment/decrement buttons by cleverly positioning the
+input elements.
+
+> TODO: example
+
+### Decoupling
