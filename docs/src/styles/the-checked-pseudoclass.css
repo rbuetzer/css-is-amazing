@@ -1,0 +1,7 @@
+.parking-space-note {
+  visibility: hidden;
+}
+
+.parking-space-checkbox:checked ~ .parking-space-note {
+  visibility: visible;
+}

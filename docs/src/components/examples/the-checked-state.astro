@@ -1,0 +1,18 @@
+---
+import "../../styles/the-checked-pseudoclass.css";
+import "../../styles/the-checked-pseudoclass-addendum.css";
+import checkedStateCodeSample from "../../styles/the-checked-pseudoclass.css?raw";
+import Code from "../css-code.astro";
+---
+
+<div>
+  <input
+    type="checkbox"
+    class="parking-space-checkbox"
+    id="parking-space-checkbox"
+  />
+  <label for="parking-space-checkbox">I need a parking space</label>
+  <div class="parking-space-note">Note: No monster trucks allowed!</div>
+</div>
+
+<Code code={checkedStateCodeSample} />
