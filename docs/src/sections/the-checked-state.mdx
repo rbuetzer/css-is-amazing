@@ -28,3 +28,25 @@ input elements.
 > TODO: example
 
 ### Decoupling
+
+Styling elements depending on the checked state of input elements is nice, but
+the code can get messy quite quickly, if you try to do more complex stuff.
+Building an interactive 3d maze for example. Luckily, CSS enables us to decouple
+the input element rules from the styles of the target element, by providing us
+custom properties.
+
+Custom properties can for example be used to hold properties of the template
+like font sizes or colors. Often, they are set at the root level, however we are
+free to define them in any rule we like.
+
+In the following example, we have rules to set the property `--value` depending
+on the checked state of the input elements. In nested components, we can then
+read `value` to customize margins, paddings, sizes, colors, shadows and much
+more.
+
+> TODO: Example
+
+### Debugging
+
+There is one thing that we can do with custom property values, which is
+especially noteworthy: We can print its value. For this, we abuse counters.
