@@ -16,6 +16,8 @@
   );
   --is-in-front-of-exit: calc(
     var(--is-south-border) *
+      max(0, calc(var(--offset-y) - var(--max-offset) + 1)) *
+      max(0, calc(var(--max-offset) - var(--offset-y) + 1)) *
       max(0, calc(var(--offset-x) - var(--max-offset) + 2)) *
       max(0, calc(var(--max-offset) - var(--offset-x)))
   );
@@ -38,5 +40,5 @@
 #game-state-is-final:checked ~ * .init-vars {
   --offset-x: calc(var(--maze-size) - 2);
   --offset-y: calc(var(--maze-size) + 0.25);
-  --is-initial-state: 1;
+  --is-final-state: 1;
 }

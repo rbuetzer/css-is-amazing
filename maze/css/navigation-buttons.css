@@ -69,10 +69,10 @@
   background-color: white;
   pointer-events: all;
   opacity: 0.5;
-  counter-set: is-border calc(var(--is-any-border, 1) + 1) is-initial-state
-    calc(var(--is-initial-state, 1) + 1) random-bit var(--random-bit, 99);
-  content: counter(is-border, block-if-true)
-    counter(is-initial-state, block-if-true) counter(random-bit, random-bits);
+  counter-set: is-border calc(var(--is-any-border, 1) + 1) final-state
+    calc(var(--is-final-state, 1) + 1) random-bit var(--random-bit, 99);
+  content: counter(is-border, block-if-true) counter(final-state, block-if-true)
+    counter(random-bit, random-bits);
   z-index: 200;
 }
 
