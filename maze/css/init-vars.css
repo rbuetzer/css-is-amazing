@@ -1,28 +1,42 @@
 .init-vars {
-    --max-offset: calc(var(--maze-size) - 1);
-    --is-north-border: calc((-1 * min(var(--offset-y), 1) + 1) * var(--is-north));
-    --is-west-border: calc((-1 * min(var(--offset-x), 1) + 1) * var(--is-west));
-    --is-east-border: calc(max(0, min(1, calc(var(--offset-x) - var(--max-offset) + 1))) * var(--is-east));
-    --is-south-border: calc(max(0, min(1, calc(var(--offset-y) - var(--max-offset) + 1))) * var(--is-south));
-    --is-any-border: calc(var(--is-north-border) + var(--is-west-border) + var(--is-east-border) + var(--is-south-border));
-    --is-not-border: calc(-1 * var(--is-any-border) + 1);
+  --max-offset: calc(var(--maze-size) - 1);
+  --is-north-border: calc((-1 * min(var(--offset-y), 1) + 1) * var(--is-north));
+  --is-west-border: calc((-1 * min(var(--offset-x), 1) + 1) * var(--is-west));
+  --is-east-border: calc(
+    max(0, min(1, calc(var(--offset-x) - var(--max-offset) + 1))) *
+      var(--is-east)
+  );
+  --is-south-border: calc(
+    max(0, min(1, calc(var(--offset-y) - var(--max-offset) + 1))) *
+      var(--is-south)
+  );
+  --is-any-border: calc(
+    var(--is-north-border) + var(--is-west-border) + var(--is-east-border) +
+      var(--is-south-border)
+  );
+  --is-in-front-of-exit: calc(
+    var(--is-south-border) *
+      max(0, calc(var(--offset-x) - var(--max-offset) + 2)) *
+      max(0, calc(var(--max-offset) - var(--offset-x)))
+  );
+  --is-not-border: calc(-1 * var(--is-any-border) + 1);
 
-    --maze-width: calc(var(--maze-cell-size) * var(--maze-size));
-    --maze-height: calc(var(--maze-cell-size) * var(--maze-size));
-    
-    --is-first-person-view: calc(1 - var(--is-birdeye));
-    --is-initial-state: 0;
-    --is-final-state: 0;
+  --maze-width: calc(var(--maze-cell-size) * var(--maze-size));
+  --maze-height: calc(var(--maze-cell-size) * var(--maze-size));
+
+  --is-first-person-view: calc(1 - var(--is-birdeye));
+  --is-initial-state: 0;
+  --is-final-state: 0;
 }
 
 #game-state-is-initial:checked ~ * .init-vars {
-    --offset-x: 1;
-    --offset-y: -1.25;
-    --is-initial-state: 1;
+  --offset-x: 1;
+  --offset-y: -1.25;
+  --is-initial-state: 1;
 }
 
 #game-state-is-final:checked ~ * .init-vars {
-    --offset-x: calc(var(--maze-size) - 2);
-    --offset-y: calc(var(--maze-size) + 0.25);
-    --is-initial-state: 1;
+  --offset-x: calc(var(--maze-size) - 2);
+  --offset-y: calc(var(--maze-size) + 0.25);
+  --is-initial-state: 1;
 }

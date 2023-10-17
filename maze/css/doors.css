@@ -1,56 +1,25 @@
-.door {
-    display: block;
-    background-color: burlywood;
-    border: 3px solid brown;
-    box-sizing: border-box;
-    cursor: pointer;
-}
-
-.door:hover {
-    background-color: wheat;
-    cursor: pointer;
-}
-
-.wall.door-north {
-    --wall-width: var(--maze-cell-size);
-    --wall-height: calc(var(--maze-cell-size) - 10px);
-    --wall-offset-x: 1;
-    --wall-offset-y: 0;
-    --is-wall-orientation-x: 1;
-    --is-wall-orientation-y: 0;
-}
-
 .wall-north {
-    clip-path: polygon(
-        0 0,
-        var(--maze-width) 0,
-        var(--maze-width) var(--wall-height),
-        calc(2 * var(--maze-cell-size)) var(--wall-height),
-        calc(2 * var(--maze-cell-size)) 10px,
-        calc(1 * var(--maze-cell-size)) 10px,
-        calc(1 * var(--maze-cell-size)) var(--wall-height),
-        0 var(--wall-height)
-    );
-}
-
-.wall.door-south {
-    --wall-width: var(--maze-cell-size);
-    --wall-height: calc(var(--maze-cell-size) - 10px);
-    --wall-offset-x: calc(var(--maze-size) - 2);
-    --wall-offset-y: calc(var(--maze-size));
-    --is-wall-orientation-x: 1;
-    --is-wall-orientation-y: 0;
+  clip-path: polygon(
+    0 0,
+    var(--maze-width) 0,
+    var(--maze-width) var(--wall-height),
+    calc(2 * var(--maze-cell-size)) var(--wall-height),
+    calc(2 * var(--maze-cell-size)) 10px,
+    calc(1 * var(--maze-cell-size)) 10px,
+    calc(1 * var(--maze-cell-size)) var(--wall-height),
+    0 var(--wall-height)
+  );
 }
 
 .wall-south {
-    clip-path: polygon(
-        0 0,
-        var(--maze-width) 0,
-        var(--maze-width) var(--wall-height),
-        calc((var(--maze-size) - 1) * var(--maze-cell-size)) var(--wall-height),
-        calc((var(--maze-size) - 1) * var(--maze-cell-size)) 10px,
-        calc((var(--maze-size) - 2) * var(--maze-cell-size)) 10px,
-        calc((var(--maze-size) - 2) *  var(--maze-cell-size)) var(--wall-height),
-        0 var(--wall-height)
-    );
+  clip-path: polygon(
+    0 0,
+    var(--maze-width) 0,
+    var(--maze-width) var(--wall-height),
+    calc((var(--maze-size) - 1) * var(--maze-cell-size)) var(--wall-height),
+    calc((var(--maze-size) - 1) * var(--maze-cell-size)) 10px,
+    calc((var(--maze-size) - 2) * var(--maze-cell-size)) 10px,
+    calc((var(--maze-size) - 2) * var(--maze-cell-size)) var(--wall-height),
+    0 var(--wall-height)
+  );
 }

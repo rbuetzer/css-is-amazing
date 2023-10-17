@@ -1,83 +1,100 @@
 @counter-style block-if-true {
-    system: fixed;
-    symbols: '' '█';
+  system: fixed;
+  symbols: "" "█";
 }
 
 :root {
-    --navigation-button-size: calc(1.5 * var(--settings-button-size));
+  --navigation-button-size: calc(1.5 * var(--settings-button-size));
 
-    --button-rotate-right-x: calc(50% - calc(var(--navigation-button-size) * 1.5));
-    --button-rotate-right-y: calc(100% - calc(var(--navigation-button-size) * 1.5));
+  --button-rotate-right-x: calc(
+    50% - calc(var(--navigation-button-size) * 1.5)
+  );
+  --button-rotate-right-y: calc(
+    100% - calc(var(--navigation-button-size) * 1.5)
+  );
 
-    --button-rotate-left-x: calc(var(--button-rotate-right-x) + calc(var(--navigation-button-size) * 2));
-    --button-rotate-left-y: var(--button-rotate-right-y);
+  --button-rotate-left-x: calc(
+    var(--button-rotate-right-x) + calc(var(--navigation-button-size) * 2)
+  );
+  --button-rotate-left-y: var(--button-rotate-right-y);
 
-    --button-forward-x: calc(50% - var(--navigation-button-size) / 2);
-    --button-forward-y: calc(100% - var(--navigation-button-size) * 2.5);
-
+  --button-forward-x: calc(50% - var(--navigation-button-size) / 2);
+  --button-forward-y: calc(100% - var(--navigation-button-size) * 2.5);
 }
 
 .button.navigation-button {
-    --button-size: var(--navigation-button-size);
-    position: fixed;
-    pointer-events: none;
-    z-index: 100;
+  --button-size: var(--navigation-button-size);
+  position: fixed;
+  pointer-events: none;
+  z-index: 100;
 }
 
 .navigation-forward {
-    display: block;
-    position: fixed;
-    pointer-events: none;
-    left: var(--button-forward-x);
-    top: var(--button-forward-y);
-    z-index: 100;
+  display: block;
+  position: fixed;
+  pointer-events: none;
+  left: var(--button-forward-x);
+  top: var(--button-forward-y);
+  z-index: 100;
 }
 
 .forward-disabled.possible-wall-x {
-    --is-wall-orientation-x: 1;
-    --is-wall-orientation-y: 0;
-    --wall-offset-x: calc(var(--offset-x));
-    --wall-offset-y: calc(var(--offset-y) + var(--is-south));
-    opacity: var(--is-y-direction);
+  --is-wall-orientation-x: 1;
+  --is-wall-orientation-y: 0;
+  --wall-offset-x: calc(var(--offset-x));
+  --wall-offset-y: calc(var(--offset-y) + var(--is-south));
+  opacity: var(--is-y-direction);
 }
 
 .forward-disabled.possible-wall-y {
-    --is-wall-orientation-x: 0;
-    --is-wall-orientation-y: 1;
-    --wall-offset-x: calc(var(--offset-x) + var(--is-east));
-    --wall-offset-y: calc(var(--offset-y));
-    opacity: var(--is-x-direction);
+  --is-wall-orientation-x: 0;
+  --is-wall-orientation-y: 1;
+  --wall-offset-x: calc(var(--offset-x) + var(--is-east));
+  --wall-offset-y: calc(var(--offset-y));
+  opacity: var(--is-x-direction);
 }
 
-.forward-disabled::before
-{
-    visibility: visible;
-    position: fixed;
-    max-height: var(--navigation-button-size);
-    max-width: var(--navigation-button-size);
-    left: var(--button-forward-x);
-    top: var(--button-forward-y);
-    font-size: calc(3 * var(--navigation-button-size));
-    line-height: 90%;
-    overflow: hidden;
-    border-radius: 50%;
-    color: transparent;
-    background-color: white;
-    opacity: 0.5;
-    counter-set:
-        is-border calc(var(--is-any-border, 1) + 1)
-        is-initial-state calc(var(--is-initial-state, 1) + 1)
-        random-bit var(--random-bit, 99);
-    content: counter(is-border, block-if-true) counter(is-initial-state, block-if-true) counter(random-bit, random-bits);
-    z-index: 200;
+.forward-disabled::before {
+  visibility: visible;
+  position: fixed;
+  max-height: var(--navigation-button-size);
+  max-width: var(--navigation-button-size);
+  left: var(--button-forward-x);
+  top: var(--button-forward-y);
+  font-size: calc(3 * var(--navigation-button-size));
+  line-height: 90%;
+  overflow: hidden;
+  border-radius: 50%;
+  color: transparent;
+  background-color: white;
+  opacity: 0.5;
+  counter-set: is-border calc(var(--is-any-border, 1) + 1) is-initial-state
+    calc(var(--is-initial-state, 1) + 1) random-bit var(--random-bit, 99);
+  content: counter(is-border, block-if-true)
+    counter(is-initial-state, block-if-true) counter(random-bit, random-bits);
+  z-index: 200;
 }
 
 .navigation-left {
-    left: var(--button-rotate-left-x);
-    top: var(--button-rotate-left-y);
+  left: var(--button-rotate-left-x);
+  top: var(--button-rotate-left-y);
 }
 
 .navigation-right {
-    left: var(--button-rotate-right-x);
-    top: var(--button-rotate-right-y);
+  left: var(--button-rotate-right-x);
+  top: var(--button-rotate-right-y);
+}
+
+.navigation-forward.navigation-override {
+  pointer-events: all;
+  box-shadow: none;
+  z-index: 300;
+}
+
+label[for="game-state-is-initial"] {
+  clip-path: circle(calc(50% * var(--is-initial-state) * var(--is-south)));
+}
+
+label[for="game-state-is-final"] {
+  clip-path: circle(calc(50% * var(--is-in-front-of-exit)));
 }
