@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="./css/splashscreen.css" />
   <link rel="stylesheet" href="./css/init-vars.css" />
   <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="./css/random-seed.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CSS is Amazing</title>
 </head>
@@ -61,9 +62,31 @@
             <input type="reset" id="reset" />
             <input type="checkbox" id="game-state-is-initial" checked />
             <input type="checkbox" id="game-state-is-final" />
-            <input type="checkbox" id="game-state-show-splashscreen" checked />
-            <div class="splashscreen-backdrop">asdf</div>
-            <label for="game-state-show-splashscreen" class="splashscreen"></label>
+            <input type="radio" name="random-seed" id="random-seed-0" style="--value: 0"></input>
+            <input type="radio" name="random-seed" id="random-seed-1" style="--value: 1"></input>
+            <input type="radio" name="random-seed" id="random-seed-2" style="--value: 2"></input>
+            <input type="radio" name="random-seed" id="random-seed-3" style="--value: 3"></input>
+            <input type="radio" name="random-seed" id="random-seed-4" style="--value: 4"></input>
+            <input type="radio" name="random-seed" id="random-seed-5" style="--value: 5"></input>
+            <input type="radio" name="random-seed" id="random-seed-6" style="--value: 6"></input>
+            <input type="radio" name="random-seed" id="random-seed-7" style="--value: 7"></input>
+            <input type="radio" name="random-seed" id="random-seed-8" style="--value: 8"></input>
+            <input type="radio" name="random-seed" id="random-seed-9" style="--value: 9"></input>
+
+
+            <label for="random-seed-0" style="--value: 0"></label>
+            <label for="random-seed-1" style="--value: 1"></label>
+            <label for="random-seed-2" style="--value: 2"></label>
+            <label for="random-seed-3" style="--value: 3"></label>
+            <label for="random-seed-4" style="--value: 4"></label>
+            <label for="random-seed-5" style="--value: 5"></label>
+            <label for="random-seed-6" style="--value: 6"></label>
+            <label for="random-seed-7" style="--value: 7"></label>
+            <label for="random-seed-8" style="--value: 8"></label>
+            <label for="random-seed-9" style="--value: 9"></label>
+
+            <div class="splashscreen-backdrop"></div>
+            <div class="splashscreen"></div>
             <div id="rotate" class="rotate-90">
               <input type="radio" name="rotate-90" id="rotate-0" />
               <input type="radio" name="rotate-90" />

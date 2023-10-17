@@ -1,0 +1,79 @@
+@keyframes changeOrder {
+  from {
+    z-index: 3000;
+  }
+  to {
+    z-index: 2990;
+  }
+}
+
+label[for^="random-seed-"] {
+  --rotation-time: 0.05s;
+  position: fixed;
+  top: calc(50% - var(--splashscreen-size) / 2);
+  left: calc(50% - var(--splashscreen-size) / 2);
+  width: var(--splashscreen-size);
+  height: var(--splashscreen-size);
+  animation: changeOrder calc(10 * var(--rotation-time)) infinite linear;
+  animation-delay: calc(var(--rotation-time) * var(--value));
+  cursor: pointer;
+}
+
+label[for^="random-seed-"]:hover,
+label[for^="random-seed-"]:hover ~ label {
+  animation-play-state: paused;
+}
+
+label[for^="random-seed-"]:hover::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 4000;
+}
+
+input[name="random-seed"]:checked ~ label[for^="random-seed-"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+input[name="random-seed"]:nth-child(1):checked ~ * {
+  --random-a: 10;
+}
+
+input[name="random-seed"]:nth-child(2):checked ~ * {
+  --random-a: 20;
+}
+
+input[name="random-seed"]:nth-child(3):checked ~ * {
+  --random-a: 30;
+}
+
+input[name="random-seed"]:nth-child(4):checked ~ * {
+  --random-a: 40;
+}
+
+input[name="random-seed"]:nth-child(5):checked ~ * {
+  --random-a: 50;
+}
+
+input[name="random-seed"]:nth-child(6):checked ~ * {
+  --random-a: 60;
+}
+
+input[name="random-seed"]:nth-child(7):checked ~ * {
+  --random-a: 70;
+}
+
+input[name="random-seed"]:nth-child(8):checked ~ * {
+  --random-a: 80;
+}
+
+input[name="random-seed"]:nth-child(9):checked ~ * {
+  --random-a: 90;
+}
+
+input[name="random-seed"]:nth-child(9):checked ~ * {
+  --random-a: 100;
+}

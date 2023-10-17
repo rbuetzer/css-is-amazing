@@ -1,44 +1,44 @@
 :root {
-    --maze-cell-size: calc(0.1 * min(100vh, 100vw));
-    --wall-height: var(--maze-cell-size);
+  --maze-cell-size: calc(0.1 * min(100vh, 100vw));
+  --wall-height: var(--maze-cell-size);
 
-    --maze-size: 13;
-    /* set this to floor(var(--maze-size)) -> read the last bit of --maze-size to see if it is even or odd */
-    --center-wall-offset: 6;
+  --maze-size: 13;
+  /* set this to floor(var(--maze-size)) -> read the last bit of --maze-size to see if it is even or odd */
+  --center-wall-offset: 6;
+  --splashscreen-size: min(50vh, 50vw);
 }
 
 body {
-    height: 1vh;
-    overflow: hidden;
-    font-family: sans-serif;
+  height: 1vh;
+  overflow: hidden;
+  font-family: sans-serif;
 }
-
 
 /**
  * DEBUG
  */
 
 .debug-border::before {
-    counter-set: debug calc(var(--is-any-border, 99) + 1);
-    content: "Is border: " counter(debug, boolean);
+  counter-set: debug calc(var(--is-any-border, 99) + 1);
+  content: "Is border: " counter(debug, boolean);
 }
 
 .debug-border-north::before {
-    counter-set: debug calc(var(--is-north-border, 99) + 1);
-    content: "Is border north: " counter(debug, boolean);
+  counter-set: debug calc(var(--is-north-border, 99) + 1);
+  content: "Is border north: " counter(debug, boolean);
 }
 
 .debug-border-east::before {
-    counter-set: debug calc(var(--is-east-border, 99) + 1);
-    content: "Is border east: " counter(debug, boolean);
+  counter-set: debug calc(var(--is-east-border, 99) + 1);
+  content: "Is border east: " counter(debug, boolean);
 }
 
 .debug-border-south::before {
-    counter-set: debug calc(var(--is-south-border, 99) + 1);
-    content: "Is border south: " counter(debug, boolean);
+  counter-set: debug calc(var(--is-south-border, 99) + 1);
+  content: "Is border south: " counter(debug, boolean);
 }
 
 .debug-border-west::before {
-    counter-set: debug calc(var(--is-west-border, 99) + 1);
-    content: "Is border west: " counter(debug, boolean);
+  counter-set: debug calc(var(--is-west-border, 99) + 1);
+  content: "Is border west: " counter(debug, boolean);
 }
