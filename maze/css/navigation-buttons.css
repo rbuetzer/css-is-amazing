@@ -67,6 +67,7 @@
   border-radius: 50%;
   color: transparent;
   background-color: white;
+  pointer-events: all;
   opacity: 0.5;
   counter-set: is-border calc(var(--is-any-border, 1) + 1) is-initial-state
     calc(var(--is-initial-state, 1) + 1) random-bit var(--random-bit, 99);
