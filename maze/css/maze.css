@@ -1,110 +1,164 @@
 .perspective-origin {
-    transform-style: preserve-3d;
-    position: relative;
-    perspective: 10cm;
-    perspective-origin: center center;
-    height: min(100vh, 100vw);
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  transform-style: preserve-3d;
+  position: relative;
+  perspective: 10cm;
+  perspective-origin: center center;
+  height: min(100vh, 100vw);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .perspective-origin * {
-    transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 
 .floor-3d {
-    position: absolute;
-    height: calc(var(--maze-cell-size) * (2 * var(--maze-size) - 1));
-    width: calc(var(--maze-cell-size) * (2 * var(--maze-size) - 1));
+  position: absolute;
+  height: calc(var(--maze-cell-size) * (2 * var(--maze-size) - 1));
+  width: calc(var(--maze-cell-size) * (2 * var(--maze-size) - 1));
 
-    transition: all 1s ease-out;
-    transform:
-        rotateX(calc(var(--is-birdeye) * 40deg + var(--is-first-person-view) * 90deg))
-        translateZ(calc(var(--is-first-person-view) * (-0.5 * var(--wall-height))))
-        translateY(calc(var(--is-first-person-view) * 10cm));
+  transition: all 1s ease-out;
+  transform: rotateX(
+      calc(var(--is-birdeye) * 40deg + var(--is-first-person-view) * 90deg)
+    )
+    translateZ(calc(var(--is-first-person-view) * (-0.5 * var(--wall-height))))
+    translateY(calc(var(--is-first-person-view) * 10cm));
 }
 
 .floor-translate {
-    position: absolute;
-    height: calc(var(--maze-cell-size) * var(--maze-size));
-    width: calc(var(--maze-cell-size) * var(--maze-size));
-    bottom: calc(var(--maze-cell-size) * var(--offset-y));
-    right: calc(var(--maze-cell-size) * var(--offset-x));
-    transition: all 1s ease-out;
+  position: absolute;
+  height: calc(var(--maze-cell-size) * var(--maze-size));
+  width: calc(var(--maze-cell-size) * var(--maze-size));
+  bottom: calc(var(--maze-cell-size) * var(--offset-y));
+  right: calc(var(--maze-cell-size) * var(--offset-x));
+  transition: all 1s ease-out;
 }
 
 .floor-rotate {
-    height: 100%;
-    width: 100%;
-    rotate: var(--rotate-90-angle);
+  height: 100%;
+  width: 100%;
+  rotate: var(--rotate-90-angle);
 }
 
 .wall {
-    --wall-width: var(--maze-cell-size);
-    --wall-color: oklch(calc(var(--is-wall-orientation-x) * 0.4 + var(--is-wall-orientation-y) * 0.2) 0.5 180deg);
+  --brick-height: 10px;
+  --brick-width: calc(2 * var(--brick-height));
+  --wall-color: oklch(
+    calc(
+        var(--is-wall-orientation-x) * 0.4 + var(--is-wall-orientation-y) * 0.2
+      )
+      0.5 0deg
+  );
+}
 
-    position: absolute;
-    background-color: var(--wall-color);
+.wall,
+.object {
+  --wall-width: var(--maze-cell-size);
 
-    height: var(--wall-height);
-    width: var(--wall-width);
+  position: absolute;
 
-    transform: 
-        rotateX(calc(-90deg))
-        rotateY(calc(var(--is-wall-orientation-y) * 90deg))
-        translateX(calc(var(--is-wall-orientation-y) * ((-0.5 * (var(--wall-width) - var(--wall-height))) - var(--wall-offset-y) * var(--maze-cell-size))))
-        translateX(calc(var(--is-wall-orientation-x) * var(--wall-offset-x) * var(--maze-cell-size)))
-        translateY(calc(-0.5 * var(--wall-height)))
-        translateZ(calc(var(--is-wall-orientation-y) * (var(--wall-offset-x) * var(--maze-cell-size) - var(--wall-width) * 0.5)))
-        translateZ(calc(var(--is-wall-orientation-x) * (var(--wall-offset-y) * var(--maze-cell-size) - var(--wall-height) * 0.5)));
+  height: var(--wall-height);
+  width: var(--wall-width);
+
+  transform: rotateX(calc(-90deg))
+    rotateY(calc(var(--is-wall-orientation-y) * 90deg))
+    translateX(
+      calc(
+        var(--is-wall-orientation-y) *
+          (
+            (-0.5 * (var(--wall-width) - var(--wall-height))) -
+              var(--wall-offset-y) * var(--maze-cell-size)
+          )
+      )
+    )
+    translateX(
+      calc(
+        var(--is-wall-orientation-x) * var(--wall-offset-x) *
+          var(--maze-cell-size)
+      )
+    )
+    translateY(calc(-0.5 * var(--wall-height)))
+    translateZ(
+      calc(
+        var(--is-wall-orientation-y) *
+          (
+            var(--wall-offset-x) * var(--maze-cell-size) - var(--wall-width) *
+              0.5
+          )
+      )
+    )
+    translateZ(
+      calc(
+        var(--is-wall-orientation-x) *
+          (
+            var(--wall-offset-y) * var(--maze-cell-size) - var(--wall-height) *
+              0.5
+          )
+      )
+    );
+}
+
+.wall:not(.possible-wall-x):not(.possible-wall-y),
+.walls > .wall::before {
+  background: linear-gradient(to bottom, #fff 20%, transparent 20%) repeat
+      border-box,
+    conic-gradient(from 0deg at 10% 50%, transparent 75%, #fff 70%) repeat
+      border-box,
+    conic-gradient(from 0deg at 10% 50%, transparent 75%, #fff 70%) repeat
+      border-box,
+    linear-gradient(var(--wall-color), var(--wall-color)) repeat border-box;
+  background-size: var(--brick-width) var(--brick-height),
+    var(--brick-width) var(--brick-width), var(--brick-width) var(--brick-width),
+    var(--brick-width) var(--brick-width);
+  background-position: 0 0, 0 0, var(--brick-height) var(--brick-height), 0 0;
 }
 
 .wall-north {
-    --wall-width: var(--maze-width);
-    --wall-offset-x: 0;
-    --wall-offset-y: 0;
-    --is-wall-orientation-x: 1;
-    --is-wall-orientation-y: 0;
+  --wall-width: var(--maze-width);
+  --wall-offset-x: 0;
+  --wall-offset-y: 0;
+  --is-wall-orientation-x: 1;
+  --is-wall-orientation-y: 0;
 }
 
 .wall-south {
-    --wall-width: var(--maze-width);
-    --wall-offset-x: 0;
-    --wall-offset-y: var(--maze-size);
-    --is-wall-orientation-x: 1;
-    --is-wall-orientation-y: 0;
+  --wall-width: var(--maze-width);
+  --wall-offset-x: 0;
+  --wall-offset-y: var(--maze-size);
+  --is-wall-orientation-x: 1;
+  --is-wall-orientation-y: 0;
 }
 
 .wall-east {
-    --wall-width: var(--maze-width);
-    --wall-offset-x: var(--maze-size);
-    --wall-offset-y: 0;
-    --is-wall-orientation-x: 0;
-    --is-wall-orientation-y: 1;
+  --wall-width: var(--maze-width);
+  --wall-offset-x: var(--maze-size);
+  --wall-offset-y: 0;
+  --is-wall-orientation-x: 0;
+  --is-wall-orientation-y: 1;
 }
 
 .wall-west {
-    --wall-width: var(--maze-width);
-    --wall-offset-x: 0;
-    --wall-offset-y: 0;
-    --is-wall-orientation-x: 0;
-    --is-wall-orientation-y: 1;
+  --wall-width: var(--maze-width);
+  --wall-offset-x: 0;
+  --wall-offset-y: 0;
+  --is-wall-orientation-x: 0;
+  --is-wall-orientation-y: 1;
 }
 
 .walls {
-    height: 100%;
-    width: 100%;
-    position: absolute;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 .walls > .wall {
-    background-color: transparent;
-    color: transparent;
-    border: none;
-    border-bottom: 1px solid grey;
-    opacity: 1;
+  background-color: transparent;
+  color: transparent;
+  border: none;
+  border-bottom: 1px solid grey;
+  opacity: 1;
 }
 
 /**
@@ -112,86 +166,87 @@
  */
 
 .walls > .wall {
-    opacity: clamp(0, calc(var(--maze-size) - max(var(--wall-offset-x), var(--wall-offset-y))), 1);
+  opacity: clamp(
+    0,
+    calc(var(--maze-size) - max(var(--wall-offset-x), var(--wall-offset-y))),
+    1
+  );
 }
 
 /**
  * x-y-position
  */
 
- .walls > .possible-wall-x {
-    --wall-offset-y: var(--i);
-    --wall-offset-x: calc(var(--j) - 1);
+.walls > .possible-wall-x {
+  --wall-offset-y: var(--i);
+  --wall-offset-x: calc(var(--j) - 1);
 }
 
 .walls > .possible-wall-y {
-    --wall-offset-x: var(--i);
-    --wall-offset-y: calc(var(--j) - 1);
+  --wall-offset-x: var(--i);
+  --wall-offset-y: calc(var(--j) - 1);
 }
 
 /**
  * Draw walls where necessary
  */
 
-.walls > .wall::before
-{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    font-size: calc(2 * var(--maze-cell-size));
-    line-height: 90%;
-    overflow: hidden;
-    background-color: transparent;
-    color: var(--wall-color);
-    opacity: 1;
-    counter-set: random-bit calc(var(--random-bit, 99));
-    content: counter(random-bit, random-bits)
+.walls > .wall::before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  font-size: calc(2 * var(--maze-cell-size));
+  line-height: 90%;
+  overflow: hidden;
+  background-clip: text;
+  -webkit-background-clip: text;
+  opacity: 1;
+  counter-set: random-bit calc(var(--random-bit, 99));
+  content: counter(random-bit, random-bits);
 }
 
 /**
  * Squares
  */
 
-.start-square, 
+.start-square,
 .goal-square {
-    height: var(--maze-cell-size);
-    width: var(--maze-cell-size);
-    font-size: calc(var(--maze-cell-size) * 2 / 3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
+  height: var(--maze-cell-size);
+  width: var(--maze-cell-size);
+  font-size: calc(var(--maze-cell-size) * 2 / 3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
 }
 
 .start-square {
-    top: 0;
-    left: 0;
-    background-color: greenyellow;
+  top: 0;
+  left: 0;
+  background-color: greenyellow;
 }
 
 .goal-square {
-    top: calc(var(--max-offset) * var(--maze-cell-size));
-    left: calc(var(--max-offset) * var(--maze-cell-size));
-    background-color: gold;
+  top: calc(var(--max-offset) * var(--maze-cell-size));
+  left: calc(var(--max-offset) * var(--maze-cell-size));
+  background-color: gold;
 }
 
 /**
  * DEBUG
  */
 
- .walls .wall::after
- {
-    display: none;
-    position: absolute;
-    top: -20px;
-    left: 0;
-    width: 100px;
-    background-color: white;
-    counter-set:
-        hinge-id var(--hinge-id)
-        random-number var(--random-number)
-        random-bit-offset var(--random-bit-offset)
-        random-bit calc(var(--random-bit, 99));
-    content: counter(hinge-id, upper-alpha) " "  counter(random-number, decimal) " "  counter(random-bit-offset, decimal) " "  counter(random-bit, decimal)
+.walls .wall::after {
+  display: none;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100px;
+  background-color: white;
+  counter-set: hinge-id var(--hinge-id) random-number var(--random-number)
+    random-bit-offset var(--random-bit-offset) random-bit
+    calc(var(--random-bit, 99));
+  content: counter(hinge-id, upper-alpha) " " counter(random-number, decimal)
+    " " counter(random-bit-offset, decimal) " " counter(random-bit, decimal);
 }
