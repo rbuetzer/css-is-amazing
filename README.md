@@ -1,1 +1,17 @@
-![CSS IS AMAZING](./maze/css-is-amazing.svg)
+# CSS is Amazing
+
+A playable randomly generated 3-dimensional maze, written purely in HTML and
+CSS.
+
+**[https://rbuetzer.ch/css-is-amazing](https://rbuetzer.ch/css-is-amazing)**
+
+![](./css-is-amazing.svg)
+
+## Features
+
+- No Javascript
+- Randomly generated using CSS
+- Collision detection
+- Winning condition
+- Does not work in Safari (as it does not support
+  [`counter-set`](https://developer.mozilla.org/en-US/docs/Web/CSS/counter-set))
