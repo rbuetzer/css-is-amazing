@@ -3,7 +3,7 @@
   position: relative;
   perspective: 10cm;
   perspective-origin: center center;
-  height: min(100vh, 100vw);
+  height: 100vh;
   text-align: center;
   display: flex;
   justify-content: center;
