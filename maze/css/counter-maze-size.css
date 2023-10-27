@@ -1,111 +1,111 @@
-  /* Default values */
-  .counter-parent-maze-size>.counter {
-    display: block;
-    position: fixed;
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
-    z-index: 1000;
-    opacity: 0;
-    width: var(--settings-button-size);
-    height: var(--settings-button-size);
-    bottom: var(--settings-button-size);
-    visibility: var(--visible-if-maze-size-open);
-  }
+/* Default values */
+.counter-parent-maze-size > .counter {
+  display: block;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0;
+  width: var(--settings-button-size);
+  height: var(--settings-button-size);
+  bottom: var(--settings-button-size);
+  visibility: var(--visible-if-maze-size-open);
+}
 
-  .counter-parent-maze-size>.counter {
-    left: calc(var(--settings-button-size) * 1.75);
-  }
+.counter-parent-maze-size > .counter {
+  left: calc(var(--settings-button-size) * 1.75);
+}
 
-  .counter-parent-maze-size>.counter:checked+.counter {
-    left: calc(var(--settings-button-size) * 3);
-  }
+.counter-parent-maze-size > .counter:checked + .counter {
+  left: calc(var(--settings-button-size) * 3);
+}
 
-  .counter-parent-maze-size>.counter:checked,
-  .counter-parent-maze-size>.counter:checked + .counter ~ .counter {
-    display: none;
-  }
+.counter-parent-maze-size > .counter:checked,
+.counter-parent-maze-size > .counter:checked + .counter ~ .counter {
+  display: none;
+}
 
-  .counter-parent-maze-size>.counter:nth-of-type(1):checked~.counter-result {
-    --maze-size: 3;
-    --center-wall-offset: 1;
-  }
+.counter-parent-maze-size > .counter:nth-of-type(1):checked ~ .counter-result {
+  --maze-size: 3;
+  --center-wall-offset: 1;
+}
 
-  .counter-parent-maze-size>.counter:nth-of-type(2):checked~.counter-result {
-    --maze-size: 4;
-    --center-wall-offset: 2;
-  }
+.counter-parent-maze-size > .counter:nth-of-type(2):checked ~ .counter-result {
+  --maze-size: 4;
+  --center-wall-offset: 2;
+}
 
-  .counter-parent-maze-size>.counter:nth-of-type(3):checked~.counter-result {
-    --maze-size: 5;
-    --center-wall-offset: 2;
-  }
+.counter-parent-maze-size > .counter:nth-of-type(3):checked ~ .counter-result {
+  --maze-size: 5;
+  --center-wall-offset: 2;
+}
 
-  .counter-parent-maze-size>.counter:nth-of-type(4):checked~.counter-result {
-    --maze-size: 6;
-    --center-wall-offset: 3;
-  }
+.counter-parent-maze-size > .counter:nth-of-type(4):checked ~ .counter-result {
+  --maze-size: 6;
+  --center-wall-offset: 3;
+}
 
-  .counter-parent-maze-size>.counter:nth-of-type(5):checked~.counter-result {
-    --maze-size: 7;
-    --center-wall-offset: 3;
-  }
+.counter-parent-maze-size > .counter:nth-of-type(5):checked ~ .counter-result {
+  --maze-size: 7;
+  --center-wall-offset: 3;
+}
 
-  .counter-parent-maze-size>.counter:nth-of-type(6):checked~.counter-result {
-    --maze-size: 8;
-    --center-wall-offset: 4;
-  }
+.counter-parent-maze-size > .counter:nth-of-type(6):checked ~ .counter-result {
+  --maze-size: 8;
+  --center-wall-offset: 4;
+}
 
-  .counter-parent-maze-size>.counter:nth-of-type(7):checked~.counter-result {
-    --maze-size: 9;
-    --center-wall-offset: 4;
-  }
+.counter-parent-maze-size > .counter:nth-of-type(7):checked ~ .counter-result {
+  --maze-size: 9;
+  --center-wall-offset: 4;
+}
 
-  .counter-parent-maze-size>.counter:nth-of-type(8):checked~.counter-result {
-    --maze-size: 10;
-    --center-wall-offset: 5;
-  }
+.counter-parent-maze-size > .counter:nth-of-type(8):checked ~ .counter-result {
+  --maze-size: 10;
+  --center-wall-offset: 5;
+}
 
-  .counter-parent-maze-size>.counter:nth-of-type(9):checked~.counter-result {
-    --maze-size: 11;
-    --center-wall-offset: 5;
-  }
+.counter-parent-maze-size > .counter:nth-of-type(9):checked ~ .counter-result {
+  --maze-size: 11;
+  --center-wall-offset: 5;
+}
 
-  .counter-parent-maze-size>.counter:nth-of-type(10):checked~.counter-result {
-    --maze-size: 12;
-    --center-wall-offset: 6;
-  }
+.counter-parent-maze-size > .counter:nth-of-type(10):checked ~ .counter-result {
+  --maze-size: 12;
+  --center-wall-offset: 6;
+}
 
-  .counter-parent-maze-size>.counter:nth-of-type(11):checked~.counter-result {
-    --maze-size: 13;
-    --center-wall-offset: 6;
-  }
+.counter-parent-maze-size > .counter:nth-of-type(11):checked ~ .counter-result {
+  --maze-size: 13;
+  --center-wall-offset: 6;
+}
 
-  .counter-parent-maze-size>.counter:nth-of-type(12):checked~.counter-result {
-    --maze-size: 14;
-    --center-wall-offset: 7;
-  }
+.counter-parent-maze-size > .counter:nth-of-type(12):checked ~ .counter-result {
+  --maze-size: 14;
+  --center-wall-offset: 7;
+}
 
-  .counter-parent-maze-size>.counter:nth-of-type(13):checked~.counter-result {
-    --maze-size: 15;
-    --center-wall-offset: 7;
-  }
+.counter-parent-maze-size > .counter:nth-of-type(13):checked ~ .counter-result {
+  --maze-size: 15;
+  --center-wall-offset: 7;
+}
 
-  .counter-parent-maze-size>.counter:nth-of-type(14):checked~.counter-result {
-    --maze-size: 16;
-    --center-wall-offset: 8;
-  }
+.counter-parent-maze-size > .counter:nth-of-type(14):checked ~ .counter-result {
+  --maze-size: 16;
+  --center-wall-offset: 8;
+}
 
-  /**
+/**
  * DEBUG
  */
 
-  .debug-maze-size::before {
-    counter-set: debug var(--maze-size);
-    content: "Maze size: " counter(debug, decimal)
-  }
+.debug-maze-size::before {
+  counter-set: debug var(--maze-size);
+  content: "Maze size: " counter(debug, decimal);
+}
 
-  .debug-maze-size-center-wall-offset::before {
-    counter-set: debug var(--center-wall-offset);
-    content: "Center wall offset: " counter(debug, decimal)
-  }
+.debug-maze-size-center-wall-offset::before {
+  counter-set: debug var(--center-wall-offset);
+  content: "Center wall offset: " counter(debug, decimal);
+}

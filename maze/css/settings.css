@@ -1,52 +1,52 @@
 @counter-style birdeye-label {
-    system: cyclic;
-    symbols: "👁️" "🐦";
+  system: cyclic;
+  symbols: "👁️" "🐦";
 }
 
 :root {
-    --is-birdeye: 0;
-    --visible-if-maze-size-open: hidden;
-    --settings-button-size: 60px;
+  --is-birdeye: 0;
+  --visible-if-maze-size-open: hidden;
+  --settings-button-size: 60px;
 }
 
 .settings-dialog {
-    position: fixed;
-    display: flex;
-    flex-direction: column-reverse;
-    gap: calc(var(--settings-button-size) / 2);
-    padding: var(--settings-button-size) calc(var(--settings-button-size) / 2);
-    left: 0;
-    bottom: 0;
-    z-index: 1000;
-    animation: all 1s ease-out;
+  position: fixed;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: calc(var(--settings-button-size) / 2);
+  padding: var(--settings-button-size) calc(var(--settings-button-size) / 2);
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+  animation: all 1s ease-out;
 }
 
 .settings-button {
-    --button-size: var(--settings-button-size);
+  --button-size: var(--settings-button-size);
 }
 
 .settings-button-group {
-    display: flex;
-    gap: calc(var(--settings-button-size) / 4);
+  display: flex;
+  gap: calc(var(--settings-button-size) / 4);
 }
 
 input[id^="setting-"] {
-    display: none;
+  display: none;
 }
 
 label[for="setting-is-birdeye"]::before {
-    counter-set: label var(--is-birdeye);
-    content: counter(label, birdeye-label)
+  counter-set: label var(--is-birdeye);
+  content: counter(label, birdeye-label);
 }
 
 input#setting-is-birdeye:checked ~ .settings-result {
-    --is-birdeye: 1;
+  --is-birdeye: 1;
 }
 
 input#setting-maze-size-open:checked ~ .settings-result {
-    --visible-if-maze-size-open: visible;
+  --visible-if-maze-size-open: visible;
 }
 
 .maze-size-stepper {
-    visibility: var(--visible-if-maze-size-open);
+  visibility: var(--visible-if-maze-size-open);
 }
