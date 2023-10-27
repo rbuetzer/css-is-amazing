@@ -9,6 +9,10 @@
   --settings-button-size: 60px;
 }
 
+.settings {
+  overflow: hidden;
+}
+
 .settings-dialog {
   position: fixed;
   display: flex;

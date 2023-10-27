@@ -9,8 +9,7 @@
 }
 
 body {
-  height: 1vh;
-  overflow: hidden;
+  margin: 0;
   font-family: sans-serif;
 }
 
