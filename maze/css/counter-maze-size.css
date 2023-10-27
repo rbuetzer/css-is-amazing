@@ -9,7 +9,7 @@
   opacity: 0;
   width: var(--settings-button-size);
   height: var(--settings-button-size);
-  bottom: var(--settings-button-size);
+  top: var(--settings-button-size);
   visibility: var(--visible-if-maze-size-open);
 }
 

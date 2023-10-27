@@ -16,11 +16,11 @@
 .settings-dialog {
   position: fixed;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   gap: calc(var(--settings-button-size) / 2);
   padding: var(--settings-button-size) calc(var(--settings-button-size) / 2);
   left: 0;
-  bottom: 0;
+  top: 0;
   z-index: 1000;
   animation: all 1s ease-out;
 }
