@@ -6,7 +6,7 @@
 :root {
   --is-birdeye: 0;
   --visible-if-maze-size-open: hidden;
-  --settings-button-size: 60px;
+  --settings-button-size: min(60px, 20vw);
 }
 
 .settings {
