@@ -21,9 +21,10 @@
 
   transition: all 1s ease-out;
   transform: rotateX(
-      calc(var(--is-birdeye) * 40deg + var(--is-first-person-view) * 90deg)
+      calc(var(--is-birdeye) * 40deg + var(--is-first-person-view) * 90.0001deg)
     )
     translateZ(calc(var(--is-first-person-view) * (-0.5 * var(--wall-height))))
+    rotateZ(0.0001deg)
     translateY(calc(var(--is-first-person-view) * 10cm));
 }
 
