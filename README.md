@@ -13,5 +13,3 @@ CSS.
 - Randomly generated using CSS
 - Collision detection
 - Winning condition
-- Does not work in Safari (as it does not support
-  [`counter-set`](https://developer.mozilla.org/en-US/docs/Web/CSS/counter-set))
